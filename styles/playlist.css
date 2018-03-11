@@ -1,0 +1,77 @@
+.Wrapper--Playlist {
+    width: 900px;
+    padding: 70px 0 70px 140px;
+}
+
+.Wrapper--Title {
+	width: 660px;
+}
+
+.Wrapper--Custom {
+	width: 900px;
+	/*height: 100px;*/
+	margin-bottom: 60px;
+	position: relative;
+}
+
+.PlaylistContainer {
+	overflow: visible;
+}
+
+.Playlist--Sushant	{
+	column-count: 3;
+	column-gap: 40px;
+}
+
+.Playlist--Sushant .Station__AlbumGrid {
+	margin-top: 20px;
+}
+
+.Playlist--Sushant-Guitar {
+	width: 150px;
+	position: absolute;
+	bottom: 150px;
+	right: -200px;
+}
+
+.Playlist--Sushant-Guitar-2 {
+	width: 300px;
+	position: absolute;
+	bottom: 0px;
+	right: -200px;
+	transform: rotate(180deg);
+}
+
+.Playlist--Sushant-Fleurons {
+	width: 100px;
+	display: block;
+	margin-left: -10px;
+}
+
+.PlaylistArt {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.Playlist--Sushant .Albumart {
+	width: 60px;
+	float: left;
+	display: inline;
+	margin: 0 10px 10px 0;
+}
+
+.Playlist--Sushant .Track {
+	margin: 0;
+	font-size: 15px;
+	margin-bottom: 3px;
+}
+
+.Playlist--Sushant .Track span {
+	font-size: 13px;
+	color: #808080;
+}
+
+.Playlist--Sushant .Description {
+	font-size: 14px;
+	line-height: 1.55;
+}

@@ -1,0 +1,247 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+section {
+	padding: 30px 0;
+}
+
+.Sidebar {
+	width: 300px;
+	padding: 80px 30px 30px 60px;
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.Content {
+	width: 650px;
+	margin-left: 300px;
+	padding: 0px 0 80px 0;
+	overflow: hidden;
+}
+
+h1 {
+	width: 80%;
+	font-size: 45px;
+	line-height: 1.3;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	/*font-weight: 500;*/
+	font-size: 18px;
+	margin-top: 30px;
+}
+
+p {
+	margin-bottom: 30px;
+}
+
+a {
+	text-decoration-color: #000;
+}
+
+ol, ul {
+	margin-bottom: 30px;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav ul {
+	list-style: none;
+	margin-top: 0;
+	padding-left: 20px;
+}
+
+nav li {
+	font-size: 13px;
+	font-weight: 500;
+	color: #808080;
+	line-height: 1.5;
+	margin-bottom: 5px;
+	padding: 3px 0;
+}
+
+nav li a {
+	color: #808080;
+	text-decoration: none;
+}
+
+nav li a:hover {
+	color: #27ae60;
+}
+
+blockquote {
+	font-family: "Georgia", serif;
+	font-size: 22px;
+	line-height: 1.5;
+	margin: 40px 20px;
+}
+
+img {
+	width: 100%;
+}
+
+table {
+	font-size: 13px;
+	border: 1px solid #ddd;
+	border-bottom: 0;
+}
+
+thead {
+	font-weight: 600;
+	background: #fafafa;
+}
+
+td {
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: 5px 10px;
+}
+
+td:nth-child(1) {
+	font-weight: 600;
+}
+
+td:nth-child(4) {
+	width: 120px;
+	font-size: 12px;
+}
+
+td:last-child {
+	border-right: 0;
+}
+
+.Break {
+    padding: 10px 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.UserVoice {
+	width: 100%;
+	margin: 0;
+	padding: 20px 0;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.UserVoice__ProfilePicture {
+	width: 120px;
+	flex-shrink: 0;
+	margin-right: 30px;
+	align-self: flex-start;
+}
+
+.Uservoice__Message {
+
+}
+
+.UserVoice__Name {
+	margin: 0;
+	font-weight: 600;
+}
+
+.UserVoice__Title {
+	color: #808080;
+	font-size:14px;
+	margin: 0;
+}
+
+.Document {
+	width: 80%;
+	border: 1px solid #eeeeee;
+	border-radius: 3px;
+	padding: 20px;
+	margin: 15px 0 15px 0;
+	box-shadow: 0 1px 1px 0 #eee;
+}
+
+.Document__Title  {
+	font-size: 16px;
+	margin: 0;
+  	margin-bottom: 20px;
+  	color: #000;
+  	font-weight: 400;
+}
+
+.Document__Authors {
+	display: flex;
+}
+
+.Document__Author {}
+
+.Document__Author:last-child  {
+  	margin-bottom: 0;
+}
+
+.Document__Author__Name {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.Document__Author__Designation  {
+  	color: #808080;
+  	font-size: 12px;
+  	margin: 0;
+}
+
+.ImageWithDesc {
+	display: flex;
+	justify-content: space-between;
+}
+
+.ImageWithDesc__Desc {
+	width: 50%;
+}
+
+.ImageWithDesc__Image {
+	width: 40%;
+	align-self: flex-start;
+}
+
+.ImageGrid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.ImageGrid img {
+	width: 45%;
+	align-self: flex-start;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+}
+
+.Signature {
+	width: 300px;
+    float: right;
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.Logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 35px;
+}

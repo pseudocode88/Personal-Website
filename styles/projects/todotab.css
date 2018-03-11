@@ -1,0 +1,92 @@
+#todotab {
+  position: relative;
+  color: #333;
+}
+
+.TodoTab__Logo {
+  width: 80px;
+  display: block;
+}
+
+.TodoTab__Title {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.TodoTab__SubTitle {
+  width: 500px;
+  font-family: "georgia", serif;
+  font-weight: 400;
+  font-size: 25px;
+  color: inherit;
+  margin-top: 0;
+  text-align: center;
+}
+
+.TodoTab__Button {
+  width: 200px;
+}
+
+.TodoTab__LaptopMockup  {
+  width: 70%;
+  display: block;
+}
+
+.TodoTab__Description {
+  text-align: center;
+  width: 60%;
+}
+
+.TodoTab__ActivityMockup  {
+  width: 50%;
+  display: block;
+}
+
+.TodoTab__Pallete {
+  width: 450px;
+}
+
+.TodoTab__ButtonNote, .TodoTab__ButtonNote a {
+  width: 450px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 14px;
+  color: #808080;
+}
+
+.Pallete {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	justify-content: space-between;
+}
+
+.Pallete__Colour {
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+  color: #333;
+  margin-top: 0;
+}
+
+.Pallete__Color--pomegranate { background: #c0392b; }
+
+.Pallete__Color--pumpkin { background: #d35400; }
+
+.Pallete__Color--greensea { background: #16a085; }
+
+.Pallete__Color--belizehole { background: #2980b9; }
+
+.Pallete__Color--wisteria { background: #8e44ad; }
+
+.Pallete__Color--carrot { background: #e67e22; }
+
+.Pallete__Color--posh { background: #785959; }
+
+.Pallete__Color--default {  background: #A5A5A7; }
+
+.TodoTab__Footer  .Honor__Message{
+  background: rgb(242, 231, 208);
+  color: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF8">
+	<title>Designing a Spot Parking Application | GO-JEK</title>
+	<link rel="stylesheet" href="styles/index.css"/>
+</head>
+<body>
+	<main>
+		<aside class="Sidebar">
+			<img class="Logo" src="images/logo.jpg"/>
+			<nav>
+				<li><a href="#introduction">Introduction</a></li>
+				<li><a href="#user-voice">User Voice</a></li>
+				<li><a href="#parking-behviour">Parking Behaviour</a></li>
+				<li><a href="#approach">Approach</a></li>
+				<li><a href="#system">System Overview</a></li>
+				<li><a href="#first-iteration">1<sup>st</sup> Iteration</a></li>
+				<li><a href="#second-iteration">2<sup>nd</sup> Iteration</a></li>
+				<li><a href="#prototype">Clickable Prototype</a></li>
+				<li><a href="#tracking-plan">Tracking Plan</a></li>
+				<li><a href="#future-iteration">Upcoming Iteration</a></li>
+			</nav>
+		</aside>
+		<section class="Content">
+			<section id="introduction">
+				<h1>Designing a Spot Parking Application</h1>
+
+				<blockquote>“Find a parking spot near places of major attractions like concerts, stadiums is a big pain in Jakarta; especially during special events and occasions when a lot of people are going to be there.”</blockquote>
+				
+				<p>Currently there are about 1,000 parking areas, including about 420 off-street sites that are mostly privately run, and another 600 on-street parking spots, hardly enough to accommodate demand, particularly during peak hours. This document focus on designing a solution to handle the high-demand of parking across Indonesia.</p>
+				
+				<img src="images/jakarta-map.png"/>
+			</section>
+      		
+      		<p class="Break">*&emsp;*&emsp;*</p>
+			
+			<section id="user-voice">
+				<h2>User Voice</h2>
+
+				<div class="UserVoice">
+					<img class="UserVoice__ProfilePicture" src="images/user-a.jpg"/>
+					<div class="Uservoice__Message">
+						<p class="UserVoice__Name">Ariya Hidayat</p>
+						<p class="UserVoice__Title">‎VP of Engineering, ‎Shape Security</p>
+						<p>“Last time me and my friend, we were going to the Metallica concert, and we were underestimating the crowd. All the streets are full, and we took around 45 minutes to find a parking slot. Which is fine, but the only worry is we missed the concert intro; the best part!”</p>
+					</div>
+				</div>
+				<div class="UserVoice">
+					<img class="UserVoice__ProfilePicture" src="images/user-b.png"/>
+					<div class="Uservoice__Message">
+						<p class="UserVoice__Name">Mariam Liu</p>
+						<p class="UserVoice__Title">‎House Wife</p>
+						<p>“Everyday I go an pick my daughter from school, and on Thursdays, I stop by the supermarket to get the groceries for the day. Most of the time, on Thursday's I, reach school very late and the main reason is the finding and waiting for the park. Sometimes I get confused whether should I park on street or park inside the Mall. It will be great If I know where is the free parking spot and unfortunately I don't know magic :)”</p>
+					</div>
+				</div>
+				<div class="UserVoice">
+					<img class="UserVoice__ProfilePicture" src="images/user-c.jpg"/>
+					<div class="Uservoice__Message">
+						<p class="UserVoice__Name">Abdul Ajij</p>
+						<p class="UserVoice__Title">‎Marketing & Sales Executive, Bintang</p>
+						<p>“You might be thinking, being a Beer sales guy my job will be easy because of the demand for beer. But it's not like that. Do you know travelling salesman problem? I'm a good example. From morning to evening I shuttle between the shops in the city taking orders and rectifying customer issues. It's quite tiring! But the most tiring part is finding a space near to the shop. Most of the time I prefer to park on the road instead of the building because of convenience, but it's hard to find.”</p>
+					</div>
+				</div>
+			</section>
+			
+			<p class="Break">*&emsp;*&emsp;*</p>
+			
+			<section id="parking-behviour">
+				<h2>Parking Behaviour</h2>
+				<p>To understand the parking behaviour of Motorist, I followed a paper by Kardi Teknomo & Kazunori Hokao about the study of Motorist behaviour and preferences. The report is based on a survey collected from 500+ Motorist at CBC Surabaya. And below, I'm sharing some valuable findings from the case study.</p>
+
+				<div class="Document">
+			      	<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.71.1327&rep=rep1&type=pdf" target="_blank">
+			        	<h3 class="Document__Title">Parking behaviour in Central Business District, A Study Case of Surabaya, Indonesia - PDF</h3>
+			      	</a>
+
+			      	<div class="Document__Authors">
+				      	<div class="Document__Author">
+				        	<h4 class="Document__Author__Name">Kardi Teknomo</h4>
+				        	<p class="Document__Author__Designation">Lecturer, Department of Civil Engineering, Petra Christian University, Surabaya, Indonesia</p>
+				      	</div>
+
+				      	<div class="Document__Author">
+				        	<h4 class="Document__Author__Name">Kazunori Hokao</h4>
+				        	<p class="Document__Author__Designation">Associate Professor, Faculty of Real Estate Science, Meikai University, Chiba, Japan</p>
+				      	</div>
+				    </div>
+			    </div>
+
+			    <h3>Parking Options</h3>
+			    <p>Currently, in Surabaya, there are three parking options are available –  <i>On-Street, Off-Street and Building</i>. On-street is where the parking slot is just in front of the shop or the building. Off-street is a couple of meters away from the street, like parking ground of a mall or an office. And Building is the multistory parking option. According to the supply of Surabaya, assuming that the parking option is same for Jakarta too.</p>
+
+			    <h3>Trip Purpose</h3>
+			    <p>Based on the report we can categorise the purpose of a trip into four - <i>Shopping, Business, Work and Recreation</i>. Among the four, the most popular is shopping, then followed by work and the least is recreation.</p>
+
+			    <img src="images/chart-tp.png"/>
+
+			    <p>So, why is it important to consider the trip purpose? Because the choice of parking location is dependent on the purpose of the trip, people who come for shopping choose building parking and people who come for work opt for surface parking.</p>
+
+			    <h3>Parking Factors</h3>
+			    <p>Along with the trip purpose, people also consider other seven factors to pick the best fit. They are  <i>Walking condition, Security, Fee, Convenient, Comfort, Closeness and Availability</i>. The most exciting part is people tend to choose security over fees. The most considered factors are Security, Availability and Comfort.</p>
+
+			    <img src="images/chart-pf.png"/>
+
+			    <h3>Attribute Mapping</h3>
+			    <img src="images/mapping.png"/>
+
+			    <h3>Briefing</h3>
+			    <ol>
+			    	<li>The majority of parking slot is consumed by people who come for shopping and working</li>
+			    	<li>Parking location and trip purpose are dependent on each other</li>
+			    	<li>People care about security more than fees</li>
+			    	<li>Availability is the second most demanding factor to pick parking slot</li>
+			    </ol>
+			</section>
+
+			<p class="Break">*&emsp;*&emsp;*</p>
+
+			<section id="approach">
+				<h2>Approach</h2>
+				<p>Being on a shorter deadline, I'm cut-shorting my design process to create a draft design document focused on solving the problem of the user's mentioned above.</p>
+
+				<h3>Iterations</h3>
+				<ol>
+					<li>Draft a solution for Mariam Liu and Abdul Ajij to book a parking slot on the spot.</li>
+					<li>Draft a solution for both Mariam Liu and Abdul Ajij as well as Ariya Hidayat, to pre-book a parking slot or spot booking.</li>
+				</ol>
+
+				<h3>Process</h3>
+				<ol>
+					<li>Create an user flow</li>
+					<li>Sketch or wireframe the ideas</li>
+					<li>Convert the wireframe to Mockups</li>
+					<li>Test the mockup by creating clickable prototype</li>
+				</ol>
+			</section>
+
+			<p class="Break">*&emsp;*&emsp;*</p>
+
+			<section id="system">
+				<h2>System Overview</h2>
+				<p>To break the ice, first designed a bird view of the parking system with main actors as Go-Jek, Jukir and Motorist.</p>
+				<img src="images/system.png"/>
+				<p>Go-Jek runs a web service containing real-time information about parking slots availability across Indonesia. To collect the real-time update, Go-Jek provides a mobile app for Jukir to validate and manage pre-bookings. And for Motorists, an app to access the parking slot updates, search through and book a slot.</p>
+			</section>
+
+			<p class="Break">*&emsp;*&emsp;*</p>
+
+			<section id="first-iteration">
+				<h2>1<sup>st</sup> Iteration</h2>
+				<blockquote>The primary goal of this iteration is to create an optimal flow for Mariam and Abdul to book a parking slot on the spot.</blockquote>
+
+				<h3>User Flow</h3>
+				<img src="images/flow-1.png"/>
+
+				<p>Currently, on the home screen, the user needs to do six main actions to perform booking. All of them are inputs for the search criteria. The actions can be described as: </p>
+
+				<ol>
+					<li>Enter and search location</li>
+					<li>Choosing the parking type</li>
+					<li>Selecting the date & time</li>
+					<li>Lookup and select parking locations</li>
+					<li>Select vehicle type</li>
+					<li>Book a slot</li>
+				</ol>
+
+				<p>Here the actions 1, 2 & 3 are required to find the availability, which is location, parking type, Date and Time. But we can move the option to select the vehicle on the next screen. And instead of the input, we can show the availability counter based on vehicle type. For, eg, like ‘car - 100 free slots’. This reduces an user-hop to goal which is always good. So on rewriting the user flow – </p>
+
+				<img src="images/flow-2.png"/>
+
+				<h3>Low-Fi Wireframes</h3>
+
+				<p>The primary focus of the step is the create a wireframe for the optimal path for a spot booking and stripping out all other complexities. Just focus on the flow.</p>
+
+				<h4>Home Screen</h4>
+
+				<div class="ImageWithDesc">
+					<div class="ImageWithDesc__Desc">
+						<ul>
+							<li>Primary action is the location search, and by default it takes the current location and selects the nearest parking slot.</li>
+							<li>Based on the case study, making the option to choose parking type as tab navigation instead of a drop-down filter. So the user can quickly switch between the options.</li>
+							<li>Date & Time as a button on top of the map and being a spot parking assuming that, it will be one of the less used filters. On tapping the button, it opens a popup with time picker.</li>
+							<li>Showing the parking lot and booking button as a card and show it just below the selected marker. On select, the marker the card get updated with the selected parking lot information.</li>
+						</ul>
+					</div>
+					<img class="ImageWithDesc__Image" src="images/home-wireframe-1.png"/>
+				</div>
+
+				<div class="ImageWithDesc">
+					<div class="ImageWithDesc__Desc">
+						<ul>
+							<li>Instead of popping up the parking location card, we can provide a slider, where the user can just swipe between the options. This interaction will help the user to avoid fiddling with the map and instead of that, easy to toggle between availability.</li>
+							<li>It's better to detach the booking button from the card because there is a chance it gets tap while the user slides the list.</li>
+						</ul>
+					</div>
+					<img class="ImageWithDesc__Image" src="images/home-wireframe-2.png"/>
+				</div>
+
+				<h4>Payment Screen</h4>
+
+				<div class="ImageWithDesc">
+					<div class="ImageWithDesc__Desc">
+						<ul>
+							<li>In payment screen, the user can configure his parking by choosing the vehicle type and duration he needs to park.</li>
+							<li>Once the user gives the required input, show the price briefing</li>
+							<li>Simple Payment choice, pay by Go-Pay or Cash</li>
+						</ul>
+					</div>
+					<img class="ImageWithDesc__Image" src="images/payment-wireframe-1.png"/>
+				</div>
+
+				<h4>Ticket Screen</h4>
+
+				<div class="ImageWithDesc">
+					<div class="ImageWithDesc__Desc">
+						<ul>
+							<li>QR code to scan at jukir to validate the booking and start the parking timer.</li>
+							<li>Parking slot name and address</li>
+							<li>Parking slot date, time and duration</li>
+							<li>Button to open up the google map to get directions to the parking slot.</li>
+						</ul>
+					</div>
+					<img class="ImageWithDesc__Image" src="images/ticket-wireframe-1.png"/>
+				</div>
+
+				<h3>Mockups</h3>
+				<div class="ImageGrid">
+					<img src="images/home-1.png"/>
+					<img src="images/payment-1.png"/>
+					<img src="images/loading-1.png"/>
+					<img src="images/ticket-1.png"/>
+				</div>
+
+				<h3>Briefing</h3>
+				<p>Designed a four-screen solution to spot book a parking slot for both car and motorcycle. Currently, there's no option to book parking slot ahead. Also, there is an edge case where the user selects a last-minute slot, and on the payment screen when he configures the duration it might get overlapped, and he might not get the slot. In the next iteration, the focus will be handling the pre-booking and the edge case.</p>
+			</section>
+
+			<p class="Break">*&emsp;*&emsp;*</p>
+
+			<section id="second-iteration">
+				<h2>2<sup>nd</sup> Iteration</h2>
+				<blockquote>In this iteration, we are helping Ariya Hidayat to pre-book a parking spot for his next concert.</blockquote>
+
+				<p>Currently, the flow is perfect for spot booking; the user only needs to give the location and select parking type. But there are no screens for pre-book. Before designing, let's talk about the edge case mention in the last iteration's briefing. This case happens because of collecting the duration and vehicle type after selecting the parking slot. So duration is also a factor which matters availability of the slot. If the user sets the duration after choosing the parking place, there is a chance where he might not get availability.</p>
+
+				<img src="images/slot-timeline.png"/>
+
+				<p>For example, consider the above chart and the following conditions:</p>
+				<ul>
+					<li>Car parking - Today, 08:00am for 2 hours - Available</li>
+					<li>Car parking - Today, 08:00am for 1 hour - Available</li>
+					<li>Car parking - Today, 08:00am for > 2 hours - Not Available</li>
+				</ul>
+
+
+				<h3>Screen & User Flow</h3>
+				<p>To handle the pre-book and the edge case, introducing two new screens to the home screen. One is the filter page for search, and another one is pass trunk, to keep and access passes.</p>
+				<img style="margin-bottom:30px;" src="images/screen-flow.png"/>
+				<img src="images/flow-3.png"/>
+
+				<h3>Low-Fi Wireframes</h3>
+
+				<h4>Home Screen</h4>
+				<p>To accommodate pre-book, introducing a filter control just after the location input. On tapping the filter, it will open up the filter page with options. </p>
+
+				<div class="ImageGrid">
+					<img src="images/home-wireframe-2-1.png"/>
+					<img src="images/home-wireframe-2-3.png"/>
+				</div>
+
+				<div class="ImageWithDesc">
+					<div class="ImageWithDesc__Desc">
+						<p>On tapping the passes button, the app will open the side drawer with quick access to todays and upcoming tickets. And it helps the user to access his passes quickly.</p>
+					</div>
+					<img class="ImageWithDesc__Image" src="images/home-wireframe-2-2.png"/>
+				</div>
+				
+				<h4>Payment Screen</h4>
+				<div class="ImageWithDesc">
+					<div class="ImageWithDesc__Desc">
+						<p>Since we move the inputs from the Payment screen to the Home screen filter, now the main action of this page is to collect the payment for the book.</p>
+					</div>
+					<img class="ImageWithDesc__Image" src="images/payment-wireframe-2.png"/>
+				</div>
+
+				<h4>Mockups</h4>
+				<div class="ImageGrid">
+					<img src="images/home-2.png"/>
+					<img src="images/home-3.png"/>
+					<img src="images/home-4.png"/>
+					<img src="images/payment-2.png"/>
+					<img src="images/loading-2.png"/>
+					<img src="images/ticket-2.png"/>
+				</div>
+
+			</section>
+
+			<p class="Break">*&emsp;*&emsp;*</p>
+
+			<section id="prototype">
+				<h2>Clickable Prototype</h2>
+				
+				<p>Below I'm sharing a clickable prototype of based on the second iteration. Due to the time constraint, I'm not able to prepare animated prototypes. Please check it out.</p>
+
+				<iframe src="https://marvelapp.com/2e2eg78?emb=1" width="100%" height="755" allowTransparency="true" frameborder="0"></iframe>
+			</section>
+
+			<p class="Break">*&emsp;*&emsp;*</p>
+			<section id="tracking-plan">
+				<h2>Tracking Plan</h2>
+				<p>Defining a funnel to track the growth and success rate of the service, starting with booking request, followed by payment and scanning the pass. This funnel will help us to optimise the process and increase the success rate of booking by pointing out the funnel drop-outs.</p>
+				<table cellspacing="0">
+					<thead>
+						<td width="150px">Keyword</td>
+						<td>Why</td>
+						<td>When</td>
+						<td>Attributes</td>
+					</thead>
+					<tr>
+						<td>Booking Requested</td>
+						<td>Parking completion rate, Parking slot search success rate, funnel booking process</td>
+						<td>Home screen, 'Book A Slot' button onTap</td>
+						<td>location, parking_type, date, time, duration, vehicle_type and req_status</td>
+					</tr>
+					<tr>
+						<td>Paid</td>
+						<td>Parking completion rate, Payment success rate, funnel booking process</td>
+						<td>Payment screen, 'Pay' button onTap</td>
+						<td>payment_type, req_status</td>
+					</tr>
+					<tr>
+						<td>Pass Cancelled</td>
+						<td>Parking completion rate, funnel booking process</td>
+						<td>Ticket screen, 'cancel' button onTap</td>
+						<td>req_status</td>
+					</tr>
+					<tr>
+						<td>Pass Scanned</td>
+						<td>Parking completion rate, funnel booking process</td>
+						<td>Ticket screen, onScanning at Jukir</td>
+						<td>scanned_time, req_status</td>
+					</tr>
+				</table>
+			</section>
+
+			<p class="Break">*&emsp;*&emsp;*</p>
+			<section id="future-iteration">
+				<h2>Upcoming Iteration</h2>
+				<p>Right now, we have an MVP which allow the user to book a parking spot. But to release the design, need to handle a couple of scenarios like setting up the trigger.</p>
+				<h3>Enhancements</h3>
+				<ul>
+					<li>Adding option to cancel the ticket from the ticket screen</li>
+					<li>Send notification to user 30mins before finishing the parking duration</li>
+					<li>Send notification to Jukir if the Motorist is approaching the parking space</li>
+					<li>Design search page with a recent search on entering location input</li>
+					<li>Option to add a parking slot as a favourite</li>
+				</ul>
+				<p>These are a quick briefing about my thoughts about the future iteration. Because of the limitation in time, I'm stopping the development till here.</p>
+				<p>After doing this test task, I'm pretty sure that there are good challenges for me at Go-Jek, which is exciting. If you found my thoughts, observation and skills as valuable, feel free to reply, let's discuss and rewrite the traditional parking system of Indonesia.</p>
+				<img src="images/signature.svg" class="Signature"/>
+			</section>
+		</section>
+	</main>
+</body>
+</html>

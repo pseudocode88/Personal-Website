@@ -1,0 +1,426 @@
+body  {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+#resume {
+    width: 800px;
+    margin: auto;
+    padding: 40px 0 0 0;
+}
+
+/* #process {
+    display: none;
+} */
+
+#education {
+    display: none;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+h2  {
+    font-size: 23px;
+    font-family: "georgia", serif;
+    font-weight: 400;
+    margin: 0 0 50px 0px;
+    /* border-left: 4px solid #00000020; */
+    /* padding-left: 30px; */
+    /* font-style: italic; */
+    display: table;
+}
+
+h3  {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    margin-bottom: 0px;
+}
+
+p, a {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0 0 30px 0;
+}
+
+a {
+    color: #333333;
+}
+
+em {
+    font-family: georgia, serif;
+}
+
+blockquote  {
+    margin: 30px 0;
+}
+
+blockquote, blockquote a {
+    font-size: 32px;
+    color: #000;
+    font-family: georgia, serif;
+    line-height: 1.4;
+}
+
+#process blockquote, 
+#mindset blockquote, 
+#principles blockquote{
+    width: 80%;
+    font-size: 20px;
+    line-height: 1.5;
+    padding-left: 20px;
+    /* border-left: 3px solid #ad4470; */
+    font-family: inherit;
+    font-weight: 500;
+    margin: 40px 0;
+}
+
+.Logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 43px;
+}
+
+.Skillset {
+    list-style: disc;
+}
+
+.Skillset li, ol li  {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.Image {}
+
+.Image--center {
+    width: 100%;
+    margin: 0 0 30px 0;
+}
+
+.Image--right {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    margin: 0 0 30px 30px;
+}
+
+.Image--right-medium {
+    width: 40%;
+}
+
+.Image--left {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    margin: 0 30px 30px 0px;
+}
+
+.Image img {
+    width: 100%;
+}
+
+.Image figcaption  {
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    color: #808080;
+    margin-top: 10px;
+}
+
+.Process__Image {
+    display: inline-block;
+    float: right;
+    width: 50%;
+}
+
+.Process__Image img {
+    width: 100%;
+}
+
+.Process__Image figcaption  {
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    color: #808080;
+    margin-top: 10px;
+}
+
+.Splitter {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 10px;
+    margin: 0px 0 30px 0;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #eee;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    display: flex;
+    border-bottom: 1px solid #eeeeee;
+}
+
+tr:last-child {
+    border-bottom: 0;
+}
+
+td {
+    width: 50%;
+}
+
+td p, td p a	{
+    font-size: 14px;
+}
+
+.Signature {
+    display: block;
+    margin: 100px 0 100px 0;
+}
+
+.Fleuron {
+    display: block;
+    margin: 0 0 100px 0;
+}
+
+.Gallery {
+    display: flex;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.Gallery img	{
+    width: 100%;
+    align-self: center;
+}
+
+.Gallery .half	{
+    width: 50%;
+}
+
+.Gallery--textimg {
+    justify-content: space-between;
+}
+
+.Gallery--textimg img	{
+    width: 50%;
+    align-self: baseline;
+}
+
+.Gallery--textimg p	{
+    width: 50%;
+    font-size: 16px;
+    line-height: 1.5;
+    /* align-self: center; */
+}
+
+
+.Gallery--2col img	{
+    width: 50%;
+    align-self: center;
+}
+
+.Gallery--3col img	{
+    width: 33%;
+    align-self: center;
+}
+
+.ProjectTwoColumn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProjectTwoColumn .Project {
+    width:48%;
+}
+
+.ProjectTwoColumn .Project h3 {
+    font-size: 18px;
+    margin-bottom: 8px;			
+}
+
+.ProjectTwoColumn .Project p,a {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 30px 0;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+footer {
+    position: relative;
+}
+
+footer img {
+    width: 100%;
+    margin-bottom:-3px;
+}
+
+
+
+.sun {
+    width: 80px;
+    height: 80px;
+    background: yellow;
+    border-radius: 80px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 100px;
+}
+
+.moon {
+    width: 80px;
+    height: 80px;
+    background: red;
+    border-radius: 80px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.world {
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+}
+
+.Break {
+    display: none;
+    /* text-align: center; */
+    padding: 10px 0 40px 0;
+    font-size: 20px;
+}
+
+
+
+@media only screen and (min-width: 320px) {
+    #resume {
+        width: 100%;
+        margin: auto;
+        padding: 40px 10px 0 10px;
+        box-sizing: border-box;
+    }
+
+    .TwoColText {
+        column-count: 1;
+        /* column-gap: 30px; */
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+
+    .ProjectTwoColumn   {
+        display: block;
+    }
+
+    .ProjectTwoColumn .Project {
+        width:100%;
+    }
+    
+    tr   {
+        display: block;
+        border-bottom: 0;
+    }
+
+    td {
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    blockquote  {
+        padding: 0;
+    }
+
+}
+
+@media print {
+    .Logo {
+        display: none;
+    }
+
+    #resume {
+        padding: 0;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    .TwoColText {
+        column-count: 2;
+    }
+}
+    
+@media only screen and (min-width: 430px) {
+    
+}
+
+@media only screen and (min-width: 560px) {
+   
+}
+
+@media only screen and (min-width: 800px) {
+    #resume {
+        width: 800px;
+        margin: auto;
+        padding: 40px 0 0 0;
+    }
+
+    .TwoColText {
+        column-count: 2;
+        column-gap: 30px;
+    }
+
+    .ProjectTwoColumn   {
+        display: flex;
+    }
+
+    .ProjectTwoColumn .Project {
+        width:48%;
+    }
+
+    tr   {
+        display: flex;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    td {
+        width: 50%;
+        border-bottom: 0;
+    }
+
+    blockquote  {
+        padding: 0 120px 0 0px;
+    }
+}
+
+.contact {
+    margin: 2px 0 50px 0;
+    font-size: 16px;
+    color: #808080;
+}

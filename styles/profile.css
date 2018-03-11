@@ -1,0 +1,254 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+main {
+  width: auto;
+  margin-left: 300px;
+}
+
+aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 40px;
+}
+
+nav {
+  width: 180px;
+}
+
+nav li {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+nav li a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #808080;
+}
+
+nav li a:hover {
+  color: #27ae60;
+}
+
+.Content {
+  width: 720px;
+  /*padding: 20px 0;*/
+  box-sizing: border-box;
+}
+
+section {
+  padding: 40px 0 0px 0;
+  /*display: inline-block;*/
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 a {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  color: #27ae60;
+}
+
+h2  {
+  font-size: 22px;
+  margin: 5px 0 30px 0;
+  line-height: 1.1;
+  display: table;
+}
+
+h3  {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+h4 {
+  margin-bottom: 0px;
+}
+
+p, a {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 30px 0;
+  color: #000;
+}
+
+blockquote  {
+  margin: 30px 0;
+  padding: 0 200px 0 20px;
+  font-size: 20px;
+  color: #000;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+blockquote a {
+  font-size: 20px;
+}
+
+.Welcome {
+  width: 150px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.Image {
+  width: 80%;
+  margin: auto;
+}
+
+.Image img {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.Image figcaption  {
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  color: #808080;
+  margin-top: 10px;
+}
+
+.Skillset {
+  list-style: disc;
+}
+
+.Skillset li  {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.Process__Image {
+  display: inline-block;
+  float: right;
+  width: 50%;
+}
+
+.Process__Image img {
+  width: 100%;
+}
+
+.Process__Image figcaption  {
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  color: #808080;
+  margin-top: 10px;
+}
+
+.Splitter {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 10px;
+  margin: 40px 0 0 0;
+  color: #808080;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.Experience {
+  width: 100%;
+}
+
+.Experience tr {
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.Experience tr:last-child {
+  border-bottom: 0;
+}
+
+.Experience td {
+  width: 50%;
+  padding: 20px 0;
+}
+
+.Experience td h3, .Experience td h4 {
+  margin: 0;
+}
+
+.Experience td h4+a {
+  font-size: 14px;
+}
+
+.Experience td p {
+  margin: 0;
+}
+
+.Experience td p, .Experience td p a	{
+  font-size: 16px;
+}
+
+.Signature {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.Design {
+  width: 100%;
+  margin: 0 0 40px 0;
+  box-sizing: border-box;
+}
+
+.Design img {
+  width: 100%;
+  margin: 10px auto;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+}
+
+.Design__3Col img {
+  width: 31%;
+  margin-right: 10px;
+  margin: 5px 10px 5px 0;
+}
+
+.Design__3Col figcaption {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.Design figcaption  {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Fleuron  {
+  margin: 60px 0 100px 10px;
+  width: 70px;
+  clear: both;
+  display: block
+}
+
+.Banner {
+  width: 300px;
+  float: left;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.08);
+  border-radius: 3px; 
+  margin-right: 20px;
+}

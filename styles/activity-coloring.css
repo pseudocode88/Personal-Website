@@ -1,0 +1,682 @@
+.Frame {
+	overflow: hidden;
+	position: relative;
+	font-family: "Comic Sans MS", cursive;
+}
+
+.Frame--30 {
+	width: 30%;
+}
+
+.Frame--40 {
+	width: 40%;
+}
+
+.Frame--50 {
+	width: 50%;
+}
+
+.Frame--100 {
+	width: 100%;
+	margin: 0 0 20px 0;
+}
+
+.Frame--80 {
+	width: 80%;
+	margin: 0 0 20px 0;
+}
+
+.Frame--left {
+	margin-right: 20px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+.Frame--right {
+	margin-left: 20px;
+	margin-bottom: 20px;
+	float: right;
+}
+
+.Frame--image {
+	border-radius: 10px;
+}
+
+.Frame__Momoko {
+	height: 280px;
+	background: #74C2E1;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+.Frame__Momoko img {
+	position: absolute;
+}
+
+.Frame__Momoko .bubble {
+	width: 130px;
+    top: 170px;
+    left: 173px;
+    z-index: 4;
+    position: absolute;
+}
+
+.Frame__Momoko .bush--2 {
+	width: 180px;
+	bottom: -50px;
+	left: -30px;
+	z-index: 4;
+	animation-name: updown;
+	animation-duration: 5s;
+	will-change: transform;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Frame__Momoko .momoko {
+	width: 130px;
+    bottom: -9px;
+    left: 22px;
+    z-index: 3;
+}
+
+.Frame__Momoko .bush--1 {
+	bottom: -90px;
+    right: -30px;
+    z-index: 2;
+    width: 300px;
+    animation-name: downup;
+	animation-duration: 5s;
+	will-change: transform;
+    animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+.Frame__Momoko .gate {
+	width: 330px;
+    bottom: 0px;
+    right: -60px;
+    z-index: 1;
+}
+
+.Frame__Momoko .birds {
+	top: 60px;
+    left: 17px;
+    width: 40px;
+    z-index: 0;
+    animation-name: downup;
+	animation-duration: 5s;
+	will-change: transform;
+	animation-iteration-count: infinite;
+	animation-delay: 5s;
+}
+
+.Frame__Momoko .clouds {
+	bottom: 0px;
+    left: -130px;
+    width: 370px;
+	z-index: 0;
+	animation-name: updown;
+	animation-duration: 5s;
+	will-change: transform;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+.Frame__Momoko .clouds-back {
+	bottom: 0px;
+    left: 100px;
+    width: 510px;
+    z-index: 0;
+    animation-name: downup;
+	animation-duration: 5s;
+	will-change: transform;
+    animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+
+
+.Frame__Privacy {
+	height: 280px;
+	background: #74C2E1;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+.Frame__Privacy img {
+	position: absolute;
+}
+
+.Frame__Privacy .bubble {
+	width: 170px;
+	top: 55px;
+	left: 35px;
+	z-index: 4;
+	position: absolute;
+}
+
+.Frame__Privacy .bush--2 {
+	width: 180px;
+	bottom: -50px;
+	left: -30px;
+	z-index: 4;
+	animation-name: updown;
+	will-change: transform;
+	animation-duration: 5s;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+.Frame__Privacy .momoko {
+	width: 130px;
+    bottom: -9px;
+    left: 42px;
+    z-index: 3;
+}
+
+.Frame__Privacy .bush--1 {
+	bottom: -90px;
+    left: 70px;
+    z-index: 2;
+    width: 300px;
+	animation-name: downup;
+	will-change: transform;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+.Frame__Privacy .bush--3 {
+	bottom: -90px;
+    right: -20px;
+    z-index: 2;
+    width: 300px;
+	animation-name: downup;
+	will-change: transform;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+.Frame__Privacy .bush--4 {
+	width: 180px;
+    bottom: -50px;
+    right: 140px;
+    z-index: 4;
+	animation-name: updown;
+	will-change: transform;
+	animation-duration: 5s;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+.Frame__Privacy .gate {
+	width: 330px;
+	bottom: 0px;
+	left: -250px;
+	z-index: 1;
+	display: none;
+}
+
+.Frame__Privacy .mountain {
+	width: 200px;
+	bottom: 10px;
+	right: -70px;
+	z-index: 1;
+}
+
+.Frame__Privacy .birds--1 {
+	top: 40px;
+    right: 20px;
+    width: 50px;
+    z-index: 0;
+	animation-name: downup;
+	will-change: transform;
+    animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-delay: 5s;
+}
+
+.Frame__Privacy .birds--2 {
+	top: 140px;
+	left: 10px;
+	width: 30px;
+	z-index: 0;
+	animation-name: downup;
+	will-change: transform;
+    animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-delay: 5s;
+}
+
+.Frame__Privacy .permission{
+	z-index: 2;
+    width: 400px;
+    border-radius: 10px;
+    top: 25px;
+    left: 210px;
+}
+
+.Frame__Privacy .clouds {
+	bottom: 0px;
+    left: -30px;
+    width: 370px;
+	z-index: 0;
+	animation-name: updown;
+	will-change: transform;
+	animation-duration: 5s;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+.Frame__Privacy .clouds-back {
+	bottom: -20px;
+    left: 190px;
+    width: 530px;
+    z-index: 0;
+	animation-name: downup;
+	will-change: transform;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+}
+
+
+
+.TodoList {
+	width: 89%;
+	margin: 0 auto 30px auto;
+	padding: 0;
+	list-style: none;
+	border-radius: 5px;
+	box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.Todo {
+	height: 50px;
+	width: auto;
+	margin: 0px;
+	display: flex;
+	border: 1px solid #ddd;
+	border-bottom: 0px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.Todo:hover {
+	background: #fafafa;
+}
+
+.Todo:first-child {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.Todo:last-child {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom: 1px solid #ddd;
+}
+
+.Todo--check button {
+	background: #27ae60 !important;
+	border: 1px solid #1d8449 !important;
+}
+
+.Todo--check p,
+.Todo--check p span {
+	text-decoration: line-through;
+	color: #808080 !important;
+}
+
+.Todo:hover button{
+	background: #eee;
+}
+
+.Todo button {
+	width: 18px;
+	height: 18px;
+	border: 1px solid #ccc;
+	background: #fafafa;
+	border-radius: 15px;
+	margin: 0 15px;
+	cursor: pointer;
+	outline: none;
+}
+
+.Todo button:hover {
+	background: #27ae60;
+	border: 1px solid #1d8449;
+}
+
+.Todo p {
+	margin: 0;
+	line-height: 0;
+	font-size: 16px;
+}
+
+.Todo p span {
+	font-weight: 500;
+	/* color: #e74c3c; */
+}
+
+.Pallete {
+	width: 70%;
+	display: flex;
+	list-style: none;
+	padding: 0;
+	justify-content: space-between;
+}
+
+.Pallete__Colour {
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	color: #333;
+}
+
+.Pallete__Color--pomegranate { background: #c0392b; }
+
+.Pallete__Color--pumpkin { background: #d35400; }
+
+.Pallete__Color--greensea { background: #16a085; }
+
+.Pallete__Color--belizehole { background: #2980b9; }
+
+.Pallete__Color--wisteria { background: #8e44ad; }
+
+.Pallete__Color--carrot { background: #e67e22; }
+
+.Pallete__Color--posh { background: #785959; }
+
+.Pallete__Color--default {  background: #A5A5A7; }
+
+.Color { color: #333; }
+
+.Color--pomegranate { color: #c0392b; }
+
+.Color--pumpkin { color: #d35400; }
+
+.Color--greensea { color: #16a085; }
+
+.Color--belizehole { color: #2980b9; }
+
+.Color--wisteria { color: #8e44ad; }
+
+.Color--carrot { color: #e67e22; }
+
+.Color--posh { color: #785959; }
+
+.Color--default {  color: #A5A5A7; }
+
+.Cta {
+	width: 80%;
+	border-radius: 5px;
+	text-align: center;
+	padding: 0 0 30px 0;
+	margin: 30px auto;
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+
+.Cta__Banner {
+	width: 100%;
+	margin: 0;
+	z-index: 0;
+}
+
+.Cta__Button {
+	width: 200px;
+	margin: 15px auto 15px auto;
+	/*padding: 10px 30px;
+	border-radius: 100px;
+	text-decoration: none;
+	color: white;
+	font-weight: 500;
+	font-weight: 15px;
+	
+	display: block;
+	z-index: 1;
+
+	background: #27ae60;
+	background: -moz-linear-gradient(top, #27ae60 0%, #229658 100%); 
+	background: -webkit-linear-gradient(top, #27ae60 0%,#229658 100%);
+	background: linear-gradient(to bottom, #27ae60 0%,#229658 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#27ae60', endColorstr='#229658',GradientType=0 );
+	transition: all 200ms ease-in-out;*/
+}
+
+/*.Cta__Button:hover {
+	color: white;
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.3);
+}*/
+
+.Cta__Message {
+	width: 400px;
+	margin: auto;
+	color: #808080;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+
+.Column {
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+	font-family: "Comic Sans MS";
+}
+
+.Row--double {
+	display: flex;
+	justify-content: space-between;
+}
+
+.Column img {
+	position: absolute;
+}
+
+.Column--1 {
+	width: 660px;
+	height: 300px;
+	background: #74C2E1;
+	background: linear-gradient(to bottom, #89cbe6 0%,#74c2e1 100%);
+	/* box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.15); */
+}
+
+.Column--1 .Title {
+	position: absolute;
+	width: 40%;
+	font-size: 45px;
+	font-weight: 700;
+	line-height: 1.17;
+	top: 30px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	left: 30px;
+	opacity: 0.7;
+	z-index: 99;
+	/* text-transform: uppercase; */
+	letter-spacing: 0.5px;
+}
+
+.Column--1 .Callout1 {
+	position: absolute;
+	width: 230px;
+	bottom: 105px;
+	z-index: 99;
+	right: 20px;
+}
+
+.Column--1 .hero {
+	z-index: 4;
+	width: 90px;
+	bottom: -2px;
+	right: 30px;
+}
+
+.Column--1 .bush2 {
+	z-index: 3;
+	bottom: -50px;
+	width: 160px;
+	left: 130px;
+	animation-name: updown;
+	animation-duration: 5s;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Column--1 .ground {
+	width: 350px;
+	z-index: 2;
+	bottom: -3px;
+	left: 20px;
+}
+
+.Column--1 .bush1 {
+	z-index: 1;
+	width: 300px;
+	bottom: -80px;
+	right: -30px;
+	animation-name: updown;
+	animation-duration: 5s;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Column--1 .bush3 {
+	z-index: 1;
+	width: 200px;
+	bottom: -44px;
+	left: 0px;
+	animation-name: downup;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Column--1 .clouds1 {
+	z-index: 0;
+	width: 500px;
+	bottom: -50px;
+	left: 60px;
+	animation-name: updown;
+	animation-duration: 5s;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in-out;
+}
+
+/** Column 2**/
+
+.Column--2 {
+	width: 245px;
+	height: 250px;
+	background: #74C2E1;
+	background: linear-gradient(to bottom, #89cbe6 0%,#74c2e1 100%);
+	/* box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.15); */
+}
+.Column--2 .Callout1 {
+	position: absolute;
+	width: 160px;
+	bottom: 105px;
+	z-index: 99;
+	left: 20px;
+}
+
+.Column--2 .hero {
+	z-index: 4;
+	width: 90px;
+	bottom: -2px;
+	left: 30px;
+}
+
+.Column--2 .bush1 {
+	z-index: 3;
+	bottom: -100px;
+	width: 340px;
+	left: 130px;
+	animation-name: downup;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Column--2 .clouds1 {
+	z-index: 0;
+	width: 370px;
+	bottom: -27px;
+	left: -170px;
+	animation-name: updown;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Column--2 .board1 {
+    width: 110px;
+    bottom: -59px;
+    right: -20px;
+    z-index: 4;
+}
+
+/** Column 3**/
+
+.Column--3 {
+	width: 405px;
+	height: 250px;
+	background: #74C2E1;
+	background: linear-gradient(to bottom, #89cbe6 0%,#74c2e1 100%);
+	/* box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.15); */
+}
+
+.Column--3 .hero {
+	z-index: 4;
+	width: 80px;
+	bottom: -2px;
+	right: 30px;
+}
+
+.Column--3 .task1 {
+	z-index: 2;
+	top: 20px;
+	width: 300px;
+	left: 20px;
+}
+
+.Column--3 .clouds1 {
+	z-index: 2;
+    bottom: -55px;
+    width: 360px;
+	left: 155px;
+	animation-name: updown;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Column--3 .bush1 {
+	z-index: 3;
+	bottom: -100px;
+	width: 310px;
+	left: -40px;
+	animation-name: downup;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+.Column--3 .Callout1 {
+	position: absolute;
+	width: 204px;
+	bottom: 25px;
+	z-index: 99;
+	right: 120px;
+}

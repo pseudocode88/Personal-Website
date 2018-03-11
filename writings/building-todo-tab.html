@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Building Todo Tab | jaison.info</title>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<meta name="HandheldFriendly" content="true" />
+	
+	<meta name="description"
+  content="An article about the story behind building Todo Tab, a todo list extension for your browser.">
+	
+	<meta name="keywords"
+  content="todo list, privacy, interface, design">
+	
+	<meta name="author" content="Jaison Justus">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="icon" href="/favicon/favicon.gif" type="image/gif" >
+	<link rel="stylesheet" href="../styles/generic.css" type="text/css" />
+	<link rel="stylesheet" href="../styles/comic-util.css" type="text/css" />
+	<link rel="stylesheet" href="../styles/activity-coloring.css" type="text/css" />
+</head>
+<body>
+	<main class="Wrapper">
+		<img class="Logo" src="../images/profile-picture.jpg" />
+		
+		<nav class="Navigation">
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/">Home</a>
+			</li>
+			<li class="Navigation__Item Navigation__Item--selected">
+				<a class="Navigation__Link" href="/writings.html">Writings</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/projects.html">Projects</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/playlists.html">Playlists</a>
+			</li>
+			<li class="Navigation__Item">
+					<a class="Navigation__Link" href="/about.html">About</a>
+			</li>
+		</nav>
+		
+		<section>
+			<h1>Building Todo Tab</h1>
+			
+			<p class="Writing__Label">11 Oct 2017</p>
+
+			<p>Today I am going to talk about a Chrome Extension called Todo Tab. There are many Todo applications in the market. And some of them comes with assistive support and intelligence. So, why another todo application? Before I answer this question, please allow me to introduce my friend Shiro.</p>
+
+			<h2>Shiro's Problem</h2>
+
+			<div class="Frame Frame--50 Frame--right Frame__Momoko">
+				<div class="bubble">
+					<div class="callout right">Hello, I'm Shiro. nice to meet you</div>
+				</div>
+				<img class="bush--1"src="../images/article/activity-colouring/bush-1.svg"/>
+				<img class="momoko" src="../images/article/activity-colouring/hero-3.svg"/>
+				<img class="bush--2"src="../images/article/activity-colouring/bush-1.svg"/>
+				<img class="gate"src="../images/article/activity-colouring/gate.svg"/>
+				<img class="birds"src="../images/article/activity-colouring/birds.svg"/>
+				<img class="clouds" src="../images/article/activity-colouring/clouds.svg"/>
+				<img class="clouds-back" src="../images/article/activity-colouring/clouds.svg"/>
+			</div>
+
+			<p>Shiro is a designer and a heavy laptop user. He spends most of his day on the browser, writer and design tools. On top of that, he is a procrastinator and wastes a reasonable amount of time browsing the internet.</p>
+
+			<p>At one point he realised, he should focus on his work. Otherwise, it will affect his productivity. And as a remedy, he started using a to-do app. But, he was not happy with the app. Because, once he closes the app, the list also start fading from his short-term memory and he will be back in the same habit of browsing.</p>
+
+			<p>To overcome the mental block, the best way is to distract the browsing flow and make him realise that he has work to do. For distracting the browsing flow, one option is to show notifications. But he doesn't like push notifications. So, the other option will be overriding the browser's new tab with a todo list. Because, whenever he opens a tab he will see the list, and will realise that he has some tasks to do.</p>
+
+			<div class="Frame Frame--100 Frame__Privacy">
+				<div class="bubble">
+					<div class="callout top-left">But why a simple todo extensions wants to read my browsing history?</div>
+				</div>
+				<img class="permission" src="../images/article/activity-colouring/permissions.png"/>
+				<img class="bush--1"src="../images/article/activity-colouring/bush-1.svg"/>
+				<img class="momoko" src="../images/article/activity-colouring/hero-3.svg"/>
+				<img class="bush--2"src="../images/article/activity-colouring/bush-1.svg"/>
+				<img class="bush--3"src="../images/article/activity-colouring/bush-1.svg"/>
+				<img class="bush--4"src="../images/article/activity-colouring/bush-1.svg"/>
+				<img class="mountain"src="../images/article/activity-colouring/mountain.svg"/>
+				<img class="birds--1"src="../images/article/activity-colouring/birds.svg"/>
+				<img class="birds--2"src="../images/article/activity-colouring/birds.svg"/>
+				<img class="clouds" src="../images/article/activity-colouring/clouds.svg"/>
+				<img class="clouds-back" src="../images/article/activity-colouring/clouds.svg"/>
+			</div>
+
+			<p>But when Shiro tried installing extensions, most of them asked for unnecessary permissions. And being sceptic about the privacy, he didn't install any of them. Instead, he asked me to build a simple todo extension, where he can add and check tasks, that's it!</p>
+
+			<img class="Frame--100" src="../images/article/activity-colouring/shiros-problem.png"/>
+
+			<h2>Building a Todo</h2>
+			<p>Nowadays it's effortless to create a to-do app; you can clone a free repo from Github and add modifications to it. It took me around an hour to compile a solution for Shiro.</p>
+
+			<img class="Frame--image Frame--100" src="../images/article/activity-colouring/todo-tab-v1.png"/>
+
+			<h2>An Intriguing Problem</h2>
+			
+			<p>Using the extension for a week, Shiro came back and shared an interesting problem. i.e. he lacks an overview for his todo. On adding more than six task to the list, it turns out to be hard for him to recognise each of them. So every time he need read the description to understand what it is.</p>
+			
+			<p>The problem is because of one good thing that he does with the todo list. When he write tasks, he writes appropriately with action and subject. This makes the task description long, as well as hard to traverse.</p>
+
+			<h2>Re-engineering the Todo</h2>
+
+			<ol class="TodoList">
+				<li class="Todo">
+					<button></button>
+					<p>prepare wireframes for PeARS home page</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p>write a draft about Sakamoto's contribution to Shinonome Labs</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p>prepare template for annual report</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p>send consulting proposal to Webflow</p>
+				</li>
+
+				<li class="Todo Todo--check">
+					<button></button>
+					<p>reply Ghome about the blog idea</p>
+				</li>
+			</ol>
+
+		
+			<p>Right now, it's a flat list of sentences. To improve the recognition of the list one way is to introduce some visual identifiers like tags.</p>
+
+			<ol class="TodoList">
+				<li class="Todo">
+					<button></button>
+					<p>prepare wireframes for <span class="Color--pumpkin">#PeARS</span> home page</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p>write a draft about Sakamoto's contribution to Shinonome Labs <span class="Color--pumpkin">#article</span></p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p>prepare template for annual report <span class="Color--pumpkin">#work</span></p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p>send consulting proposal to Webflow <span class="Color--pumpkin">#work</span></p>
+				</li>
+
+				<li class="Todo Todo--check">
+					<button></button>
+					<p>reply Ghome about the blog idea <span class="Color--pumpkin">#personal</span></p>
+				</li>
+			</ol>
+
+			<p>But the problem with tagging is it adds an extra cognitive load to the user. And it's better to make the user focus on writing the description instead thinking about tags. So the tool should take care of parsing the description and deducing an identifier from that.</p>
+
+			<p>If we parse a task description, it contains nouns and verbs. And for a todo, verbs are the most important because it defines the action. On highlighting these verbs, the action gets more prominence. This prominence act as a hook to recall the subject.</p>
+
+			<ol class="TodoList">
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--pumpkin">prepare</span> wireframes for PeARS home page</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--pumpkin">write</span> a draft about Sakamoto's contribution to Shinonome Labs</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--pumpkin">prepare</span> template for annual report</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--pumpkin">send</span> consulting proposal to Webflow</p>
+				</li>
+
+				<li class="Todo Todo--check">
+					<button></button>
+					<p><span class="Color--pumpkin">reply</span> Ghome about the blog idea</p>
+				</li>
+			</ol>
+
+			<p>By highlighting the verbs, the readability of the todo list also increased. And the user can now pinpoint task much faster. Also, to get the overview of the todo in one shot.</p>
+					
+			<p>Currently, the highlighting is mono coloured. And if we change to multicolour, the verbs will become more distinguishable. And it will be easy for the user to remember the action along with the colour. Also, reduce the time taken to identify a task.</p>
+
+			<ol class="Pallete MA MB--30">
+				<li class="Pallete__Colour Pallete__Color--default"></li>
+				<li class="Pallete__Colour Pallete__Color--carrot"></li>
+				<li class="Pallete__Colour Pallete__Color--pumpkin"></li>
+				<li class="Pallete__Colour Pallete__Color--pomegranate"></li>
+				<li class="Pallete__Colour Pallete__Color--posh"></li>
+				<li class="Pallete__Colour Pallete__Color--greensea"></li>
+				<li class="Pallete__Colour Pallete__Color--belizehole"></li>
+				<li class="Pallete__Colour Pallete__Color--wisteria"></li>
+			</ol>
+
+			<ol class="TodoList">
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--greensea">prepare</span> wireframes for PeARS home page</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--belizehole">write</span> a draft about Sakamoto's contribution to Shinonome Labs</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--greensea">prepare</span> template for annual report</p>
+				</li>
+
+				<li class="Todo">
+					<button></button>
+					<p><span class="Color--pomegranate">send</span> consulting proposal to Webflow</p>
+				</li>
+
+				<li class="Todo Todo--check">
+					<button></button>
+					<p><span class="Color--pumpkin">reply</span> Ghome about the blog idea</p>
+				</li>
+			</ol>
+
+			<p>But all these findings are hypothetical and need get validated.</p>
+
+			<h2>Building MVP</h2>
+
+			<p>For testing the concept, it's better to release an MVP to people and let them use. And based on their feedback, we can check the performance of new enhancement.</p>
+			
+			<p>For an MVP, it's better to keep it simple and focus on the feature that we want to test. So instead of doing language processing, I made a  standard list of popular verbs like reply, meeting and call. Based on this list, the tool will parse the description and highlight the verb. It didn't take much time to add the code and wrap the extension in a smooth theme.</p>
+
+			<img class="Frame--image Frame--100" src="../images/article/activity-colouring/todo-tab-v2-1.png"/>
+
+			<img class="Frame--image Frame--100" src="../images/article/activity-colouring/todo-tab-v2-2.png"/>
+
+			<h2>Distribution</h2>
+			
+			To distribute the extension, I choose <a href="https://www.producthunt.com/posts/todo-tab">Product Hunt</a> and my all time favourite <a href="http://community.uxmastery.com/">UX Mastery Community</a>. Along with the channels, I shared it across a couple of subreddits and Designer News.
+			
+			<h2>Returns</h2>
+
+			<ol>
+				<li>Todo Tab got featured in Product Hunt's daily popular app listing.</li>
+				<li>More than 600 users in the first day itself.</li>
+				<li>Retained more than 80% of users <i>(Aug 2017 - Oct 2017)</i></li>
+				<li>And Shiro's is also happy</li>
+			</ol>
+
+			<div class="Break">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div>
+
+			<div class="Cta">
+				<img class="Cta__Banner" src="../images/article/activity-colouring/banner.png"/>
+			<a class="Button Cta__Button MA" href="/projects/todotab.html">Get Extension</a>
+			<p class="Cta__Message">The extension is currently available only for Chrome. But no worries, all other platforms including mobile are on the roadmap.</p>
+			</div>
+
+			<div class="Break">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div>			
+
+			<!-- <blockquote>“Activity colouring is a layer on top of todo list which improves the readability and results in better task recognition.”</blockquote> -->
+
+			<!-- <div class="Break">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</div> -->
+			
+			<blockquote>Thank you for reading the story about Todo Tab. If you have any questions, feel free to <a href="mailto:jaison.justus.lp@gmail.com?subject=Article - Designing Interface for Softwares" target="_blank">mail me</a>.<br/><br/> Have a Nice Day!</blockquote>
+			
+			<img class="Signature" width="250" src="../images/signature.svg"
+      alt="Signature of Jaison Justus">
+		</section>
+		
+		<footer>
+      <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/writings.html">Writings</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/playlists.html">Playlists</a></li>
+        <li><a href="/about.html">about</a></li>
+      </nav>
+      <div class="Honor">
+        <a href="https://www.youtube.com/watch?v=JU_UzI1ki7g" target="_blank">
+          <img class="Honor__Image" src="/images/footer-flower.png"/>
+        </a>
+        <p class="Honor__Message"><em>Guransai phulyo banai ma, <br/> mero mana jhulyo timro manai ma…</em> <br/>Click to listen in rhythm. Dedicating this song to my Nepalese friends and you too. Peace!</p>
+      </div>
+    </footer>
+	</main>
+	<script type="text/javascript">
+		function checkTheTask(target)	{
+			
+			console.log(target.className, target.parentNode)
+			switch(target.className) {
+				case 'Todo':
+					target.className = 'Todo Todo--check'
+					break;
+				case 'Todo Todo--check':
+					target.className = 'Todo'
+					break;
+				default:
+					checkTheTask(target.parentNode);
+			}
+		}
+
+		function bindListeners()	{
+			var todos = document.querySelectorAll('.Todo');
+			todos.forEach(function(todo)	{
+				todo.addEventListener('click', function(e){ checkTheTask(e.target); })
+			});
+		}
+		
+		window.onload = function() {
+			bindListeners();
+		};
+
+	</script>
+	<script type="text/javascript">
+	  (function (i, s, o, g, r, a, m) {
+	    i['GoogleAnalyticsObject'] = r;
+	    i[r] = i[r] || function () {
+	        (i[r].q = i[r].q || []).push(arguments)
+	      }, i[r].l = 1 * new Date();
+	    a = s.createElement(o),
+	      m = s.getElementsByTagName(o)[0];
+	    a.async = 1;
+	    a.src = g;
+	    m.parentNode.insertBefore(a, m)
+	  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+	
+	  ga('create', 'UA-43145422-3', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</body>
+</html>
