@@ -468,6 +468,10 @@ li {
 
 /** Writings **/
 
+.Notes {
+  margin: 0 0 60px 0;
+}
+
 .Writings {
     list-style: none;
     margin: 0;
@@ -592,7 +596,6 @@ li {
 
 .Station__PlaylistHeader {
   font-size: 14px;
-  font-weight: 
 }
 
 .Station__PlaylistTrack {}
@@ -660,6 +663,9 @@ li {
     margin-left: 15px;
     cursor: pointer;
     opacity: 0.5;
+    background-color: rgba(256, 256, 256, 0.9);
+    border-radius: 100px;
+    padding: 10px;
 }
 
 .Radio__Button:hover {

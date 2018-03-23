@@ -973,7 +973,59 @@ var SongsIKeepComingBackTo = {
 	]
 };
 
+var TheFirstTime = {
+	id: 'the-first-time',
+	name: 'The First Time',
+	art: 'the-first-time/playlist.jpg',
+	genre: 'Mandopop • World • Regional',
+	year: '1992',
+	songs: [
+		{
+			track: 'My Feeling',
+			artist: 'Jackie Chan',
+			source: 'imSe--0uB8w'
+		},{
+			track: 'I Wished The Flower Could Never Fade',
+			artist: 'Jackie Chan',
+			source: 'j2X5Q4bNxEM'
+		},{
+			track: 'The Reddish Face',
+			artist: 'Jackie Chan',
+			source: 'WR9stt95vk8'
+		},{
+			track: 'Keep Your Company Through Every Moment',
+			artist: 'Jackie Chan',
+			source: 'Nb2xnUTexW4'
+		},{
+			track: 'So Transparent Is My Heart',
+			artist: 'Jackie Chan',
+			source: 'WM_-dP1e2QU'
+		},{
+			track: 'A Vigorous Aspiration In My Mind',
+			artist: 'Jackie Chan',
+			source: 'bq3zt44AtXk'
+		},{
+			track: 'The Betel Nuts Beauty',
+			artist: 'Jackie Chan',
+			source: '0cBOyrlcucw'
+		},{
+			track: 'You Are A Lover In My Dreams',
+			artist: 'Jackie Chan',
+			source: '4w9WusYk2Ok'
+		},{
+			track: 'Everyday In My Life',
+			artist: 'Jackie Chan',
+			source: '4zvjeDspUHg'
+		},{
+			track: 'The End',
+			artist: 'Jackie Chan',
+			source: '8BalJn6HK0Q'
+		}
+	]
+};
+
 var Stations = {
+	'the-first-time': TheFirstTime,
 	'songs-I-keep-coming-back-to': SongsIKeepComingBackTo,
 	'noom-rave': NoomRave,
 	'before-in-india': BeforeInIndia,
