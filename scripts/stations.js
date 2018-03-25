@@ -537,10 +537,16 @@ var CharanjithSingh = {
 var ChicanoBlues = {
 	id: 'chicano-blues',
 	name: 'Chicano Blues',
-	art: 'chicano-blues.png',
+	art: 'chicano-blues/playlist.jpg',
 	genre: 'Acid House, Fusion',
 	year: '1982',
-	songs: []
+	songs: [
+    {
+      track: "Chicano Blues",
+      artist: 'Funky Aztecs',
+      source: '2daBjusIZVc'
+    }
+	]
 };
 
 var AtomicForest = {
@@ -1025,6 +1031,7 @@ var TheFirstTime = {
 };
 
 var Stations = {
+  'chicano-blues': ChicanoBlues,
 	'the-first-time': TheFirstTime,
 	'songs-I-keep-coming-back-to': SongsIKeepComingBackTo,
 	'noom-rave': NoomRave,
