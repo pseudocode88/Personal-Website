@@ -1,0 +1,11 @@
+Playlist.Yaml
+    - Meta
+    - Tracks
+
+Build Playlist
+- concat all yaml file in order
+- convert the concated yaml to json
+- wrap in station.js template
+- minify and save
+
+

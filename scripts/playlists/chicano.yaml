@@ -1,0 +1,11 @@
+ChicanoBlues:
+  id: chicano-blues
+  name: Chicano Blues
+  art: chicano-blues/playlist.jpg
+  genre: Acid House, Fusion
+  year: '1982'
+  songs:
+
+  - track: Chicano Blues
+    artist: Funky Aztecs
+    source: 2daBjusIZVc

@@ -1030,8 +1030,100 @@ var TheFirstTime = {
 	]
 };
 
+var DiscoveringZeppelin = {
+    id: 'discovering-zeppelin',
+    name: 'Discovering Zeppelin',
+    art: 'discovering-zeppelin/playlist.png',
+    genre: 'Rock • Blues Rock • Hard Rock',
+    year: '1968-1982',
+    songs: [
+        {
+            track: 'Misty Mountain Hop',
+            artist: 'Led Zeppelin',
+            source: '2cOYzDtpEmI'
+        },{
+            track: 'Black Dog',
+            artist: 'Led Zeppelin',
+            source: 'fl6s1x9j4QQ'
+        },{
+            track: 'Bron-Y-Aur Stomp',
+            artist: 'Led Zeppelin',
+            source: 'mxeUBcJzwQM'
+        },{
+            track: 'Whole Lotta Love',
+            artist: 'Led Zeppelin',
+            source: 'RUVviMsLenU'
+        },{
+            track: 'Down By the Seaside',
+            artist: 'Led Zeppelin',
+            source: 'DfMzK9JsUUM'
+        },{
+            track: 'Good Times Bad Times',
+            artist: 'Led Zeppelin',
+            source: 'TFj0rxyNCtc'
+        },{
+            track: 'Going to California',
+            artist: 'Led Zeppelin',
+            source: '7IZ-jATBq9A'
+        },{
+            track: 'Bonzo\'s Montreux',
+            artist: 'Led Zeppelin',
+            source: 'ITZmZa0I74g'
+        },{
+            track: 'The Battle of Evermore',
+            artist: 'Led Zeppelin',
+            source: '7_3yDImIQYU'
+        },{
+            track: 'No Quarter',
+            artist: 'Led Zeppelin',
+            source: 'Pu94mWlgzMY'
+        },{
+            track: 'Your Time is Gonna Come',
+            artist: 'Led Zeppelin',
+            source: 'fssblRRCgmg'
+        },{
+            track: 'Black Mountain Side',
+            artist: 'Led Zeppelin',
+            source: '2rm_B4Tka0k'
+        },{
+            track: 'Kashmir',
+            artist: 'Led Zeppelin',
+            source: 'ZDwotNLyz10'
+        },{
+            track: 'When the Levee Breaks',
+            artist: 'Led Zeppelin',
+            source: 'fOEQTJV_3-w'
+        },{
+            track: 'Tangerine',
+            artist: 'Led Zeppelin',
+            source: '1Jdi_Mi_c0c'
+        },{
+            track: 'All My Love',
+            artist: 'Led Zeppelin',
+            source: 'z0DAnu5Sq6k'
+        },{
+            track: 'Nobody\'s Fault But Mine',
+            artist: 'Led Zeppelin',
+            source: 'f0HOf3uR5-4'
+        },{
+            track: 'In My Time of Dying',
+            artist: 'Led Zeppelin',
+            source: 'zwLBaBeo1k4'
+        },{
+            track: 'Stairway to Heaven',
+            artist: 'Led Zeppelin',
+            source: 'D9ioyEvdggk'
+        },{
+            track: 'Bron-Yr-Aur',
+            artist: 'Led Zeppelin',
+            source: '2YZ_lIpG1XQ'
+        }
+	]
+};
+
 var Stations = {
-  'chicano-blues': ChicanoBlues,
+	'discovering-zeppelin': DiscoveringZeppelin,
+  	'chicano-blues': ChicanoBlues,
 	'the-first-time': TheFirstTime,
 	'songs-I-keep-coming-back-to': SongsIKeepComingBackTo,
 	'noom-rave': NoomRave,

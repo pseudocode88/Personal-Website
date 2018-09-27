@@ -1,0 +1,11 @@
+Indonesian:
+  id: indonesian
+  name: Indonesia
+  art: Indonesia/playlist.jpg
+  genre: Gamelan
+  year: '1964'
+  songs:
+
+  - track: Gamelan Guitars
+    artist: Java Band
+    source: 4BABUUSIZVS
