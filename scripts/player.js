@@ -1,4 +1,4 @@
-const MINI = require('libs/minified');
+const MINI = require('minified');
 const $ = MINI.$;
 
 function initYoutube()  {
@@ -15,14 +15,13 @@ function findTrackPositionById(id, playlist)  {
     return playlist.map(function(e) { return e.id; }).indexOf(id);
 }
 
-function getTrackInfo(needle, playlist) { return Playlist[needle]; }
+function getTrackInfo(needle, playlist) { return playlist[needle]; }
 
 const View = {
     $el: { play: $('.Play') },
 
     loadEventBindings: function()   {
         this.$el.play.onClick(function() {
-            // const needlePos = findTrackPositionById(this.get('@data-track-id'), Playlist);
             Player.goTo(findTrackPositionById(this.get('@data-track-id'), Playlist));
             View.Radio.updateTrackDisplay();
         }, this);
