@@ -1,14 +1,30 @@
-var MINI = require('minified');
-var $ = MINI.$;
+const MINI = require('libs/minified');
+const $ = MINI.$;
 
-var View = {
-    $el: {
-        play: $('.Play')
-    },
+function initYoutube()  {
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+function onYouTubeIframeAPIReady() { Player.init(); }
+
+function findTrackPositionById(id, playlist)  {
+    return playlist.map(function(e) { return e.id; }).indexOf(id);
+}
+
+function getTrackInfo(needle, playlist) { return Playlist[needle]; }
+
+const View = {
+    $el: { play: $('.Play') },
 
     loadEventBindings: function()   {
         this.$el.play.onClick(function() {
-            Player.stationRequest(this.get('@data-station-id'));
+            // const needlePos = findTrackPositionById(this.get('@data-track-id'), Playlist);
+            Player.goTo(findTrackPositionById(this.get('@data-track-id'), Playlist));
+            View.Radio.updateTrackDisplay();
         }, this);
     },
 
@@ -16,175 +32,138 @@ var View = {
         this.loadEventBindings();
         this.Radio.init();
     }
-}
-
+};
 
 View.Radio = {
     $el: {
-        stationArt: $('.Radio__StationArt'),
-        stationName: $('.Radio__Station'),
+        albumArt: $('.Radio__StationArt'),
         trackName: $('.Radio__TrackName'),
         trackArtist: $('.Radio__TrackArtist'),
         controlButton: $('.Radio__Button'),
         radioImage: $('.Radio__Model--Image')
     },
 
-    updateInfo: function(stationArt, stationName, trackArtist, trackName)  {
-        this.$el.stationArt.set('@src', '/images/stations/' + stationArt);
-        this.$el.stationName.set('innerHTML', 'Current playlist - ' + stationName);
-        this.$el.trackName.set('innerHTML', trackName);
-        this.$el.trackArtist.set('innerHTML', trackArtist);
+    updateTrackDisplay: function()  {
+        const track = getTrackInfo(Player.getNeedlePosition(), Playlist);
+        this.$el.albumArt.set('@src', '/images/stations/' + track.albumart);
+        this.$el.trackName.set('innerHTML', track.name);
+        this.$el.trackArtist.set('innerHTML', track.artist);
+    },
+
+    _togglePlayButton: function(play, el)   {
+        el.set('@src', (play) ? '/images/play.svg' : '/images/pause.svg');
+        el.set('@data-control', (play) ? 'play' : 'pause');
     },
 
     loadEventBindings: function()   {
+        const that = this;
         this.$el.controlButton.on('click', function()   {
             switch(this.get('@data-control'))   {
                 case 'play':
-                    Player.youtube.playVideo();
-                    this.set('@src', '/images/pause.svg');
-                    this.set('@data-control', 'pause');
+                    Player.play();
+                    that._togglePlayButton(false, this);
                     break;
                 case 'pause':
-                    Player.youtube.pauseVideo();
-                    this.set('@src', '/images/play.svg');
-                    this.set('@data-control', 'play');
+                    Player.pause();
+                    that._togglePlayButton(true, this);
                     break;
-                case 'skip':
-                    Player.cueNextTrack();
+                case 'next':
+                    Player.next();
+                    that.updateTrackDisplay();
+                    break;
+                case 'previous':
+                    Player.previous();
+                    that.updateTrackDisplay();
                     break;
             }
         });
     },
 
-    showRadioImage: function()  {
-        var source = [
+    showRandomRadioImage: function()  {
+        const source = [
             '/images/radio/banjo.png',
             '/images/radio/melinda.png',
-            '/images/radio/whitney.png'
         ];
 
-        var selected = source[Math.floor(Math.random() * Math.floor(3))];
-console.log(selected);
-        this.$el.radioImage.set('src', selected);
+        this.$el.radioImage.set('src', source[Math.floor(Math.random() * Math.floor(2))]);
     },
 
     init: function()    {
-        this.showRadioImage();
+        this.showRandomRadioImage();
+        this.updateTrackDisplay();
         this.loadEventBindings();
     }
 };
 
-var Player = {
+const Player = {
     youtube: null,
+    needle: 0,
 
-    queue: [],
-    station: null,
-    tracks: [],
-    currentTrackIndex: -1,
+    load: function(source)   { this.youtube.loadVideoById(source, 0, "large") },
 
-    initQueue: function()   {
-        for(var name in Stations)    {
-            this.queue.push(Stations[name]);
-        }
+    play: function()    { return Player.youtube.playVideo(); },
+
+    pause: function()   { return Player.youtube.pauseVideo(); },
+
+    next: function()    {
+        this.needle = (this.needle + 1 === Playlist.length) ? 0 : this.needle + 1;
+        this.load(getTrackInfo(this.needle, Playlist).source);
+        return getTrackInfo(this.needle, Playlist);
     },
 
-    getStation: function()  {
-        var currentStation = this.queue.shift();
-        this.station = currentStation;
-        this.tracks = currentStation.songs;
-        this.currentTrackIndex = -1;
-        this.queue.push(currentStation);
+    previous: function()    {
+        this.needle = (this.needle - 1 === -1) ? Playlist.length - 1 : this.needle - 1;
+        this.load(getTrackInfo(this.needle, Playlist).source);
+        return getTrackInfo(this.needle, Playlist);
     },
 
-    stationRequest: function(stationId)  {
-        if(!this.isCurrentStation(stationId))   {
-            var stationIndex = this.findStationIndex(stationId);
-            if(stationIndex >= 0)    {
-                this.youtube.stopVideo();
-                this.queuePriority(stationIndex);
-                this.getStation();
-                this.cueNextTrack();
-            }
-        }
+    goTo: function(needle) {
+        this.needle = needle;
+        this.load(getTrackInfo(this.needle, Playlist).source);
     },
 
-    queuePriority: function(index)  {
-        var station = this.queue[index];
-        this.queue.splice(index, 1);
-        this.queue.unshift(station);
-    },
+    getNeedlePosition: function()   { return this.needle; },
 
-    isCurrentStation: function(id)    {
-        return (id === this.station.id) ? true : false;
-    },
-    
-    findStationIndex: function(id)    {
-        function isStation(station)  {
-            return station.id === id;
-        }
-        return this.queue.findIndex(isStation);
-    },
-
-    cueNextTrack: function()   {
-        this.currentTrackIndex++;
-        if(this.currentTrackIndex < this.tracks.length)    {
-            var song = this.tracks[this.currentTrackIndex];
-            this.youtube.loadVideoById(song.source, 0, "large");
-            View.Radio.updateInfo(this.station.art, this.station.name, song.artist, song.track);
-            console.log('• Currently listening to ' + song.track + ' by ' + song.artist);
-        }else {
-            this.getStation();
-            this.cueNextTrack();
-        }
-    },
-
-    resetPlayerVolume: function() {
-      this.youtube.unMute();
-      this.youtube.setVolume = 100;
+    setVolumeToMax: function() {
+        this.youtube.unMute();
+        this.youtube.setVolume = 100;
     },
 
     onPlayerReady: function()   {
-      this.resetPlayerVolume();
-      this.initQueue();
-      this.getStation();
-      this.cueNextTrack();
+        this.setVolumeToMax();
+        this.load(getTrackInfo(this.needle, Playlist).source);
     },
 
+    /* States { 0: ended, 5: video cued } */
     onStateChange: function(state)   {
         switch(state.data)  {
             case 0:
-                this.cueNextTrack();
+                this.next();
+                View.Radio.updateTrackDisplay();
                 break;
             case 5:
-                this.youtube.playVideo();
+                this.play();
                 break;
         }
     },
 
     init: function()    {
-      console.log('Songs currated by Jaison');
         this.youtube = new YT.Player('player', {
-          height: '1',
-          width: '1',
-          videoId: '',
-          events: {
-            'onReady': this.onPlayerReady.bind(this),
-            'onStateChange': this.onStateChange.bind(this)
-          }
+            height: '1',
+            width: '1',
+            videoId: '',
+            events: {
+                'onReady': this.onPlayerReady.bind(this),
+                'onStateChange': this.onStateChange.bind(this)
+            }
         });
     }
-}
+};
 
-function initYoutube()  {
-    var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-
-function onYouTubeIframeAPIReady() { Player.init(); }
-
-/** Initializing */
 initYoutube();
-$.ready(function(){  View.init(); });
+$.ready(function(){
+    View.init();
+
+    console.log('Currated flavours for your soul. \n' +
+        'Bon Appétit!');
+});

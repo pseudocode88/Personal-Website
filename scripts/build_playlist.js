@@ -7,7 +7,7 @@ const playlistConfig = {
 };
 
 const playlists = [
-    'indonesian',
+    'indonesia/rock',
     'chicano'
 ];
 
@@ -18,6 +18,6 @@ function wrapPlaylistInPath(playlist) {
 buildify()
     .concat(playlists.map(wrapPlaylistInPath))
     .perform((content) => JSON.stringify(YAML.load(content)))
-    .wrap('playlist_tpl.js')
+    .wrap('playlist.tpl')
     .uglify()
     .save('playlist.js');

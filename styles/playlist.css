@@ -402,19 +402,21 @@
     font-size: 13px !important;
 }
 
-.TrackEmbed__Tracks li a	{
+.TrackEmbed__Tracks li i	{
     float: right;
     display: inline-block;
     font-size: 11px;
-    margin: 0px 0 0 0;
+    font-style: normal;
+    margin: 0;
     font-weight: 400;
     text-decoration: none;
     letter-spacing: 0.3px;
     opacity: 0.5;
     text-transform: lowercase;
+    cursor: pointer;
 }
 
-.TrackEmbed__Tracks li a:hover	{
+.TrackEmbed__Tracks li i:hover	{
     opacity: 1;
 }
 
@@ -427,4 +429,99 @@
     align-items: center;
     justify-content: space-between;
     width: 60px;
+}
+
+.Radio	{
+    width: 300px;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    padding: 10px 0 0 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.Radio__StationArt {
+    width: 50px;
+    margin: 0;
+    align-self: flex-end;
+}
+
+.Radio__TrackName   {
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0;
+    background: #eee;
+    color: #000;
+    padding: 5px 10px;
+    align-self: flex-end;
+}
+
+.Radio__TrackArtist   {
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0;
+    background: #eee;
+    color: #000;
+    padding: 5px 10px;
+    align-self: flex-end;
+}
+
+.Radio__Controls    {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    clear: both;
+    justify-content: right;
+}
+
+.Radio__Controls img {
+    align-self: center;
+}
+
+.Radio__Button    {
+    cursor: pointer;
+    opacity: 0.5;
+    background-color: rgba(256, 256, 256, 0.9);
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.Radio__Button:hover {
+    opacity: 1;
+    background-color: #eeeeee;
+}
+
+.Radio__Button:active {
+    background-color: #27AE606e;
+}
+
+.Radio__Button--previous    {
+    transform: rotate(180deg);
+}
+
+.Radio__Model {
+    width: 250px;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.Radio__Model--Image {
+    width: 100%;
+}
+
+.Radio__Pivot   {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #eeeeee;
+    align-self: flex-end;
+    margin-right: 7px;
 }
