@@ -21,7 +21,8 @@ const playlists = [
     'indonesia/avantgarde',
     'indonesia/folk',
     'indonesia/andi',
-    'chicano'
+    'chicano',
+    'djamleelii'
 ];
 
 function wrapPlaylistInPath(playlist) {
