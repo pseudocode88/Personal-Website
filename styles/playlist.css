@@ -495,7 +495,7 @@
     flex-direction: row-reverse;
     margin-top: 20px;
     clear: both;
-    justify-content: right;
+    align-self: flex-end;
 }
 
 .Radio__Controls img {

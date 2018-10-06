@@ -21,7 +21,20 @@ const playlists = [
     'indonesia/avantgarde',
     'indonesia/folk',
     'indonesia/andi',
+    'discoveringzeppelin',
     'chicano',
+    'thefirsttime',
+    'songsikeepcomingbackto',
+    'noomrave',
+    'beforeinindia',
+    'afternooninspiration',
+    'yamasukisingers',
+    'atomicforest',
+    'charanjitsingh',
+    'maoripulse',
+    'technocity',
+    'yantibersaudara',
+    'soundsofsiam',
     'djamleelii'
 ];
 
