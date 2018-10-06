@@ -9,7 +9,7 @@
 
 .Wrapper--Custom {
 	width: 900px;
-	margin-bottom: 60px;
+	margin-bottom: 80px;
 	position: relative;
 }
 
@@ -155,4 +155,392 @@
 .two-column-text	{
 	column-count: 2;
 	column-gap: 30px;
+}
+
+.Playlist--Diszep {
+	width: 100%;
+	height: 776px;
+	position: relative;
+}
+
+.Playlist--Diszep-Title {
+	width: 395px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.Playlist--Diszep-Hind {
+	width: 850px;
+	position: absolute;
+	top: -11px;
+	left: 18px;
+	z-index: 1;
+}
+
+.Playlist--Diszep-Note {
+	width: 380px;
+	z-index: 0;
+	position: absolute;
+	background: #FF0000;
+	padding: 270px 30px 30px 30px;
+	box-sizing: border-box;
+	left: 443px;
+	top: 160px;
+	bottom: 0;
+}
+
+.Playlist--Diszep-Note p {
+	color: white;
+	font-size: 14px;
+    line-height: 1.55;
+}
+
+.Playlist--Diszep-Tracks {
+	color: #808080;
+	font-size: 10px;
+	text-align: right;
+	position: absolute;
+	left: 64px;
+	bottom: 0;
+	width: 350px;
+	margin: 0;
+}
+
+.Playlist--Indonesia {
+	width: 100%;
+	background: #DCF1F9;
+	position: relative;
+}
+
+.Playlist--Indonesia .Content {
+	padding: 0 220px 50px 50px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	column-count: 2;
+	column-gap: 40px;
+	position: relative;
+}
+
+.Playlist--Indonesia .Content p {
+	font-size: 14px;
+	line-height: 1.55;
+}
+
+.Playlist--Indonesia .dropcap:first-letter {
+	float: left;
+	font-family: Georgia;
+	font-size: 75px;
+	line-height: 60px;
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-left: 3px;
+    font-weight: 900;
+}
+
+.Playlist--Indonesia-Sidebar   {
+    position: absolute;
+    right: -210px;
+    top: 0;
+    width: 400px;
+}
+
+.Playlist--Indonesia .Andi-picture {
+	width: 100%;
+}
+
+.Playlist--Indonesia .Andi-note {
+    width: 260px;
+    background-color: #F8F9FB;
+    padding: 15px;
+    margin: 50px 0 0 20px;
+    position: relative;
+}
+
+.Andi-note p a{
+    font-size: 14px;
+}
+
+.Andi-note__Map	{
+	width: 100%;
+}
+
+.Andi-note__Map img {
+	width: 100%;
+}
+
+.Playlist--Indonesia .Andi-note-top {
+    width: 100%;
+    position: absolute;
+    top: -30px;
+    left: 0;
+}
+
+.Playlist--Indonesia .Andi-note-bottom {
+    width: 100%;
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+}
+
+.Playlist--Indonesia-ImageWrapper	{
+	width: 100%;
+	position: relative;
+	height: auto;
+}
+
+.Playlist--Indonesia-ImageContent	{
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 400px;
+}
+
+.Playlist--Indonesia-ImageContent h2	{
+	font-size: 35px;
+	margin: 0 0 15px 0;
+	line-height: 1.17;
+}
+
+.Playlist--Indonesia-ImageContent p	{
+	font-size: 14px;
+	line-height: 1.55;
+}
+
+.Playlist--Indonesia .Content blockquote	{
+	margin: 0 0 30px 0;
+	padding: 0 0px;
+	font-size: 16px;
+	color: #000;
+	font-family: georgia, serif;
+	line-height: 1.55;
+    font-style: italic;
+}
+
+.Playlist--Indonesia .Content h3 {
+    margin: 0 0 13px 0;
+    font-size: 25px;
+    line-height: 28px;
+    display: block;
+    color: #000;
+}
+
+.TrackListing	{
+    padding: 0;
+    list-style: none;
+    margin-bottom: 50px;
+}
+
+.TrackEmbed	{
+    margin-top: 0;
+    margin-bottom: 15px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.TrackEmbed:last-child	{
+    margin-bottom: 0;
+}
+
+.TrackEmbed__Details	{
+    display: flex;
+}
+
+.TrackEmbed__AlbumArt	{
+    width: 80px;
+    height: 80px;
+    align-self: center;
+    margin: 0 15px 0 0;
+    flex-shrink: 0;
+}
+
+.TrackEmbed__Content    {
+    width: 100%;
+    flex-shrink: 1;
+}
+
+.TrackEmbed__AlbumName	{
+    font-size: 14px;
+    margin: 0;
+	text-transform: capitalize;
+}
+
+.TrackEmbed__ArtistName	{
+    margin: 0;
+	text-transform: capitalize;
+}
+
+.TrackEmbed__Style	{
+    margin: 0;
+    color: #808080;
+    font-size: 12px !important;
+    font-weight: 500;
+}
+
+.TrackEmbed__Tracks	{
+    list-style: none;
+    padding: 0;
+    margin: 0px 0 0 0;
+}
+
+.TrackEmbed__Tracks li	{
+    overflow: hidden;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(51, 51, 51, 0.3);
+}
+
+.TrackEmbed__Tracks li:first-child	{
+    border-top: 1px solid rgba(51, 51, 51, 0.3);
+}
+
+.TrackEmbed__Tracks li:last-child	{
+    border-bottom-style: solid;
+}
+
+.TrackEmbed__Tracks li:hover    {
+    background-color: rgba(51, 51, 51, 0.02);
+}
+
+.TrackEmbed__Tracks li p	{
+    float: left;
+    display: inline-block;
+    margin: 0;
+    font-size: 13px !important;
+}
+
+.TrackEmbed__Tracks li i	{
+    float: right;
+    display: inline-block;
+    font-size: 11px;
+    font-style: normal;
+    margin: 0;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    opacity: 0.5;
+    text-transform: lowercase;
+    cursor: pointer;
+}
+
+.TrackEmbed__Tracks li i:hover	{
+    opacity: 1;
+}
+
+.Splitter {
+    display: flex;
+    list-style: none;
+    height: 23px;
+    margin: 60px 0;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+}
+
+.Radio	{
+    width: 300px;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    padding: 10px 0 0 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.Radio__StationArt {
+    width: 50px;
+    margin: 0;
+    align-self: flex-end;
+}
+
+.Radio__TrackName   {
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0;
+    background: #eee;
+    color: #000;
+    padding: 5px 10px;
+    align-self: flex-end;
+	text-transform: capitalize;
+}
+
+.Radio__TrackArtist, .Radio__TrackSource  {
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0;
+    background: #eee;
+    color: #000;
+    padding: 5px 10px;
+    align-self: flex-end;
+	text-transform: capitalize;
+}
+
+.Radio__TrackSource	{
+	font-size: 10px;
+	font-weight: 900;
+	color: rgba(0,0,0, 0.3);
+}
+
+
+.Radio__Controls    {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    clear: both;
+    align-self: flex-end;
+}
+
+.Radio__Controls img {
+    align-self: center;
+}
+
+.Radio__Button    {
+    cursor: pointer;
+    opacity: 0.5;
+    background-color: rgba(256, 256, 256, 0.9);
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.Radio__Button:hover {
+    opacity: 1;
+    background-color: #eeeeee;
+}
+
+.Radio__Button:active {
+    background-color: #ce92246e;
+}
+
+.Radio__Button--previous    {
+    transform: rotate(180deg);
+}
+
+.Radio__Model {
+    width: 250px;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.Radio__Model--Image {
+    width: 100%;
+}
+
+.Radio__Pivot   {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #eeeeee;
+    align-self: flex-end;
+    margin-right: 7px;
 }

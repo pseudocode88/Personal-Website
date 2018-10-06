@@ -55,7 +55,7 @@ blockquote {
     font-size: 22px;
     color: #000;
     font-family: georgia, serif;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 blockquote a {
@@ -470,6 +470,7 @@ li {
 
 .Notes {
   margin: 0 0 60px 0;
+    overflow: hidden;
 }
 
 .Writings {
@@ -650,27 +651,6 @@ li {
     opacity: 1;
 } */
 
-.Radio__Controls    {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.Radio__Controls img {
-    align-self: center;
-}
-
-.Radio__Button    {
-    margin-left: 15px;
-    cursor: pointer;
-    opacity: 0.5;
-    background-color: rgba(256, 256, 256, 0.9);
-    border-radius: 100px;
-    padding: 10px;
-}
-
-.Radio__Button:hover {
-    opacity: 1;
-}
 
 
 /** Footer **/
@@ -841,76 +821,6 @@ footer nav li a:hover {
   .dominos-dot-green-null {
     margin-top: 5px;
   }
-}
-
-.Radio	{
-    width: 300px;
-    position: fixed;
-    bottom: 0px;
-    right: 20px;
-    text-align:right;
-    /*border-radius:3px;*/
-    padding: 10px;
-    padding-bottom: 0;
-    box-sizing: border-box;
-    /*box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.3);*/
-}
-
-.Radio__StationArt {
-    width: 50px;
-  margin: 0 0 0 20px;
-  display: inline-table;
-  float: right;
-}
-
-.Radio__Station	{
-    font-size: 12px;
-    line-height: 1.2;
-    margin: 3px 0;
-    display: table;
-    float: right;
-    clear: right;
-    background: #eee;
-    color: #000;
-    padding: 5px 10px;
-}
-
-.Radio__TrackName   {
-    font-size: 13px;
-    line-height: 1.2;
-    font-weight: 600;
-    margin: 0;
-    display: table;
-    float: right;
-    clear: right;
-    background: #eee;
-    color: #000;
-    padding: 5px 10px;
-}
-
-.Radio__TrackArtist   {
-    font-size: 12px;
-    line-height: 1.2;
-    margin: 0;
-    display: table;
-    float: right;
-    clear: right;
-    background: #eee;
-    color: #000;
-    padding: 5px 10px;
-}
-
-.Radio__Model {
-  width: 250px;
-  height: 150px;
-  /*background: #ddd;*/
-  clear: right;
-  float: right;
-  margin: -30px 0 0 0;
-}
-
-.Radio__Model--Image {
-  width: 100%;
 }
 
 #player	{
@@ -1096,4 +1006,15 @@ footer nav li a:hover {
 
 .WireframingKit__CTA:hover {
     color: white !important;
+}
+
+.hlite {
+    background-color: rgba(255, 251, 87, 0.15);
+}
+
+hr {
+    width: 80px;
+    border: 0;
+    border-top: 4px solid #000;
+    float: left;
 }

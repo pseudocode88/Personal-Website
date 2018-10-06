@@ -1,0 +1,8 @@
+{
+  "name": "jaison.info",
+  "version": " 1.0.0",
+  "devDependencies": {
+    "buildify": "^0.4.0",
+    "js-yaml": "^3.12.0"
+  }
+}
