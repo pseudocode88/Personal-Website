@@ -263,6 +263,14 @@
     font-size: 14px;
 }
 
+.Andi-note__Map	{
+	width: 100%;
+}
+
+.Andi-note__Map img {
+	width: 100%;
+}
+
 .Playlist--Indonesia .Andi-note-top {
     width: 100%;
     position: absolute;
@@ -463,7 +471,7 @@
 	text-transform: capitalize;
 }
 
-.Radio__TrackArtist   {
+.Radio__TrackArtist, .Radio__TrackSource  {
     font-size: 12px;
     line-height: 1.2;
     margin: 0;
@@ -473,6 +481,13 @@
     align-self: flex-end;
 	text-transform: capitalize;
 }
+
+.Radio__TrackSource	{
+	font-size: 10px;
+	font-weight: 900;
+	color: rgba(0,0,0, 0.3);
+}
+
 
 .Radio__Controls    {
     width: 100%;
