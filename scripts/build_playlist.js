@@ -3,11 +3,24 @@ let YAML = require("js-yaml");
 
 const playlistConfig = {
     path: 'playlists',
-    fileformat: '.yaml'
+    fileformat: '.yml'
 };
 
 const playlists = [
     'indonesia/rock',
+    'indonesia/classic-rock',
+    'indonesia/indorock',
+    'indonesia/hiphop',
+    'indonesia/pop',
+    'indonesia/reggae',
+    'indonesia/funk',
+    'indonesia/jazz',
+    'indonesia/keroncong',
+    'indonesia/dangdut',
+    'indonesia/electronic',
+    'indonesia/avantgarde',
+    'indonesia/folk',
+    'indonesia/andi',
     'chicano'
 ];
 

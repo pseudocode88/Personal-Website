@@ -312,9 +312,9 @@
 }
 
 .Playlist--Indonesia .Content h3 {
-    margin: 0 0 15px 0;
+    margin: 0 0 13px 0;
     font-size: 25px;
-    line-height: 25px;
+    line-height: 28px;
     display: block;
     color: #000;
 }
@@ -357,10 +357,12 @@
 .TrackEmbed__AlbumName	{
     font-size: 14px;
     margin: 0;
+	text-transform: capitalize;
 }
 
 .TrackEmbed__ArtistName	{
     margin: 0;
+	text-transform: capitalize;
 }
 
 .TrackEmbed__Style	{
@@ -458,6 +460,7 @@
     color: #000;
     padding: 5px 10px;
     align-self: flex-end;
+	text-transform: capitalize;
 }
 
 .Radio__TrackArtist   {
@@ -468,6 +471,7 @@
     color: #000;
     padding: 5px 10px;
     align-self: flex-end;
+	text-transform: capitalize;
 }
 
 .Radio__Controls    {
@@ -497,7 +501,7 @@
 }
 
 .Radio__Button:active {
-    background-color: #27AE606e;
+    background-color: #ce92246e;
 }
 
 .Radio__Button--previous    {
