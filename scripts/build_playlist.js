@@ -7,6 +7,7 @@ const playlistConfig = {
 };
 
 const playlists = [
+    'italianrock',
     'indonesia/rock',
     'indonesia/classic-rock',
     'indonesia/indorock',

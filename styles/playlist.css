@@ -229,7 +229,7 @@
 	line-height: 1.55;
 }
 
-.Playlist--Indonesia .dropcap:first-letter {
+.dropcap:first-letter {
 	float: left;
 	font-family: Georgia;
 	font-size: 75px;
@@ -543,4 +543,47 @@
     border-top: 7px solid #eeeeee;
     align-self: flex-end;
     margin-right: 7px;
+}
+
+.Playlist--ItalianRock	{
+	display: flex;
+}
+
+.Playlist--ItalianRock .content-col	{
+	width: 300px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	margin-right: 50px;
+}
+
+.Playlist--ItalianRock .content-col-1 	{
+	position: relative;
+}
+
+.Playlist--ItalianRock .content-col-2	{
+	margin-right: 50px;
+}
+
+.Playlist--ItalianRockHeader	{
+	width: 250px;
+	margin-bottom: 15px;
+}
+
+.Playlist--ItalianRock p,
+.Playlist--ItalianRock a{
+	font-size: 14px;
+	line-height: 1.55;
+}
+
+.Playlist--ItalianRockAmalfi	{
+	position: absolute;
+	bottom: 10px;
+	left: -203px;
+	z-index: -1;
+	width: 833px;
+}
+
+.Playlist--ItalianRockStamps	{
+	width: 650px;
+	margin-left:-2px;
 }
