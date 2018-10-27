@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Reviewers to the Rescue | jaison.info</title>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<meta name="HandheldFriendly" content="true" />
+	
+	<meta name="description"
+  content="Release notes about the Todo Tab's new update">
+	
+	<meta name="keywords"
+  content="todo tab, release">
+	
+	<meta name="author" content="Jaison Justus">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="icon" href="/favicon/favicon.gif" type="image/gif" >
+	<link rel="stylesheet" href="../styles/generic.css" type="text/css" />
+	<link rel="stylesheet" href="../styles/comic-util.css" type="text/css" />
+	<link rel="stylesheet" href="../styles/activity-coloring.css" type="text/css" />
+</head>
+<body>
+	<main class="Wrapper">
+		<img class="Logo" src="../images/profile-picture.jpg" />
+		
+		<nav class="Navigation">
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/">Home</a>
+			</li>
+			<li class="Navigation__Item Navigation__Item--selected">
+				<a class="Navigation__Link" href="/writings.html">Writings</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/projects.html">Projects</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/playlists.html">Playlists</a>
+			</li>
+			<li class="Navigation__Item">
+					<a class="Navigation__Link" href="/about.html">About</a>
+			</li>
+		</nav>
+		
+		<section>
+			<h1>Reviewers to the Rescue</h1>
+			
+			<p class="Writing__Label">27 Dec 2018</p>
+
+			<p>I found some beginners getting stuck in their learning process, even after meeting a mentor. All of them have the same reasons - <i>"I don't know what to ask my mentor. I don't know what to talk to the people in a conference or a meetup. I don't know how to utilise an online forum"</i>. To break this big piece of ice, I suggest you consult a reviewer.</p>
+
+			<h2>Who is a reviewer?</h2>
+			<blockquote>
+				Reviewer – A person who formally assesses or examines something with a view to changing it if necessary
+			</blockquote>
+			<p>A reviewer is a person who carefully analyses your work, and gives constructive feedback on the things that you did wrong. A reviewer can any be anyone that you trust and have a minimum of five years on experience in the craft.</p>
+
+			<h2>How can I prepare for a review?</h2>
+			<p>In the case of design, take a simple problem and design flow to solve it. If possible create a clickable prototype and share it with the reviewer. I always prefer you to submit user flow rather than submitting random screens.</p>
+
+			<h2>How can I find a reviewer?</h2>
+			<p>You can find them on local meetups, conferences, Internet forums and maybe in your office. Among all these options, I prefer local meetups and conference, because you can walk into a person and request him for 15-30 mins to review your work.</p>
+			<p>In Internet forums, you can post it on there discussion thread, or send a request as a private message. But something you might get delayed response or no response at all. In those cases no need to worry, because people have other priorities. That why meetups or conferences are good, where people come with a mentality to share, learn and evolve.</p>
+
+			<h2>Summaries the steps</h2>
+			<ol>
+				<li>Identify and write down a problem statement</li>
+				<li>Design a solution to the problem</li>
+				<li>Find an expert and give your solution for review</li>
+				<li>Note down the feedback and keywords shared by the review</li>
+				<li>Ask the reviewer for books to refer</li>
+				<li>Come back home and apply the inputs from the reviewer</li>
+				<li>Goto step 3 and repeat</li>
+			</ol>
+
+			<p>So don't forget to get your hands dirty with the craft and enjoy each and every problem that you face. Because those problems are the real pot of gold.</p>
+
+			<img class="Signature" width="250" src="../images/signature.svg"
+      alt="Signature of Jaison Justus">
+		</section>
+		
+		<footer>
+      <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/writings.html">Writings</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/playlists.html">Playlists</a></li>
+        <li><a href="/about.html">about</a></li>
+      </nav>
+      <div class="Honor">
+        <a href="https://www.youtube.com/watch?v=JU_UzI1ki7g" target="_blank">
+          <img class="Honor__Image" src="/images/footer-flower.png"/>
+        </a>
+        <p class="Honor__Message"><em>Guransai phulyo banai ma, <br/> mero mana jhulyo timro manai ma…</em> <br/>Click to listen in rhythm. Dedicating this song to my Nepalese friends and you too. Peace!</p>
+      </div>
+    </footer>
+	</main>
+	<script type="text/javascript">
+		function checkTheTask(target)	{
+			
+			console.log(target.className, target.parentNode)
+			switch(target.className) {
+				case 'Todo':
+					target.className = 'Todo Todo--check'
+					break;
+				case 'Todo Todo--check':
+					target.className = 'Todo'
+					break;
+				default:
+					checkTheTask(target.parentNode);
+			}
+		}
+
+		function bindListeners()	{
+			var todos = document.querySelectorAll('.Todo');
+			todos.forEach(function(todo)	{
+				todo.addEventListener('click', function(e){ checkTheTask(e.target); })
+			});
+		}
+		
+		window.onload = function() {
+			bindListeners();
+		};
+
+	</script>
+	<script type="text/javascript">
+	  (function (i, s, o, g, r, a, m) {
+	    i['GoogleAnalyticsObject'] = r;
+	    i[r] = i[r] || function () {
+	        (i[r].q = i[r].q || []).push(arguments)
+	      }, i[r].l = 1 * new Date();
+	    a = s.createElement(o),
+	      m = s.getElementsByTagName(o)[0];
+	    a.async = 1;
+	    a.src = g;
+	    m.parentNode.insertBefore(a, m)
+	  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+	
+	  ga('create', 'UA-43145422-3', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</body>
+</html>
