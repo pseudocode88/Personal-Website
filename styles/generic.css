@@ -996,6 +996,24 @@ footer nav li a:hover {
     align-self: center;
 }
 
+/** Git Ninjas **/
+.Design__Git    {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Design__Git .Design__Info  {
+    width: 49%;
+    padding-left: 15px;
+}
+
+.Design__Git img    {
+    width: 49%;
+    align-self: center;
+    margin-bottom: 20px;
+}
+
 /**
  * Article Special Styles
  */
