@@ -85,6 +85,15 @@ figcaption a {
     font-weight: 400;
 }
 
+code    {
+    display: block;
+    background: #f8f9fb;
+    padding: 15px;
+    font-size: 15px;
+    font-family: "Menlo", monospace;
+    line-height: 1.5;
+}
+
 .Image--left {
     width: 250px;
     display: inline-block;
@@ -106,6 +115,19 @@ ol, ul {
 li {
     margin-top: 10px;
     line-height: 1.5;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #808080;
+}
+
+td  {
+    padding: 9px;
 }
 
 /** Spacing **/
@@ -1017,4 +1039,23 @@ hr {
     border: 0;
     border-top: 4px solid #000;
     float: left;
+}
+
+.GithubRepo {
+    width: 80%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 0 2px 6px 1px #33333330;
+    margin: 53px 0 14px 30px;
+    overflow: hidden;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.GithubRepo img {
+    width: 100px;
+    align-self: center;
+    margin-right: 20px;
 }

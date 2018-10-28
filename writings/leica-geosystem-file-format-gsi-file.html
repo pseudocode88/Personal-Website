@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Leica Geosystem File Format - GSI File | jaison.info</title>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<meta name="HandheldFriendly" content="true" />
+	
+	<meta name="description" content="How to parse of Leica GSI file into meaningful data">
+	
+	<meta name="keywords" content="ETS, GSI, Leica, Survey">
+	
+	<meta name="author" content="Jaison Justus">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="icon" href="/favicon/favicon.gif" type="image/gif" >
+	<link rel="stylesheet" href="../styles/generic.css" type="text/css" />
+</head>
+<body>
+	<main class="Wrapper">
+		<img class="Logo" src="../images/profile-picture.jpg" />
+		
+		<nav class="Navigation">
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/">Home</a>
+			</li>
+			<li class="Navigation__Item Navigation__Item--selected">
+				<a class="Navigation__Link" href="/writings.html">Writings</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/projects.html">Projects</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/playlists.html">Playlists</a>
+			</li>
+			<li class="Navigation__Item">
+					<a class="Navigation__Link" href="/about.html">About</a>
+			</li>
+		</nav>
+		
+		<section>
+			<h1>Leica Geosystem File Format - GSI File</h1>
+			
+			<p class="Writing__Label">13 Feb 2011</p>
+
+			<img class="Image--left" style="width: 200px;" src="../images/article/leica-gsi-file/logo.jpg"/>
+			<p>Leica Geosystem is a pioneer in manufacturing instruments and developing softwares to measure and analyze our world. The end user trust on Leica made a dramatic increase in their service around the globe. Now Leica holds a wide range of instruments and softwares like Electronic Total Station, GNSS/GPS, Photogrammetry Suite etc. Now a days to survey land every company switched to ETS (Electronic Total Station) technology from using Theodolites and other instruments. The reason was ETS accurate, ease, user friendly and more.</p>
+
+			<p>In Leica ETS all the coordinates measured during Field observation is stored into a flash card. Flash card hold the configuration files and filed data files. Before starting observation we can set the data storage format from the ETS menu. most of the ETS support 3 File formats GSI, ASCII and TXT. GSI is the Leica Geosystem file format. GSI are of two type GSI-8 format and GSI-16 format.</p>
+
+			<h2>Sample GSI File Structure (8-bit)</h2>
+			<code>110006+00010012 21.324+34746050 22.324+05206590 31..00+00065151
+				51....-0000+034 81..00+04023569 82..00+03006383 83..00+00045719
+				<br/><br/>
+				110007+00010007 21.324+34727200 22.324+05217220 31..00+00065075
+				51....-0000+034 81..00+04023282 82..00+03006382 83..00+00045517
+				<br/><br/>
+				110008+00010007 21.324+34905500 22.324+05206290 31..00+00064848
+				51....-0000+034 81..00+04024784 82..00+03006381 83..00+00045540
+				<br/><br/>
+				110009+00010012 21.324+34855460 22.324+05202170 31..00+00064948
+				51....-0000+034 81..00+04024631 82..00+03006382 83..00+00045664
+				<br/><br/>
+				110010+00010007 21.324+35224110 22.324+05148550 31..00+00064495
+				51....-0000+034 81..00+04027762 82..00+03006379 83..00+00045583
+				<br/><br/>
+				110011+00010012 21.324+35237000 22.324+05146260 31..00+00064499
+				51....-0000+034 81..00+04027952 82..00+03006377 83..00+00045622
+				<br/><br/>
+				110012+00010012 21.324+35324300 22.324+05143530 31..00+00064425
+				51....-0000+034 81..00+04028657 82..00+03006375 83..00+00045614
+				<br/><br/>
+				110013+00010007 21.324+35345320 22.324+05146310 31..00+00064344
+				51....-0000+034 81..00+04028969 82..00+03006377 83..00+00045525</code>
+
+			<figure>
+				<img src="../images/article/leica-gsi-file/file-format.png"
+					 alt="GSI file structure" />
+
+				<figcaption><em>Fig-1.</em> – Structure of words in .GSI file</figcaption>
+			</figure>
+
+			<h2>Word Identification Table</h2>
+			<p>The table below shows the complete description of all Word Index used in a GSI file <i>(refernece Leica TPS 1100++ user manual).</i></p>
+
+			<table>
+				<tbody>
+				<tr>
+					<td style="background: #f8f9fb; font-size: 16px;" colspan="2"><strong>General</strong></td>
+				</tr>
+				<tr>
+					<td>11 </td>
+					<td> Point number (includes  block   number) </td>
+				</tr>
+				<tr>
+					<td> 12 </td>
+					<td> Instrument serial no </td>
+				</tr>
+				<tr>
+					<td> 13 </td>
+					<td> Instrument type </td>
+				</tr>
+				<tr>
+					<td> 18 </td>
+					<td> Time format 1: pos. 8-9   year, 10-11 sec, 12-14 msec </td>
+				</tr>
+				<tr>
+					<td> 19 </td>
+					<td> Time format 2 : pos, 8-9   month 10-11 day, 12-13 hour, 14-15 min</td>
+				</tr>
+				<tr>
+					<td style="background: #f8f9fb; font-size: 16px;" colspan="2"><strong>Angles</strong></td>
+				</tr>
+				<tr>
+					<td>21 </td>
+					<td> Horizontal Circle (Hz) </td>
+				</tr>
+				<tr>
+					<td> 22 </td>
+					<td> Vertical Angle (V) </td>
+				</tr>
+				<tr>
+					<td> 25 </td>
+					<td> Horizontal circle   difference (Hz0-Hz)</td>
+				</tr>
+				<tr>
+					<td style="background: #f8f9fb; font-size: 16px;" colspan="2"><strong>Distance</strong></td>
+				</tr>
+				<tr>
+					<td>31 </td>
+					<td> Slope Distance </td>
+				</tr>
+				<tr>
+					<td> 32 </td>
+					<td> Horizontal Distance </td>
+				</tr>
+				<tr>
+					<td> 33 </td>
+					<td> Height Difference</td>
+				</tr>
+				<tr>
+					<td style="background: #f8f9fb; font-size: 16px;" colspan="2"><strong>Code Block</strong></td>
+				</tr>
+				<tr>
+					<td>41 </td>
+					<td> Code number ( include block   number) </td>
+				</tr>
+				<tr>
+					<td> 42 – 49 </td>
+					<td> Information 1-8</td>
+				</tr>
+				<tr>
+					<td style="background: #f8f9fb; font-size: 16px;" colspan="2"><strong>Distance</strong> (additional information)</td>
+				</tr>
+				<tr>
+					<td>51 </td>
+					<td> Constants(ppm, mm) </td>
+				</tr>
+				<tr>
+					<td> 52 </td>
+					<td> Number of measurments,   standard deviation </td>
+				</tr>
+				<tr>
+					<td> 53 </td>
+					<td> Deviation </td>
+				</tr>
+				<tr>
+					<td> 58 </td>
+					<td> Signal strength </td>
+				</tr>
+				<tr>
+					<td> 59 </td>
+					<td> Reflector constant (1/10   mm)ppm</td>
+				</tr>
+				<tr>
+					<td style="background: #f8f9fb; font-size: 16px;" colspan="2"><strong>Point Coding</strong></td>
+				</tr>
+				<tr>
+					<td>71 </td>
+					<td> Point Code </td>
+				</tr>
+				<tr>
+					<td> 72 – 79 </td>
+					<td> Attribute   1-8</td>
+				</tr>
+				<tr>
+					<td style="background: #f8f9fb; font-size: 16px;" colspan="2"><strong>Coordinates</strong></td>
+				</tr>
+				<tr>
+					<td>81 </td>
+					<td> Easting   (Target) </td>
+				</tr>
+				<tr>
+					<td> 82 </td>
+					<td> Northing (Target) </td>
+				</tr>
+				<tr>
+					<td> 83 </td>
+					<td> Elevation (Target) </td>
+				</tr>
+				<tr>
+					<td> 84 </td>
+					<td> Station Easting (Eo) </td>
+				</tr>
+				<tr>
+					<td> 85 </td>
+					<td> Station Northing (No) </td>
+				</tr>
+				<tr>
+					<td> 86 </td>
+					<td> Station Elevation (Ho) </td>
+				</tr>
+				<tr>
+					<td> 87 </td>
+					<td> Reflector height (above   ground) </td>
+				</tr>
+				<tr>
+					<td> 88 </td>
+					<td> Instrument height (above   ground)</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<img class="Signature" width="250" src="../images/signature.svg"
+      alt="Signature of Jaison Justus">
+		</section>
+		
+		<footer>
+      <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/writings.html">Writings</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/playlists.html">Playlists</a></li>
+        <li><a href="/about.html">about</a></li>
+      </nav>
+      <div class="Honor">
+        <a href="https://www.youtube.com/watch?v=JU_UzI1ki7g" target="_blank">
+          <img class="Honor__Image" src="/images/footer-flower.png"/>
+        </a>
+        <p class="Honor__Message"><em>Guransai phulyo banai ma, <br/> mero mana jhulyo timro manai ma…</em> <br/>Click to listen in rhythm. Dedicating this song to my Nepalese friends and you too. Peace!</p>
+      </div>
+    </footer>
+	</main>
+	<script type="text/javascript">
+		function checkTheTask(target)	{
+			
+			console.log(target.className, target.parentNode)
+			switch(target.className) {
+				case 'Todo':
+					target.className = 'Todo Todo--check'
+					break;
+				case 'Todo Todo--check':
+					target.className = 'Todo'
+					break;
+				default:
+					checkTheTask(target.parentNode);
+			}
+		}
+
+		function bindListeners()	{
+			var todos = document.querySelectorAll('.Todo');
+			todos.forEach(function(todo)	{
+				todo.addEventListener('click', function(e){ checkTheTask(e.target); })
+			});
+		}
+		
+		window.onload = function() {
+			bindListeners();
+		};
+
+	</script>
+	<script type="text/javascript">
+	  (function (i, s, o, g, r, a, m) {
+	    i['GoogleAnalyticsObject'] = r;
+	    i[r] = i[r] || function () {
+	        (i[r].q = i[r].q || []).push(arguments)
+	      }, i[r].l = 1 * new Date();
+	    a = s.createElement(o),
+	      m = s.getElementsByTagName(o)[0];
+	    a.async = 1;
+	    a.src = g;
+	    m.parentNode.insertBefore(a, m)
+	  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+	
+	  ga('create', 'UA-43145422-3', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</body>
+</html>
