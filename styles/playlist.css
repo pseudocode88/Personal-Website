@@ -380,6 +380,14 @@
     font-weight: 500;
 }
 
+.TrackEmbed__Note	{
+	background: #fafafa;
+	font-size: 12px;
+	box-sizing: border-box;
+	color: #808080;
+	padding: 7px 30px 7px 7px;
+}
+
 .TrackEmbed__Tracks	{
     list-style: none;
     padding: 0;
@@ -586,4 +594,47 @@
 .Playlist--ItalianRockStamps	{
 	width: 650px;
 	margin-left:-2px;
+}
+
+/** Playlist Ros **/
+
+.Playlist--Ros-BannerWrapper	{
+	position: relative;
+	width: 100%;
+	height: 508px;
+}
+
+.Playlist--Ros-Banner	{
+	position: absolute;
+	top: 0;
+	left: -140px;
+	width: 1200px;
+}
+
+.Playlist--Ros .Content {
+	padding: 0 50px 30px 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	column-count: 2;
+	column-gap: 50px;
+	position: relative;
+}
+
+.Playlist--Ros .Content p,
+.Playlist--Ros .Content p, a{
+	font-size: 14px;
+	line-height: 1.55;
+	hyphens: auto;
+}
+
+.Playlist--Ros-FirstPara	{
+	margin-top: 150px;
+}
+
+.Playlist--Ros-Sidebar	{
+	position: absolute;
+	right: -220px;
+	top: 200px;
+	width: 242px;
 }

@@ -7,6 +7,7 @@ const playlistConfig = {
 };
 
 const playlists = [
+    'rossereysothea',
     'italianrock',
     'indonesia/rock',
     'indonesia/classic-rock',
