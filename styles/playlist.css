@@ -724,3 +724,8 @@
     margin-left: -150px;
     shape-outside: polygon(1px 25px, -139px 45px, -96.33% 99.29%, -30.15% 97.34%, 70.45% 75.63%, 69.94% 58.7%, 58.07% 49.39%, 8.54% 32.95%, 94px 102px);
 }
+
+.Playlist--Vietnam-Footer	{
+	width: 900px;
+	margin-left:-2px;
+}
