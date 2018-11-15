@@ -7,6 +7,7 @@ const playlistConfig = {
 };
 
 const playlists = [
+    'thesaigonkick',
     'rossereysothea',
     'italianrock',
     'indonesia/rock',
