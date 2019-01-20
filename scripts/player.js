@@ -81,7 +81,7 @@ View.Radio = {
     showRandomRadioImage: function()  {
         const source = [
             '/images/radio/banjo.png',
-            '/images/radio/melinda.png',
+            '/images/radio/melinda.png'
         ];
 
         this.$el.radioImage.set('src', source[Math.floor(Math.random() * Math.floor(2))]);

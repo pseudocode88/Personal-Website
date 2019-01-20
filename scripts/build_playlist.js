@@ -7,6 +7,7 @@ const playlistConfig = {
 };
 
 const playlists = [
+    'sheilachandra',
     'thesaigonkick',
     'rossereysothea',
     'italianrock',
