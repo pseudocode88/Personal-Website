@@ -2,8 +2,6 @@ let https = require('https');
 let process = require('process');
 let argv = require('minimist')(process.argv.slice(2));
 
-const ACTIVEPROJECT = "turn-up-the-808";
-
 function searchDiscogs(releaseId) {
     const httpsOptions = {
         hostname: 'api.discogs.com',
@@ -14,19 +12,23 @@ function searchDiscogs(releaseId) {
     https.get(httpsOptions, function(res){
         var body = '';
         res.on('data', (chunk) => body += chunk);
-        res.on('end', () => onReleaseFound(releaseId, body));
+        res.on('end', () => onReleaseFound(releaseId, JSON.parse(body)));
     }).on('error', (e) => showConnectionnErrorPrompt());
 }
 
-function onReleaseFound(releaseId, body) {
-    let response = JSON.parse(body);
+function onReleaseFound(releaseId, response) {
     if(response.hasOwnProperty('message'))  {
         showReleaseNotFoundPrompt();
         process.exit(1);
     }
 
+    if(response.status === 'Draft') {
+        showDraftFoundPrompt();
+        process.exit(1);
+    }
+
     showSuccessPrompt(response.uri);
-    let releaseDetails = discogsResponseParser(response);
+    let releaseDetails = responseParser(response);
 
     if(trackNos.length > 0) {
         scaffoldTrackEmbed(releaseDetails);
@@ -37,7 +39,7 @@ function onReleaseFound(releaseId, body) {
     process.exit(1);
 }
 
-function discogsResponseParser(response) {
+function responseParser(response) {
     return {
         id: response.id,
         uri: response.uri,
@@ -71,7 +73,7 @@ function pbcopy(data) {
     proc.stdin.write(data); proc.stdin.end();
 }
 
-function showHeader() {
+function showHeaderPrompt() {
     console.log("");
     console.log("Discogs");
     console.log("=======");
@@ -113,6 +115,11 @@ function showReleaseNotFoundPrompt() {
     console.log("");
 }
 
+function showDraftFoundPrompt() {
+    console.log("Forbidden: The release is in draft mode");
+    console.log("");
+}
+
 function showConnectionnErrorPrompt() {
     console.log("Error: No Internnet Connection");
     console.log("");
@@ -145,11 +152,10 @@ function getRandomReleaseId()   {
 }
 
 process.stdout.write('\033c');
-showHeader();
 
 let releaseId = (argv._.length <= 0) ? getRandomReleaseId() : argv._[0];
 let trackNos = (argv.hasOwnProperty('t')) ? argv.t.toString().split(',') : [];
-let downloadImage = (argv.hasOwnProperty('i')) ? true : false;
 
+showHeaderPrompt();
 showSearchingPrompt(releaseId);
 searchDiscogs(releaseId);
