@@ -1,0 +1,10 @@
+{
+  "name": "discogs",
+  "version": " 1.0.0",
+  "devDependencies": {
+    "ascii-art": "^1.5.1",
+    "canvas": "^2.4.1",
+    "minimist": "^1.2.0",
+    "ora": "^3.4.0"
+  }
+}
