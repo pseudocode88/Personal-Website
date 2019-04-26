@@ -743,11 +743,14 @@
 }
 
 /** Playlist Sheila Chandra **/
+.Playlist--808 {
+	padding-bottom: 70px;
+}
 
 .Playlist--808-BannerWrapper	{
 	position: relative;
 	width: 100%;
-	height: 675px;
+	height: 685px;
 }
 
 .Playlist--808-Banner	{
@@ -763,19 +766,66 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	column-count: 3;
-	column-gap: 30px;
+	column-gap: 50px;
 	position: relative;
 	text-align: justify;
+
+	-webkit-column-rule: 1px dotted #808080; /* Chrome, Safari, Opera */
+	-moz-column-rule: 1px dotted #808080; /* Firefox */
+	column-rule: 1px dotted #808080;
 }
 
 .Playlist--808 .Content p,
 .Playlist--808 .Content a {
 	font-size: 14px;
 	line-height: 1.55;
+	/*hyphens: auto;*/
+
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 3;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 6 3 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-last: always;
+	-webkit-hyphenate-limit-zone: 8%;
+
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 6 3 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-last: always;
+	-moz-hyphenate-limit-zone: 8%;
+
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 6 3 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-last: always;
+	-ms-hyphenate-limit-zone: 8%;
+
 	hyphens: auto;
+	hyphenate-limit-chars: 6 3 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-last: always;
+	hyphenate-limit-zone: 8%;
 }
 
 .Playlist--808 .Content h2 {
-	margin: 0 0 15px 0;
+	margin: 0 0 5px 0;
+	font-size: 42px;
+	font-weight: 900;
+	letter-spacing: -1px;
 	display: block;
+}
+
+.Playlist--808 .TrackListing	{
+	margin-bottom: 30px;
+}
+
+.Playlist--808 .heading	{
+	width: 90%;
+	margin: 10px 0;
+}
+
+.Playlist--808-Footer	{
+	width: 100%;
+	margin: 50px 0 0 0;
 }
