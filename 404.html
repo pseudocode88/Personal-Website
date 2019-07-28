@@ -49,12 +49,13 @@
 
 		.wrapper--404 img {
 			position: absolute;
-			top: 50px;
-			left: -200px;
+			top: 100px;
+			left: -400px;
 			width: 500px;
 			transform: scale(2);
-			/*animation: cena 100s ease-in-out infinite;*/
+			animation: cena 80s ease forwards;
 			z-index: -1;
+			transform-origin: left;
 		}
 
 		.wrapper--404 a {
@@ -64,9 +65,8 @@
 		}
 
 		@keyframes cena {
-			0% { transform: scale(1.1); }
-			50% { transform: scale(2.5); }
-			100% { transform: scale(1.1); }
+			0% { transform: scale(2) rotate(-10deg) translateX(0) translateY(0);}
+			100% { transform: scale(2.5) rotate(20deg) translateX(-50px) translateY(-100px); }
 		}
 	</style>
 </head>
