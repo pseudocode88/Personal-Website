@@ -2,6 +2,11 @@ strike {
     color: #AAAAAA;
 }
 
+.Wrapper--RadFadMad {
+    width: 950px;
+    padding: 70px 70px 70px 140px;
+}
+
 .RadFadMad  {
     overflow: visible;
     position: relative;
@@ -11,7 +16,7 @@ strike {
     position: absolute;
     width: 140px;
     top: 55px;
-    right: 140px;
+    right: 180px;
     z-index: -1;
 }
 
@@ -22,10 +27,10 @@ strike {
 }
 
 .RadFadMad .Content  {
-    width: 1000px;
+    width: 950px;
     box-sizing: border-box;
     column-count: 3;
-    column-gap: 40px;
+    column-gap: 0;
     position: relative;
     text-align: left;
     padding: 30px 0;
@@ -53,8 +58,25 @@ strike {
     100%   { transform: rotate(360deg); }
 }
 
+.RadFadMad--Back-to-top {
+    display: table;
+    margin: 20px auto 60px auto;
+    line-height: 1;
+    text-align: center;
+    background: #eeeeee;
+    /*color: #fff;*/
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px dotted #000;
+}
+
+.RadFadMad--Back-to-top:hover   {
+    background: #eeeeee;
+}
+
 .RadFadMad--Post    {
-    padding: 20px 0;
+    padding: 20px;
     border-bottom: 1px dotted #000000;
     /*border-bottom: 1px solid rgb(128, 128, 128);*/
 }
@@ -119,7 +141,7 @@ strike {
     background: #000000;
     padding: 6px 9px;
     text-transform: uppercase;
-    width: 1000px;
+    width: 950px;
     box-sizing: border-box;
 }
 
