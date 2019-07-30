@@ -15,8 +15,8 @@ strike {
 .RadFadMad--Banner  {
     position: absolute;
     width: 140px;
-    top: 55px;
-    right: 180px;
+    top: 19px;
+    right: 184px;
     z-index: -1;
 }
 
@@ -48,7 +48,7 @@ strike {
 
 .RadFadMad--Intro img {
     width: 90px;
-    margin: 15px 0 0 30px;
+    margin: -20px 0 0 30px;
     align-self: baseline;
     animation: RFMlogoRotate 10s linear infinite;
 }
@@ -68,11 +68,13 @@ strike {
     padding: 15px;
     font-size: 14px;
     font-weight: bold;
-    border: 1px dotted #000;
+    box-shadow: 2px 2px 0 0 #000;
+    /*border: 1px dotted #000;*/
 }
 
 .RadFadMad--Back-to-top:hover   {
     background: #eeeeee;
+    box-shadow: -2px -2px 0 0 #000;
 }
 
 .RadFadMad--Post    {
@@ -133,13 +135,13 @@ strike {
 }
 
 .RadFadMad--Month   {
-    font-size: 12px;
+    font-size: 18px;
     text-align: left;
     font-weight: bold;
-    margin: 0 0 0px 0;
+    margin: 0;
     color: #ffffff;
     background: #000000;
-    padding: 6px 9px;
+    padding: 6px 18px;
     text-transform: uppercase;
     width: 950px;
     box-sizing: border-box;
