@@ -1,0 +1,154 @@
+strike {
+    color: #AAAAAA;
+}
+
+.Wrapper--RadFadMad {
+    width: 950px;
+    padding: 70px 70px 70px 140px;
+}
+
+.RadFadMad  {
+    overflow: visible;
+    position: relative;
+}
+
+.RadFadMad--Banner  {
+    position: absolute;
+    width: 140px;
+    top: 19px;
+    right: 184px;
+    z-index: -1;
+}
+
+.RadFadMad--Footer {
+    display: block;
+    width: 380px;
+    margin: 80px 0 30px 0;
+}
+
+.RadFadMad .Content  {
+    width: 950px;
+    box-sizing: border-box;
+    column-count: 3;
+    column-gap: 0;
+    position: relative;
+    text-align: left;
+    padding: 30px 0;
+    column-rule: 1px dotted #000000;
+    /*column-rule: 1px solid rgb(128, 128, 128);*/
+    margin: 0px 0 0px 0;
+    display: inline-block;
+}
+
+.RadFadMad--Intro {
+    width: 640px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.RadFadMad--Intro img {
+    width: 90px;
+    margin: -20px 0 0 30px;
+    align-self: baseline;
+    animation: RFMlogoRotate 10s linear infinite;
+}
+
+@keyframes RFMlogoRotate {
+    0%   { transform: rotate(0deg); }
+    100%   { transform: rotate(360deg); }
+}
+
+.RadFadMad--Back-to-top {
+    display: table;
+    margin: 20px auto 60px auto;
+    line-height: 1;
+    text-align: center;
+    background: #eeeeee;
+    /*color: #fff;*/
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 2px 2px 0 0 #000;
+    /*border: 1px dotted #000;*/
+}
+
+.RadFadMad--Back-to-top:hover   {
+    background: #eeeeee;
+    box-shadow: -2px -2px 0 0 #000;
+}
+
+.RadFadMad--Post    {
+    padding: 20px;
+    border-bottom: 1px dotted #000000;
+    /*border-bottom: 1px solid rgb(128, 128, 128);*/
+}
+
+.RadFadMad--Post:first-child    {
+    padding-top: 0;
+}
+
+.RadFadMad--Post:last-child,
+.RadFadMad--Post--last{
+    border-bottom: 0;
+}
+
+/*.RadFadMad--Post hr {*/
+/*    width: 100%;*/
+/*    float: none;*/
+/*    border-top: 1px solid rgb(128, 128, 128);*/
+/*}*/
+
+.RadFadMad--Intro p,
+.RadFadMad--Intro a,
+.RadFadMad--Post p,
+.RadFadMad--Post a,
+.RadFadMad--Post li {
+    font-size: 14px;
+    line-height: 1.55;
+    text-align: justify;
+    hyphens: auto;
+}
+.RadFadMad--Post ol {
+    padding-left: 15px;
+}
+
+.RadFadMad--Post li {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+
+.RadFadMad--Intro p,
+.RadFadMad--Intro a {
+    margin: 0;
+}
+
+.RadFadMad--Post p,
+.RadFadMad--Post a {
+    margin: 0 0 15px 0;
+}
+
+.RadFadMad--Post p:last-child   {
+    margin-bottom: 0;
+}
+
+.RadFadMad--Month   {
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+    color: #ffffff;
+    background: #000000;
+    padding: 6px 18px;
+    text-transform: uppercase;
+    width: 950px;
+    box-sizing: border-box;
+}
+
+.RadFadMad--Flowerfooter    {
+    width: 150px;
+    margin: 30px 0 60px 30px;
+    display: block;
+}

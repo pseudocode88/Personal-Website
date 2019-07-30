@@ -167,6 +167,21 @@ td  {
     overflow: visible;
 }
 
+.Wrapper--Playlist {
+    width: 900px;
+    padding: 70px 0 70px 140px;
+}
+
+.Wrapper--Title {
+    width: 660px;
+}
+
+.Wrapper--Custom {
+    width: 900px;
+    margin-bottom: 80px;
+    position: relative;
+}
+
 .Logo {
     position: absolute;
     top: 0px;

@@ -14,81 +14,110 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 	<link rel="icon" href="/favicon/favicon.gif" type="image/gif" >
   <link rel="stylesheet" href="styles/generic.css" type="text/css"/>
+
+	<style type="text/css">
+		.section--404 {
+			overflow: visible;
+		}
+		.wrapper--404 {
+			width: 100%;
+			box-sizing: border-box;
+			padding: 100px 0 50px 260px;
+			text-align: center;
+			position: relative;
+		}
+
+		.wrapper--404 h1 {
+			font-size: 200px;
+			font-weight: 900;
+			margin: 0;
+			line-height: 1;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color:red;
+		}
+
+		.wrapper--404 h3 {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 50px;
+			font-weight: 900;
+			text-transform: uppercase;
+			line-height: 1;
+			margin: 0;
+			/*color: #0000ff;*/
+			/*font-style: italic;*/
+		}
+
+		.cena {
+			position: absolute;
+			top: 100px;
+			left: -400px;
+			width: 500px;
+			transform: scale(2);
+			animation: cena 50s linear forwards;
+			z-index: -1;
+			transform-origin: left;
+		}
+
+		.wrapper--404 a {
+			font-size: 32px;
+			display: block;
+		}
+
+		@keyframes cena {
+			0% { transform: scale(2) rotate(-10deg) translateX(0) translateY(0);}
+			100% { transform: scale(2.5) rotate(20deg) translateX(-50px) translateY(-100px); }
+		}
+	</style>
 </head>
 <body>
-<main class="Wrapper">
+<main class="Wrapper" style="overflow: visible;">
 	<img class="Logo" src="images/profile-picture.jpg"/>
   
   <nav class="Navigation">
-  	<li class="Navigation__Item">
-  		<a class="Navigation__Link" href="/">About</a>
-  	</li>
-  	<li class="Navigation__Item">
-  		<a class="Navigation__Link" href="writings.html">Writings</a>
-  	</li>
-  	<li class="Navigation__Item">
-  		<a class="Navigation__Link" href="designs.html">Designs</a>
-  	</li>
-  	<li class="Navigation__Item">
-  		<a class="Navigation__Link" href="playlists.html">Playlists</a>
-  	</li>
-  	<li class="Navigation__Item">
-  		<a class="Navigation__Link" href="contact.html">Contact</a>
-  	</li>
+	  <li class="Navigation__Item">
+		  <a class="Navigation__Link" href="/">Home</a>
+	  </li>
+	  <li class="Navigation__Item">
+		  <a class="Navigation__Link" href="/playlists.html">Playlists</a>
+	  </li>
+	  <li class="Navigation__Item">
+		  <a class="Navigation__Link" href="/radfadmad.html">Rad Fad Mad</a>
+	  </li>
+	  <li class="Navigation__Item">
+		  <a class="Navigation__Link" href="/writings.html">Writings</a>
+	  </li>
+	  <li class="Navigation__Item">
+		  <a class="Navigation__Link" href="/projects.html">Projects</a>
+	  </li>
+	  <li class="Navigation__Item">
+		  <a class="Navigation__Link" href="/about.html">About</a>
+	  </li>
   </nav>
   
-  <section id="home">
-  	<ul class="dominos-404">
-  	      <li class="dominos">
-  	        <div class="dominos-dot one"></div>
-  	        <div class="dominos-dot two"></div>
-  	        <div class="dominos-dot three"></div>
-  	        <div class="dominos-dot four"></div>
-  	        <div class="dominos-separator">
-  	          <div class="dominos-dot-green"></div>
-  	        </div>
-  	        <div class="dominos-dot five"></div>
-  	        <div class="dominos-dot six"></div>
-  	        <div class="dominos-dot seven"></div>
-  	        <div class="dominos-dot eight"></div>
-  	      </li>
-  	
-  	      <li class="dominos-null">
-  	        <div class="dominos-separator-null">
-  	          <div class="dominos-dot-green-null"></div>
-  	        </div>
-  	      </li>
-  	
-  	      <li class="dominos">
-  	        <div class="dominos-dot one"></div>
-  	        <div class="dominos-dot two"></div>
-  	        <div class="dominos-dot three"></div>
-  	        <div class="dominos-dot four"></div>
-  	        <div class="dominos-separator">
-  	          <div class="dominos-dot-green"></div>
-  	        </div>
-  	        <div class="dominos-dot five"></div>
-  	        <div class="dominos-dot six"></div>
-  	        <div class="dominos-dot seven"></div>
-  	        <div class="dominos-dot eight"></div>
-  	      </li>
-  	    </ul>
-  	    <p><b style="font-size: 70px; float:left; margin-right: 30px;">404</b><br/> – Sorry, I still haven't found what you are looking for! So lets move <a href="/index.html">onward and forward</a></p>
+  <section id="home" class="section--404">
+	  <div class="wrapper--404">
+		  <h1>404</h1>
+		  <h3>You Can't</h3>
+		  <h3>See Me</h3>
+		  <a href="/"><img width="350" src="images/404-click.gif"/></a>
+		  <img class="cena" src="images/404.png"/>
+		  <audio src="media/john-cena-theme.mp3" autoplay/>
+	  </div>
   </section>
   <footer>
-    <nav>
-      <li><a href="/">Home</a></li>
-      <li><a href="/writings.html">Writings</a></li>
-      <li><a href="/projects.html">Projects</a></li>
-      <li><a href="/playlists.html">Playlists</a></li>
-      <li><a href="/about.html">about</a></li>
-    </nav>
+	  <nav>
+		  <li><a href="/">Home</a></li>
+		  <li><a href="/playlists.html">Playlists</a></li>
+		  <li><a href="/radfadmad.html">Rad Fad Mad</a></li>
+		  <li><a href="/writings.html">Writings</a></li>
+		  <li><a href="/projects.html">Projects</a></li>
+		  <li><a href="/about.html">about</a></li>
+	  </nav>
     <div class="Honor">
-      <a href="https://www.youtube.com/watch?v=JU_UzI1ki7g" target="_blank">
-        <img class="Honor__Image" src="/images/footer-flower.png"/>
-      </a>
-      <p class="Honor__Message"><em>Guransai phulyo banai ma, <br/> mero mana jhulyo timro manai ma…</em> <br/>Click to listen in rhythm. Dedicating this song to my Nepalese friends and you too. Peace!</p>
-    </div>
+			<img class="Honor__Image" src="/images/footer-flower.png"/>
+
+			<p class="Honor__Message"><em>“Guransai phulyo banai ma, <br/> mero mana jhulyo timro manai ma…”</em> - Dedicating this rhododendron to my Nepalese friends, miss you guys and the time. Peace!</p>
+		</div>
   </footer>
 </main>
 <script type="text/javascript">

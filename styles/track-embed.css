@@ -1,0 +1,117 @@
+.TrackListing	{
+    padding: 0;
+    list-style: none;
+    margin-bottom: 50px;
+}
+
+.TrackEmbed	{
+    margin-top: 0;
+    margin-bottom: 15px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.TrackEmbed:last-child	{
+    margin-bottom: 0;
+}
+
+.TrackEmbed__Details	{
+    display: flex;
+}
+
+.TrackEmbed__AlbumArt	{
+    width: 80px;
+    height: 80px;
+    align-self: baseline;
+    margin: 0 15px 0 0;
+    flex-shrink: 0;
+}
+
+.TrackEmbed__Content    {
+    width: 100%;
+    flex-shrink: 1;
+}
+
+.TrackEmbed__AlbumName	{
+    font-size: 14px;
+    margin: 0;
+    text-transform: capitalize;
+    line-height: 1.4 !important;
+    text-align: left !important;
+}
+
+.TrackEmbed__ArtistName	{
+    font-size: 14px;
+    line-height: 1.4 !important;
+    margin: 0 0 2px 0!important;
+    text-transform: capitalize;
+    text-align: left !important;
+}
+
+.TrackEmbed__Style	{
+    margin: 0 !important;
+    color: #808080;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    font-weight: 500;
+    text-align: left !important;
+}
+
+.TrackEmbed__Note	{
+    background: #fafafa;
+    font-size: 12px;
+    box-sizing: border-box;
+    color: #808080;
+    padding: 7px 30px 7px 7px;
+}
+
+.TrackEmbed__Tracks	{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.TrackEmbed__Tracks li	{
+    overflow: hidden;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(51, 51, 51, 0.3);
+}
+
+.TrackEmbed__Tracks li:first-child	{
+    border-top: 1px solid rgba(51, 51, 51, 0.3);
+}
+
+.TrackEmbed__Tracks li:last-child	{
+    border-bottom-style: solid;
+}
+
+.TrackEmbed__Tracks li:hover    {
+    background-color: rgba(51, 51, 51, 0.02);
+}
+
+.TrackEmbed__Tracks li p	{
+    float: left;
+    display: inline-block;
+    margin: 0;
+    font-size: 13px !important;
+}
+
+.TrackEmbed__Tracks li i	{
+    float: right;
+    display: inline-block;
+    font-size: 11px;
+    font-style: normal;
+    margin: 0;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    opacity: 0.5;
+    text-transform: lowercase;
+    cursor: pointer;
+}
+
+.TrackEmbed__Tracks li i:hover	{
+    opacity: 1;
+}
