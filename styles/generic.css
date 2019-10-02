@@ -138,6 +138,8 @@ td  {
 }
 
 .MB { margin-bottom: 3px !important; }
+.MB--4 { margin-bottom: 4px !important; }
+.MB--8 { margin-bottom: 8px !important; }
 .MB--10 { margin-bottom: 10px !important; }
 .MB--20 { margin-bottom: 20px !important; }
 .MB--30 { margin-bottom: 30px !important; }
@@ -146,6 +148,7 @@ td  {
 .MB--60 { margin-bottom: 60px !important; }
 .MB--70 { margin-bottom: 70px !important; }
 .MB--80 { margin-bottom: 80px !important; }
+.MB--120 { margin-bottom: 120px !important; }
 
 
 /** Custom Styles **/
@@ -1036,6 +1039,19 @@ footer nav li a:hover {
 .WireframingKit {
     text-align: center;
     margin-bottom: 70px;
+}
+
+.WireframingKit__Crate  {
+    background: #deffe7;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+.WireframingKit__Crate h1,
+.WireframingKit__Crate p {
+    margin-bottom: 0;
 }
 
 .WireframingKit__Title {
