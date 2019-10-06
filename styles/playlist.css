@@ -809,11 +809,33 @@
 }
 
 .Playlist--808 .Content h2 {
+	margin: 0;
+	font-size: 100px;
+	font-weight: 900;
+	letter-spacing: -8px;
+	display: block;
+	text-transform: uppercase;
+	position: absolute;
+	transform: rotate(-90deg);
+	color: #cccccc;
+}
+
+.Playlist--808 .Content h3 {
 	margin: 0 0 5px 0;
 	font-size: 42px;
 	font-weight: 900;
 	letter-spacing: -1px;
 	display: block;
+}
+
+.Playlist--808-Heading-PartOne	{
+	top: 148px;
+	left: -326px;
+}
+
+.Playlist--808-Heading-PartTwo	{
+	top: 157px;
+	left: -334px;
 }
 
 .Playlist--808 .TrackListing	{
@@ -825,8 +847,8 @@
 	margin: 10px 0;
 }
 
-.Playlist--808-Footer	{
-	width: 100%;
+.Playlist--808-Collage	{
+	width: 125%;
 	margin: 0 0 0 -140px;
 }
 
@@ -835,4 +857,10 @@
 	width: 100%;
 	/*margin-left: -160px;*/
 	shape-outside: polygon(1px 25px, -139px 45px, -96.33% 99.29%, -27.54% 98.87%, 34.02% 84.15%, 65.24% 77.62%, 74.7% 68.49%, 65.61% 52.48%, 33.97% 41.94%, 12.45% 32.03%, 114px 120px);
+}
+
+.Playlist--808-Stamp	{
+    width: 350px;
+    margin: 100px 0 0 0;
+    transform: rotate(5deg);
 }
