@@ -838,6 +838,21 @@
 	left: -334px;
 }
 
+.Playlist--808-Heading-PartThree	{
+	top: 190px;
+	left: -378px;
+}
+
+.Playlist--808-End-of-Part	{
+	color: #ccc;
+	text-transform: uppercase;
+	font-size: 70px !important;
+	text-align: left;
+	line-height: 0.8;
+	letter-spacing: -4px !important;
+	margin: 0 !important;
+}
+
 .Playlist--808 .TrackListing	{
 	margin-bottom: 30px;
 }
