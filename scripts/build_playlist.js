@@ -7,6 +7,15 @@ const playlistConfig = {
 };
 
 const playlists = [
+    'turn-up-the-808/prelude',
+    'turn-up-the-808/electro',
+    'turn-up-the-808/freestyle',
+    'turn-up-the-808/miami-bass',
+    'turn-up-the-808/favela-funk',
+    'turn-up-the-808/chicago-house',
+    'turn-up-the-808/detroit-techno',
+    'turn-up-the-808/italo-disco',
+    'turn-up-the-808/where-else',
     'sheilachandra',
     'thesaigonkick',
     'rossereysothea',
