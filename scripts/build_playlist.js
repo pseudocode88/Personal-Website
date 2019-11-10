@@ -16,6 +16,7 @@ const playlists = [
     'turn-up-the-808/detroit-techno',
     'turn-up-the-808/italo-disco',
     'turn-up-the-808/where-else',
+    'turn-up-the-808/bonus',
     'sheilachandra',
     'thesaigonkick',
     'rossereysothea',
