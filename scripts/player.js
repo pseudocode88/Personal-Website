@@ -47,6 +47,7 @@ View.Radio = {
         this.$el.albumArt.set('@src', '/images/stations/' + track.albumart);
         this.$el.trackName.set('innerHTML', track.name);
         this.$el.trackArtist.set('innerHTML', track.artist);
+        console.log(' - ' + track.name + ' by ' + track.artist);
     },
 
     _togglePlayButton: function(play, el)   {
@@ -161,8 +162,7 @@ const Player = {
 
 initYoutube();
 $.ready(function(){
-    View.init();
-
     console.log('Currated flavours for your soul. \n' +
         'Bon Appétit!');
+    View.init();
 });

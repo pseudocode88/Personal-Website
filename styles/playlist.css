@@ -630,8 +630,6 @@
 
 .Playlist--SChandra-Sidebanner p	{
 	font-size: 52px;
-	/*font-weight: 900;*/
-	/*text-decoration: underline;*/
 	line-height: 1;
 	z-index: 1;
 	width: 245px;
@@ -640,46 +638,11 @@
 	top: 15px;
 	left: 20px;
 	font-family: "Georgia", "Times New Roman", Serif;
-	/*color: #ffba52;*/
 	color: #F7F7FA;
-	/*animation: TextAnimate 1s infinite ease-in-out;*/
-
 	text-decoration: underline;
-	/*text-decoration-color: #ffba52;*/
 	font-weight: 900;
 	font-style: italic;
 	text-shadow: 5px 4px 1px rgba(0,0,0,1)
-}
-
-@keyframes TextAnimate {
-	0%	{
-		color: #ffba52;
-	}
-    5%	{
-        color: #002282;
-    }
-    10%	{
-        color: #ffba52;
-    }
-    15%	{
-        color: #002282;
-    }
-    20%	{
-        color: #002282;
-    }
-    25%	{
-        color: #ffba52;
-    }
-	/*50%	{*/
-		/*text-decoration-color: #ffba52;*/
-	/*}*/
-	/*75%	{*/
-		/*text-decoration-color: #F7F7FA;*/
-	/*}*/
-	100%	{
-		color: #F7F7FA;
-	}
-
 }
 
 .Playlist--SChandra-Tajmahal	{
@@ -729,7 +692,6 @@
     height: auto;
     position: absolute;
     top: -20px;
-    /*left: -100px;*/
 }
 
 .Playlist--SChandra-Article-Side	{
@@ -746,12 +708,8 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     justify-content: space-between;
-    /*column-count: 2;*/
-    /*column-gap: 30px;*/
     position: relative;
-    /*display: flex;*/
     text-align: justify;
-    /*transform: rotate(-2deg);*/
 }
 
 .Playlist--SChandra-Article .Content p,
@@ -772,7 +730,7 @@
 }
 
 .Playlist--SChandra-Footer	{
-	width: 130px;
+	width: 110px;
 	margin-top: 7px;
 	margin-left: -7px;
 }
@@ -782,4 +740,197 @@
 	margin-right: -246px;
 	float: right;
 	margin-top: -166px;
+}
+
+/** Playlist Sheila Chandra **/
+.Playlist--808 {
+	padding-bottom: 70px;
+}
+
+.Playlist--808-BannerWrapper	{
+	position: relative;
+	width: 100%;
+	height: 685px;
+}
+
+.Playlist--808-BannerHeader	{
+	position: absolute;
+	left: -140px;
+	width: 1260px;
+}
+
+.Playlist--808 .Content {
+	width: 1000px;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	position: relative;
+	text-align: justify;
+}
+
+.Playlist--808-Columise {
+	column-count: 3;
+	column-gap: 50px;
+	-webkit-column-rule: 1px dotted #808080; /* Chrome, Safari, Opera */
+	-moz-column-rule: 1px dotted #808080; /* Firefox */
+	column-rule: 1px dotted #808080;
+}
+
+.Playlist--808 p,
+.Playlist--808 a {
+	font-size: 14px;
+	line-height: 1.55;
+
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 3;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 6 3 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-last: always;
+	-webkit-hyphenate-limit-zone: 8%;
+
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 6 3 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-last: always;
+	-moz-hyphenate-limit-zone: 8%;
+
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 6 3 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-last: always;
+	-ms-hyphenate-limit-zone: 8%;
+
+	hyphens: auto;
+	hyphenate-limit-chars: 6 3 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-last: always;
+	hyphenate-limit-zone: 8%;
+}
+
+.Playlist--808 h2 {
+	margin: 0;
+	font-size: 100px;
+	font-weight: 900;
+	letter-spacing: -8px;
+	display: block;
+	text-transform: uppercase;
+	position: absolute;
+	transform: rotate(-90deg);
+	color: #cccccc;
+}
+
+.Playlist--808 h3 {
+	margin: 0 0 5px 0;
+	font-size: 42px;
+	font-weight: 900;
+	letter-spacing: -1px;
+	display: block;
+}
+
+.Playlist--808-Heading-PartOne	{
+	top: 148px;
+	left: -326px;
+}
+
+.Playlist--808-Heading-PartTwo	{
+	top: 157px;
+	left: -334px;
+}
+
+.Playlist--808-Heading-PartThree	{
+	top: 190px;
+	left: -378px;
+}
+
+.Playlist--808-Heading-PartEnd	{
+	top: 125px;
+	left: -298px;
+}
+
+.Playlist--808-End-of-Part	{
+	color: #ccc;
+	text-transform: uppercase;
+	font-size: 70px !important;
+	text-align: left;
+	line-height: 0.8;
+	letter-spacing: -4px !important;
+	margin: 0 !important;
+}
+
+.Playlist--808 .TrackListing	{
+	margin-bottom: 30px;
+}
+
+.Playlist--808 .heading	{
+	width: 90%;
+	margin: 10px 0;
+}
+
+.Playlist--808-Collage	{
+	width: 125%;
+	margin: 0 0 0 -140px;
+}
+
+.Playlist--808-Stamp	{
+    width: 300px;
+    margin: 60px 0 60px -24px;
+}
+
+
+.Playlist--808-Footer	{
+	width: 666px;
+	display: flex;
+	margin-top: 60px;
+}
+
+.Playlist--808-Footer-Reference {
+	width: 49%;
+	box-sizing: border-box;
+	padding-right: 25px;
+	border-right: 1px dotted;
+}
+
+.Playlist--808-Footer-Bonus {
+	width: 50%;
+	box-sizing: border-box;
+	padding-left: 25px;
+	padding-right: 8px;
+}
+
+.Playlist--808-ReferenceList {
+	font-size: 14px;
+	padding-left: 15px;
+    text-align: left;
+}
+
+.Playlist--808-ReferenceList li {
+	margin-top: 12px;
+}
+
+.Playlist--808-ReferenceList li a {
+	text-transform: capitalize;
+}
+
+.Playlist--808-ReferenceMovie {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.Playlist--808-ReferenceMovie a {
+	width: 47%;
+    margin-bottom: 10px;
+}
+
+.Playlist--808-ReferenceMovie a img {
+	width: 90%;
+	border-radius: 10px;
+}
+
+.Playlist--808-Footer-Banner {
+    width: 100%;
+    margin: 60px 0 0 -200px;
 }
