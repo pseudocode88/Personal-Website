@@ -15,7 +15,7 @@ strike {
 .RadFadMad--Banner  {
     position: absolute;
     width: 140px;
-    top: 19px;
+    top: 29px;
     right: 184px;
     z-index: -1;
 }
@@ -47,7 +47,7 @@ strike {
 
 .RadFadMad--Intro img {
     width: 90px;
-    margin: -20px 0 0 30px;
+    margin: -10px 0 0 30px;
     align-self: baseline;
     animation: RFMlogoRotate 10s linear infinite;
 }
