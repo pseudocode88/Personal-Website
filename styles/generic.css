@@ -520,6 +520,11 @@ td  {
     overflow: hidden;
 }
 
+.Notes iframe {
+    border: 0;
+    width: 100%;
+}
+
 .Writings {
     list-style: none;
     margin: 0;
