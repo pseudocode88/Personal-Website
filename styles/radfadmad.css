@@ -85,9 +85,9 @@ strike {
     /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; 
     color: #808080;
     font-weight: 400;*/
-    font-size: 25px;
-    margin: 0 0 12px 0;
-    text-transform: capitalizes;
+    font-size: 25px !important;
+    margin: 0 0 12px 0 !important;
+    text-transform: capitalize !important;
     /* letter-spacing: 0px !important; */
     display: block;
 }
