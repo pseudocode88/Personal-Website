@@ -79,7 +79,17 @@ strike {
 .RadFadMad--Post    {
     padding: 20px;
     border-bottom: 1px dotted #000000;
-    /*border-bottom: 1px solid rgb(128, 128, 128);*/
+}
+
+.RadFadMad--Post h2 {
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; 
+    color: #808080;
+    font-weight: 400;*/
+    font-size: 25px;
+    margin: 0 0 12px 0;
+    text-transform: capitalizes;
+    /* letter-spacing: 0px !important; */
+    display: block;
 }
 
 .RadFadMad--Post:first-child    {
