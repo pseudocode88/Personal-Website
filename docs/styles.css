@@ -104,6 +104,12 @@ blockquote, blockquote a {
     margin-bottom: 10px;
 }
 
+#projects p u,
+#experience p u {
+    background-color: #27ae5f30;
+    text-decoration: none;
+}
+
 .Image {}
 
 .Image--center {
