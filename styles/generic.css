@@ -93,10 +93,19 @@ figcaption a {
     font-weight: 400;
 }
 
-code {
+pre code {
     display: block;
     background: #f8f9fb;
     padding: 15px;
+    font-size: 15px;
+    font-family: "Menlo", monospace;
+    line-height: 1.5;
+}
+
+code {
+    /* display: block; */
+    background: #f8f9fb;
+    padding: 2px;
     font-size: 15px;
     font-family: "Menlo", monospace;
     line-height: 1.5;
@@ -591,9 +600,20 @@ td {
 }
 
 .Writing__Title {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0 0 3px 0;
+}
+
+.Writing__Title--small {
     font-size: 18px;
     font-weight: 700;
     margin: 0 0 3px 0;
+}
+
+.ViewAll {
+    font-size: 16px;
+    color: #808080;
 }
 
 .Writing__Title a {
