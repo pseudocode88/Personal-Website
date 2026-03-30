@@ -1,0 +1,147 @@
+<svg viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#cbd5e1"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000012"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="640" fill="#f8fafc" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="44" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a" letter-spacing="0.3">Two-Model AI Development Workflow</text>
+  <line x1="280" y1="54" x2="620" y2="54" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- — ROW 1: Brainstorm > Write Plan > Read Plan > Branch — -->
+
+  <!-- STEP 1: Brainstorm -->
+  <rect x="40" y="90" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="40" y="90" width="148" height="6" rx="12" fill="#818cf8"/>
+  <text x="114" y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Brainstorm</text>
+  <text x="114" y="142" text-anchor="middle" font-size="10.5" fill="#64748b">You + Claude</text>
+  <text x="114" y="158" text-anchor="middle" font-size="10.5" fill="#64748b">define the feature</text>
+
+  <!-- Arrow 1 -->
+  <line x1="188" y1="130" x2="208" y2="130" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 2: Write Plan -->
+  <rect x="210" y="90" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="210" y="90" width="148" height="6" rx="12" fill="#818cf8"/>
+  <text x="284" y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Write Plan</text>
+  <text x="284" y="142" text-anchor="middle" font-size="10.5" fill="#64748b">Claude writes to</text>
+  <text x="284" y="158" text-anchor="middle" font-size="10.5" fill="#64748b">/docs/plans</text>
+
+  <!-- Arrow 2 -->
+  <line x1="358" y1="130" x2="378" y2="130" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 3: Read Plan -->
+  <rect x="380" y="90" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="380" y="90" width="148" height="6" rx="12" fill="#38bdf8"/>
+  <text x="454" y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Read Plan</text>
+  <text x="454" y="142" text-anchor="middle" font-size="10.5" fill="#64748b">Codex reads</text>
+  <text x="454" y="158" text-anchor="middle" font-size="10.5" fill="#64748b">the plan file</text>
+
+  <!-- Arrow 3 -->
+  <line x1="528" y1="130" x2="548" y2="130" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 4: Create Branch -->
+  <rect x="550" y="90" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="550" y="90" width="148" height="6" rx="12" fill="#38bdf8"/>
+  <text x="624" y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Create Branch</text>
+  <text x="624" y="142" text-anchor="middle" font-size="10.5" fill="#64748b">Codex creates</text>
+  <text x="624" y="158" text-anchor="middle" font-size="10.5" fill="#64748b">a new branch</text>
+
+  <!-- Arrow down from Create Branch -->
+  <line x1="624" y1="170" x2="624" y2="210" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- — ROW 2: Implement > Commit > Owner Review — -->
+
+  <!-- STEP 5: Implement -->
+  <rect x="550" y="212" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="550" y="212" width="148" height="6" rx="12" fill="#38bdf8"/>
+  <text x="624" y="246" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Implement</text>
+  <text x="624" y="264" text-anchor="middle" font-size="10.5" fill="#64748b">Codex writes</text>
+  <text x="624" y="280" text-anchor="middle" font-size="10.5" fill="#64748b">the code</text>
+
+  <!-- Arrow left from Implement -->
+  <line x1="550" y1="252" x2="530" y2="252" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 6: Commit -->
+  <rect x="380" y="212" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="380" y="212" width="148" height="6" rx="12" fill="#38bdf8"/>
+  <text x="454" y="246" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Commit</text>
+  <text x="454" y="264" text-anchor="middle" font-size="10.5" fill="#64748b">Codex commits</text>
+  <text x="454" y="280" text-anchor="middle" font-size="10.5" fill="#64748b">the changes</text>
+
+  <!-- Arrow left from Commit -->
+  <line x1="380" y1="252" x2="360" y2="252" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 7: Owner Review -->
+  <rect x="210" y="212" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="210" y="212" width="148" height="6" rx="12" fill="#818cf8"/>
+  <text x="284" y="246" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Owner Review</text>
+  <text x="284" y="264" text-anchor="middle" font-size="10.5" fill="#64748b">Claude reviews</text>
+  <text x="284" y="280" text-anchor="middle" font-size="10.5" fill="#64748b">against the plan</text>
+
+  <!-- Arrow down from Owner Review to diamond -->
+  <line x1="284" y1="292" x2="284" y2="352" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- — ROW 3: Decision — -->
+
+  <!-- Decision diamond -->
+  <polygon points="284,354 334,394 284,434 234,394" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="284" y="389" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1e293b">All</text>
+  <text x="284" y="404" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1e293b">good?</text>
+
+  <!-- YES arrow right to Ask Approval -->
+  <line x1="334" y1="394" x2="374" y2="394" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="344" y="386" font-size="10" fill="#22c55e" font-weight="600">Yes</text>
+
+  <!-- STEP 8: Ask Approval -->
+  <rect x="376" y="354" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="376" y="354" width="148" height="6" rx="12" fill="#f59e0b"/>
+  <text x="450" y="388" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Ask Approval</text>
+  <text x="450" y="406" text-anchor="middle" font-size="10.5" fill="#64748b">Claude asks</text>
+  <text x="450" y="422" text-anchor="middle" font-size="10.5" fill="#64748b">you to approve</text>
+
+  <!-- Arrow right from Ask Approval to You Approve -->
+  <line x1="524" y1="394" x2="544" y2="394" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 9: You Approve -->
+  <rect x="546" y="354" width="148" height="80" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="546" y="354" width="148" height="6" rx="12" fill="#f59e0b"/>
+  <text x="620" y="388" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">You Approve</text>
+  <text x="620" y="406" text-anchor="middle" font-size="10.5" fill="#64748b">You say</text>
+  <text x="620" y="422" text-anchor="middle" font-size="10.5" fill="#64748b">all good</text>
+
+  <!-- Arrow down from You Approve to Merge -->
+  <line x1="620" y1="434" x2="620" y2="474" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STEP 10: Merge -->
+  <rect x="546" y="476" width="148" height="72" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="546" y="476" width="148" height="6" rx="12" fill="#22c55e"/>
+  <text x="620" y="510" text-anchor="middle" font-size="12" font-weight="600" fill="#15803d">Merge</text>
+  <text x="620" y="528" text-anchor="middle" font-size="10.5" fill="#16a34a">Claude merges</text>
+  <text x="620" y="544" text-anchor="middle" font-size="10.5" fill="#16a34a">the branch</text>
+
+  <!-- NO path: left from diamond and up back to Brainstorm -->
+  <line x1="234" y1="394" x2="114" y2="394" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="114" y1="394" x2="114" y2="170" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="122" y="386" font-size="10" fill="#f87171" font-weight="600">Fix needed</text>
+  <text x="50" y="310" font-size="10" fill="#94a3b8">Claude updates</text>
+  <text x="58" y="324" font-size="10" fill="#94a3b8">the plan</text>
+
+  <!-- Role legend -->
+  <rect x="220" y="570" width="460" height="44" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <circle cx="256" cy="592" r="5" fill="#818cf8"/>
+  <text x="268" y="596" font-size="10.5" fill="#475569">Owner = Claude</text>
+  <circle cx="380" cy="592" r="5" fill="#38bdf8"/>
+  <text x="392" y="596" font-size="10.5" fill="#475569">Coder = Codex</text>
+  <circle cx="494" cy="592" r="5" fill="#f59e0b"/>
+  <text x="506" y="596" font-size="10.5" fill="#475569">You = Approver</text>
+
+</svg>

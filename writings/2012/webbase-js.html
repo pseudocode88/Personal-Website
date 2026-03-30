@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Webbase.js | jaison.info</title>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<meta name="HandheldFriendly" content="true" />
+	
+	<meta name="description" content="A javascript storage library implemented using localstorage.">
+	
+	<meta name="keywords" content="Javascript">
+	
+	<meta name="author" content="Jaison Justus">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="icon" href="/favicon/favicon.gif" type="image/gif" >
+	<link rel="stylesheet" href="/styles/generic.css" type="text/css" />
+</head>
+<body>
+	<main class="Wrapper">
+		<img class="Logo" src="/images/profile-picture.jpg" />
+		
+		<nav class="Navigation">
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/">Home</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/music-mag.html">Music Mag</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/radfadmad.html">Rad Fad Mad</a>
+			</li>
+			<li class="Navigation__Item Navigation__Item--selected">
+				<a class="Navigation__Link" href="/writings.html">Writings</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/projects.html">Projects</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/about.html">About</a>
+			</li>
+		</nav>
+		
+		<section>
+			<h1>Webbase.js</h1>
+			
+			<p class="Writing__Label">01 Jul 2012</p>
+
+			<p>Webbase.js is a data manager library for javascript web applications, which provide the concept of creating tables in the storage method (localStorage) provided by the browser. its just like mimicing the database to the browser. Basic operations that webbase support are " insert, delete, update, select, select..where and join."</p>
+
+			<h2>Create Table</h2>
+			<pre><code>// Webbase.Storage.create(table_name, structure, primary_key);
+
+Webbase.Storage.create('student',{
+	id : 'number',
+	name : 'string',
+	marks : 'number'
+},'id');</code></pre>
+
+			<h2>Insert Record</h2>
+			<pre><code>// Webbase.Storage.insert(table_name, data);
+
+Webbase.Storage.insert('student',{
+    id : 5225,
+    name : "Jaison Justus",
+    marks : 53
+});</code></pre>
+
+			<h2>Delete Record</h2>
+			<pre><code>// Webbase.Storage.from(table_name).where(condition).delete();
+
+Webbase.Storage.from('student')
+	.where('{id} == 5225')
+	.delete();</code></pre>
+
+			<h2>Update Record</h2>
+			<pre><code>/*
+ * Webbase.Storage.from(table_name)
+ *	.set(data)
+ *	.where(condition).update();
+ */
+
+Webbase.Storage.from('student')
+	.set({ marks : 69 })
+	.where('{id} == 5225 || {id} == 5222')
+	.update();</code></pre>
+
+			<h2>Select Record</h2>
+			<pre><code>/*
+ * Webbase.Storage.select(fields)
+ *	.from(table_name)
+ *	.where(condition).find();
+ */
+
+Webbase.Storage.select('name,marks')
+	.from('student')
+	.where('{id} == 5222')
+	.find();</code></pre>
+
+			<h2>Select Record by Joining Multiple Table</h2>
+			<pre><code>/*
+ * Webbase.Storage.select(fields[student_fieldname])
+ *	.join(tables)
+ *	.where(condition).find();
+ */
+
+Webbase.Storage.select('student_name,student_marks,score_english')
+	.join('student.score')
+	.where('{id} == 5222')
+	.find();</code></pre>
+
+			<div class="GithubRepo">
+				<img src="/images/article/saritocat.png"/>
+				<div>
+					<a href="https://github.com/jaisonjustus/Webbase.js" target="_blank"><h3>jaisonjustus/Webbase.js</h3></a>
+					<p class="Writing__Description">A Javascript Storage Library implemented using localstorage.</p>
+				</div>
+			</div>
+
+			<img class="Signature" width="250" src="/images/signature.svg"
+      alt="Signature of Jaison Justus">
+		</section>
+		
+		<footer>
+      <nav>
+		  <li><a href="/">Home</a></li>
+		  <li><a href="/music-mag.html">Music Mag</a></li>
+		  <li><a href="/radfadmad.html">Rad Fad Mad</a></li>
+		  <li><a href="/writings.html">Writings</a></li>
+		  <li><a href="/projects.html">Projects</a></li>
+		  <li><a href="/about.html">about</a></li>
+      </nav>
+      <div class="Honor">
+			<a href="https://www.youtube.com/watch?v=5WyX9LMFf5I" target="_blank"><img class="Honor__Image" src="/images/footer-flower.png"/></a>
+
+			<p class="Honor__Message"><em>“Guransai phulyo banai ma, <br/> mero mana jhulyo timro manai ma…”</em> - Dedicating this rhododendron to my Nepalese friends, miss you guys and the time. Peace!</p>
+		</div>
+    </footer>
+	</main>
+	<script type="text/javascript">
+		function checkTheTask(target)	{
+			
+			console.log(target.className, target.parentNode)
+			switch(target.className) {
+				case 'Todo':
+					target.className = 'Todo Todo--check'
+					break;
+				case 'Todo Todo--check':
+					target.className = 'Todo'
+					break;
+				default:
+					checkTheTask(target.parentNode);
+			}
+		}
+
+		function bindListeners()	{
+			var todos = document.querySelectorAll('.Todo');
+			todos.forEach(function(todo)	{
+				todo.addEventListener('click', function(e){ checkTheTask(e.target); })
+			});
+		}
+		
+		window.onload = function() {
+			bindListeners();
+		};
+
+	</script>
+	<script type="text/javascript">
+	  (function (i, s, o, g, r, a, m) {
+	    i['GoogleAnalyticsObject'] = r;
+	    i[r] = i[r] || function () {
+	        (i[r].q = i[r].q || []).push(arguments)
+	      }, i[r].l = 1 * new Date();
+	    a = s.createElement(o),
+	      m = s.getElementsByTagName(o)[0];
+	    a.async = 1;
+	    a.src = g;
+	    m.parentNode.insertBefore(a, m)
+	  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+	
+	  ga('create', 'UA-43145422-3', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</body>
+</html>
