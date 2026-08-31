@@ -292,7 +292,11 @@
       const modalDescription = document.querySelector("#modal_description");
       let zoom = getResponsiveZoom();
       let pan = { x: 0, y: 0 };
+      let targetPan = { x: 0, y: 0 };
       let drag = null;
+      let velocity = { x: 0, y: 0 };
+      let animationFrame = null;
+      let lastFrameTime = null;
       let lastFocusedElement = null;
 
       function getResponsiveZoom() {
@@ -329,12 +333,52 @@
         canvas.style.transform = `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`;
       }
 
+      function requestRender() {
+        if (animationFrame === null) animationFrame = requestAnimationFrame(animatePan);
+      }
+
+      function animatePan(timestamp) {
+        animationFrame = null;
+        const elapsed = Math.min((timestamp - (lastFrameTime ?? timestamp)) / 1000, 0.05);
+        lastFrameTime = timestamp;
+
+        if (drag) {
+          // Smoothly follow the pointer while remaining responsive at different refresh rates.
+          const follow = 1 - Math.exp(-20 * elapsed);
+          pan = {
+            x: pan.x + (targetPan.x - pan.x) * follow,
+            y: pan.y + (targetPan.y - pan.y) * follow
+          };
+        } else {
+          const nextPan = clampPan({
+            x: pan.x + velocity.x * elapsed,
+            y: pan.y + velocity.y * elapsed
+          });
+          if (nextPan.x === pan.x) velocity.x = 0;
+          if (nextPan.y === pan.y) velocity.y = 0;
+          pan = nextPan;
+          const friction = Math.exp(-7 * elapsed);
+          velocity = { x: velocity.x * friction, y: velocity.y * friction };
+        }
+
+        pan = clampPan(pan);
+        renderCanvas();
+
+        const speed = Math.hypot(velocity.x, velocity.y);
+        if (drag || speed > 8) requestRender();
+        else {
+          pan = targetPan = clampPan(pan);
+          lastFrameTime = null;
+        }
+      }
+
       function centerOnStartMap() {
         const startMap = maps.find((map) => map.id === "map-1");
         pan = clampPan({
           x: container.clientWidth / 2 - (startMap.worldX + MAP_SIZE.width / 2) * zoom,
           y: container.clientHeight / 2 - (startMap.worldY + MAP_SIZE.height / 2) * zoom
         });
+        targetPan = { ...pan };
         renderCanvas();
       }
 
@@ -382,21 +426,42 @@
 
       container.addEventListener("pointerdown", (event) => {
         if (event.button !== 0) return;
-        drag = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, panX: pan.x, panY: pan.y };
+        velocity = { x: 0, y: 0 };
+        targetPan = { ...pan };
+        drag = {
+          pointerId: event.pointerId,
+          startX: event.clientX,
+          startY: event.clientY,
+          panX: pan.x,
+          panY: pan.y,
+          lastX: event.clientX,
+          lastY: event.clientY,
+          lastTime: event.timeStamp
+        };
         container.setPointerCapture(event.pointerId);
         container.classList.add("is-dragging");
+        requestRender();
       });
 
       container.addEventListener("pointermove", (event) => {
         if (!drag || drag.pointerId !== event.pointerId) return;
-        pan = clampPan({ x: drag.panX + event.clientX - drag.startX, y: drag.panY + event.clientY - drag.startY });
-        renderCanvas();
+        targetPan = clampPan({ x: drag.panX + event.clientX - drag.startX, y: drag.panY + event.clientY - drag.startY });
+        const elapsed = Math.max((event.timeStamp - drag.lastTime) / 1000, 0.001);
+        velocity = {
+          x: (event.clientX - drag.lastX) / elapsed,
+          y: (event.clientY - drag.lastY) / elapsed
+        };
+        drag.lastX = event.clientX;
+        drag.lastY = event.clientY;
+        drag.lastTime = event.timeStamp;
+        requestRender();
       });
 
       function endDrag(event) {
         if (!drag || drag.pointerId !== event.pointerId) return;
         drag = null;
         container.classList.remove("is-dragging");
+        requestRender();
       }
 
       container.addEventListener("pointerup", endDrag);
@@ -407,6 +472,8 @@
       window.addEventListener("resize", () => {
         zoom = getResponsiveZoom();
         pan = clampPan(pan);
+        targetPan = { ...pan };
+        velocity = { x: 0, y: 0 };
         renderCanvas();
       });
 
