@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A draggable prototype universe map.">
+  <title>Universe Map Prototype</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #070b16;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 10%, rgba(75, 94, 184, .18), transparent 32rem),
+        radial-gradient(circle at 76% 85%, rgba(188, 95, 159, .13), transparent 28rem),
+        #070b16;
+    }
+
+    button { font: inherit; }
+
+    #map_container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      isolation: isolate;
+    }
+
+    #map_container.is-dragging { cursor: grabbing; }
+
+    #map_container::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      opacity: .42;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, .68) 0 1px, transparent 1.3px);
+      background-size: 113px 113px;
+      background-position: 17px 31px;
+    }
+
+    #world_canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+    }
+
+    .map {
+      position: absolute;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      border: 1px solid rgba(250, 231, 175, .44);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, .48), inset 0 0 0 12px rgba(19, 23, 44, .36);
+      background-color: #31465b;
+    }
+
+    .map__art,
+    .map__art::before,
+    .map__art::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+    }
+
+    .map__art {
+      background:
+        radial-gradient(ellipse at 15% 62%, rgba(226, 197, 123, .78) 0 5%, transparent 5.2%),
+        radial-gradient(ellipse at 73% 26%, rgba(230, 206, 139, .72) 0 8%, transparent 8.2%),
+        radial-gradient(ellipse at 83% 76%, rgba(110, 163, 127, .72) 0 12%, transparent 12.2%),
+        linear-gradient(136deg, transparent 0 24%, rgba(154, 191, 166, .72) 24.2% 43%, transparent 43.2% 100%),
+        linear-gradient(25deg, #213c55 0 29%, #3f705c 29.2% 56%, #6c8559 56.2% 75%, #294b68 75.2% 100%);
+    }
+
+    .map__art::before {
+      opacity: .28;
+      background-image:
+        repeating-linear-gradient(18deg, transparent 0 37px, rgba(249, 231, 179, .64) 38px 40px, transparent 41px 95px),
+        repeating-linear-gradient(108deg, transparent 0 70px, rgba(6, 24, 42, .6) 72px 75px, transparent 77px 168px);
+      mix-blend-mode: soft-light;
+    }
+
+    .map__art::after {
+      inset: 23px;
+      border: 1px solid rgba(250, 232, 175, .38);
+      box-shadow: inset 0 0 110px rgba(6, 12, 25, .66);
+    }
+
+    .map--west .map__art {
+      filter: hue-rotate(28deg) saturate(.82) brightness(.82);
+      transform: scaleX(-1);
+    }
+
+    .map--north .map__art {
+      filter: hue-rotate(-44deg) saturate(.92) brightness(.9);
+      transform: rotate(180deg);
+    }
+
+    .map__name {
+      position: absolute;
+      top: 82px;
+      left: 96px;
+      z-index: 1;
+      margin: 0;
+      color: rgba(255, 245, 212, .84);
+      font-family: Georgia, serif;
+      font-size: 48px;
+      font-weight: normal;
+      letter-spacing: .12em;
+      text-shadow: 0 3px 12px #0a1020;
+    }
+
+    .map__coordinates {
+      position: absolute;
+      top: 143px;
+      left: 101px;
+      z-index: 1;
+      color: rgba(255, 245, 212, .58);
+      font-size: 19px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .map-marker {
+      position: absolute;
+      z-index: 2;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 2px solid #fff0bf;
+      border-radius: 50% 50% 50% 0;
+      outline: none;
+      background: #e55e6b;
+      box-shadow: 0 0 0 6px rgba(229, 94, 107, .16), 0 7px 16px rgba(0, 0, 0, .48);
+      cursor: pointer;
+      transform: translate(-50%, -100%) rotate(-45deg);
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    .map-marker::after {
+      position: absolute;
+      inset: 9px;
+      border-radius: 50%;
+      content: "";
+      background: #fff7d8;
+    }
+
+    .map-marker:hover,
+    .map-marker:focus-visible {
+      z-index: 3;
+      background: #ff7984;
+      box-shadow: 0 0 0 10px rgba(255, 121, 132, .22), 0 10px 22px rgba(0, 0, 0, .54);
+      transform: translate(-50%, -100%) rotate(-45deg) scale(1.18);
+    }
+
+    .map-marker:focus-visible { outline: 3px solid #8fd9ff; outline-offset: 5px; }
+
+    .map-marker__label {
+      position: absolute;
+      top: -32px;
+      left: 50%;
+      min-width: max-content;
+      color: #fff4cf;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      opacity: 0;
+      pointer-events: none;
+      text-shadow: 0 2px 8px #080c17;
+      transform: translateX(-50%) rotate(45deg) translateY(4px);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+
+    .map-marker:hover .map-marker__label,
+    .map-marker:focus-visible .map-marker__label {
+      opacity: 1;
+      transform: translateX(-50%) rotate(45deg) translateY(0);
+    }
+
+    .map-marker--gold { background: #d9ad4e; box-shadow: 0 0 0 6px rgba(217, 173, 78, .16), 0 7px 16px rgba(0, 0, 0, .48); }
+    .map-marker--blue { background: #4a9cc9; box-shadow: 0 0 0 6px rgba(74, 156, 201, .16), 0 7px 16px rgba(0, 0, 0, .48); }
+
+    .map-hud {
+      position: fixed;
+      z-index: 5;
+      top: 24px;
+      left: 24px;
+      max-width: min(360px, calc(100vw - 48px));
+      padding: 17px 20px;
+      border: 1px solid rgba(206, 224, 255, .2);
+      border-radius: 12px;
+      background: rgba(9, 13, 29, .78);
+      box-shadow: 0 12px 42px rgba(0, 0, 0, .24);
+      backdrop-filter: blur(12px);
+    }
+
+    .map-hud__eyebrow { margin: 0 0 2px; color: #8fd9ff; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .map-hud__title { margin: 0; color: #f9f2dc; font-family: Georgia, serif; font-size: 23px; font-weight: normal; }
+    .map-hud__instruction { margin: 8px 0 0; color: rgba(232, 239, 255, .7); font-size: 13px; line-height: 1.45; }
+
+    .modal[hidden] { display: none; }
+
+    .modal {
+      position: fixed;
+      z-index: 10;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(3, 5, 14, .68);
+    }
+
+    .modal__dialog {
+      position: relative;
+      width: min(460px, 100%);
+      padding: 34px;
+      border: 1px solid rgba(255, 239, 185, .3);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #1d2b47, #111827);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .55);
+    }
+
+    .modal__type { margin: 0 0 7px; color: #8fd9ff; font-size: 12px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .modal__title { margin: 0; color: #fff2c7; font-family: Georgia, serif; font-size: 34px; font-weight: normal; }
+    .modal__description { margin: 17px 0 0; color: #dbe4f4; font-size: 16px; line-height: 1.65; }
+    .modal__close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border: 0; border-radius: 50%; color: #f5f8ff; background: rgba(255, 255, 255, .1); cursor: pointer; }
+    .modal__close:hover, .modal__close:focus-visible { background: rgba(255, 255, 255, .2); }
+
+    @media (max-width: 600px) {
+      .map-hud { top: 14px; left: 14px; padding: 13px 15px; }
+      .map-hud__instruction { font-size: 12px; }
+      .modal { padding: 16px; }
+      .modal__dialog { padding: 29px 25px; }
+    }
+  </style>
+</head>
+<body>
+  <main id="map_container" aria-label="Universe map">
+    <section class="map-hud" aria-label="Map help">
+      <p class="map-hud__eyebrow">Universe prototype</p>
+      <h1 class="map-hud__title">The Atlas of Aster</h1>
+      <p class="map-hud__instruction">Drag to explore. Select a marker to inspect a location.</p>
+    </section>
+    <div id="world_canvas" aria-live="polite"></div>
+  </main>
+
+  <div class="modal" id="marker_modal" hidden>
+    <section class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal_title" aria-describedby="modal_description">
+      <button class="modal__close" id="modal_close" type="button" aria-label="Close location details">×</button>
+      <p class="modal__type" id="modal_type"></p>
+      <h2 class="modal__title" id="modal_title"></h2>
+      <p class="modal__description" id="modal_description"></p>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      const MAP_SIZE = { width: 1920, height: 1080 };
+      const maps = [
+        { id: "map-1", name: "The Heartlands", worldX: 0, worldY: 0, theme: "heartlands" },
+        { id: "map-2", name: "The Western Reaches", worldX: -1920, worldY: 0, theme: "west" },
+        { id: "map-3", name: "The Northern Verge", worldX: 1920, worldY: -1080, theme: "north" }
+      ];
+
+      const markers = [
+        { id: "glass-harbor", mapId: "map-1", x: 990, y: 640, tone: "blue", type: "Settlement", title: "Glass Harbor", description: "A bright trading port built into the coast. Its beacon is visible from every road in the Heartlands." },
+        { id: "sunken-archive", mapId: "map-1", x: 420, y: 800, tone: "gold", type: "Discovery", title: "The Sunken Archive", description: "Fragments of an older civilization are said to rest beneath the salt flats. The entrance has not been found." },
+        { id: "bracken-gate", mapId: "map-2", x: 1180, y: 560, tone: "red", type: "Passage", title: "Bracken Gate", description: "The western gate is the safest crossing between the coast and the high interior. Caravans use it at first light." },
+        { id: "astral-spire", mapId: "map-3", x: 700, y: 720, tone: "blue", type: "Landmark", title: "Astral Spire", description: "An observatory at the edge of the Verge. Its keepers have charted routes beyond the known maps." }
+      ];
+
+      const container = document.querySelector("#map_container");
+      const canvas = document.querySelector("#world_canvas");
+      const modal = document.querySelector("#marker_modal");
+      const closeModalButton = document.querySelector("#modal_close");
+      const modalType = document.querySelector("#modal_type");
+      const modalTitle = document.querySelector("#modal_title");
+      const modalDescription = document.querySelector("#modal_description");
+      let zoom = getResponsiveZoom();
+      let pan = { x: 0, y: 0 };
+      let targetPan = { x: 0, y: 0 };
+      let overscroll = { x: 0, y: 0 };
+      let targetOverscroll = { x: 0, y: 0 };
+      let drag = null;
+      let velocity = { x: 0, y: 0 };
+      let animationFrame = null;
+      let lastFrameTime = null;
+      let lastFocusedElement = null;
+
+      function getResponsiveZoom() {
+        if (window.innerWidth <= 600) return 0.55;
+        if (window.innerWidth <= 960) return 0.72;
+        if (window.innerWidth <= 1440) return 0.9;
+        return 1;
+      }
+
+      function getBounds() {
+        return maps.reduce((bounds, map) => ({
+          left: Math.min(bounds.left, map.worldX),
+          top: Math.min(bounds.top, map.worldY),
+          right: Math.max(bounds.right, map.worldX + MAP_SIZE.width),
+          bottom: Math.max(bounds.bottom, map.worldY + MAP_SIZE.height)
+        }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
+      }
+
+      function clampPan(nextPan) {
+        const bounds = getBounds();
+        const viewport = { width: container.clientWidth, height: container.clientHeight };
+        const scaledWidth = (bounds.right - bounds.left) * zoom;
+        const scaledHeight = (bounds.bottom - bounds.top) * zoom;
+        const x = scaledWidth <= viewport.width
+          ? (viewport.width - scaledWidth) / 2 - bounds.left * zoom
+          : Math.min(-bounds.left * zoom, Math.max(viewport.width - bounds.right * zoom, nextPan.x));
+        const y = scaledHeight <= viewport.height
+          ? (viewport.height - scaledHeight) / 2 - bounds.top * zoom
+          : Math.min(-bounds.top * zoom, Math.max(viewport.height - bounds.bottom * zoom, nextPan.y));
+        return { x, y };
+      }
+
+      function renderCanvas() {
+        canvas.style.transform = `translate(${pan.x + overscroll.x}px, ${pan.y + overscroll.y}px) scale(${zoom})`;
+      }
+
+      function applyRubberBand(distance) {
+        const maxStretch = 84;
+        const resistance = 0.42;
+        return Math.sign(distance) * maxStretch * (1 - Math.exp(-Math.abs(distance) * resistance / maxStretch));
+      }
+
+      function requestRender() {
+        if (animationFrame === null) animationFrame = requestAnimationFrame(animatePan);
+      }
+
+      function animatePan(timestamp) {
+        animationFrame = null;
+        const elapsed = Math.min((timestamp - (lastFrameTime ?? timestamp)) / 1000, 0.05);
+        lastFrameTime = timestamp;
+
+        if (drag) {
+          // Smoothly follow the pointer while remaining responsive at different refresh rates.
+          const follow = 1 - Math.exp(-20 * elapsed);
+          pan = {
+            x: pan.x + (targetPan.x - pan.x) * follow,
+            y: pan.y + (targetPan.y - pan.y) * follow
+          };
+          const stretchFollow = 1 - Math.exp(-24 * elapsed);
+          overscroll = {
+            x: overscroll.x + (targetOverscroll.x - overscroll.x) * stretchFollow,
+            y: overscroll.y + (targetOverscroll.y - overscroll.y) * stretchFollow
+          };
+        } else {
+          const nextPan = clampPan({
+            x: pan.x + velocity.x * elapsed,
+            y: pan.y + velocity.y * elapsed
+          });
+          if (nextPan.x === pan.x) velocity.x = 0;
+          if (nextPan.y === pan.y) velocity.y = 0;
+          pan = nextPan;
+          const friction = Math.exp(-7 * elapsed);
+          velocity = { x: velocity.x * friction, y: velocity.y * friction };
+          const returnToBounds = 1 - Math.exp(-16 * elapsed);
+          overscroll = {
+            x: overscroll.x * (1 - returnToBounds),
+            y: overscroll.y * (1 - returnToBounds)
+          };
+        }
+
+        pan = clampPan(pan);
+        renderCanvas();
+
+        const speed = Math.hypot(velocity.x, velocity.y);
+        const stretch = Math.hypot(overscroll.x, overscroll.y);
+        if (drag || speed > 8 || stretch > 0.25) requestRender();
+        else {
+          pan = targetPan = clampPan(pan);
+          overscroll = targetOverscroll = { x: 0, y: 0 };
+          lastFrameTime = null;
+        }
+      }
+
+      function centerOnStartMap() {
+        const startMap = maps.find((map) => map.id === "map-1");
+        pan = clampPan({
+          x: container.clientWidth / 2 - (startMap.worldX + MAP_SIZE.width / 2) * zoom,
+          y: container.clientHeight / 2 - (startMap.worldY + MAP_SIZE.height / 2) * zoom
+        });
+        targetPan = { ...pan };
+        renderCanvas();
+      }
+
+      function createMap(map) {
+        const mapElement = document.createElement("article");
+        mapElement.className = `map map--${map.theme}`;
+        mapElement.style.left = `${map.worldX}px`;
+        mapElement.style.top = `${map.worldY}px`;
+        mapElement.setAttribute("aria-label", map.name);
+        mapElement.innerHTML = `
+          <div class="map__art" aria-hidden="true"></div>
+          <h2 class="map__name">${map.name}</h2>
+          <span class="map__coordinates">Sector ${map.id.replace("map-", "0")}</span>
+        `;
+
+        markers.filter((marker) => marker.mapId === map.id).forEach((marker) => {
+          const markerElement = document.createElement("button");
+          markerElement.className = `map-marker map-marker--${marker.tone}`;
+          markerElement.type = "button";
+          markerElement.style.left = `${marker.x}px`;
+          markerElement.style.top = `${marker.y}px`;
+          markerElement.setAttribute("aria-label", `Open ${marker.title}`);
+          markerElement.innerHTML = `<span class="map-marker__label">${marker.title}</span>`;
+          markerElement.addEventListener("pointerdown", (event) => event.stopPropagation());
+          markerElement.addEventListener("click", () => openModal(marker, markerElement));
+          mapElement.appendChild(markerElement);
+        });
+
+        canvas.appendChild(mapElement);
+      }
+
+      function openModal(marker, trigger) {
+        lastFocusedElement = trigger;
+        modalType.textContent = marker.type;
+        modalTitle.textContent = marker.title;
+        modalDescription.textContent = marker.description;
+        modal.hidden = false;
+        closeModalButton.focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        lastFocusedElement?.focus();
+      }
+
+      container.addEventListener("pointerdown", (event) => {
+        if (event.button !== 0) return;
+        velocity = { x: 0, y: 0 };
+        targetPan = { ...pan };
+        targetOverscroll = { x: 0, y: 0 };
+        drag = {
+          pointerId: event.pointerId,
+          startX: event.clientX,
+          startY: event.clientY,
+          panX: pan.x,
+          panY: pan.y,
+          lastX: event.clientX,
+          lastY: event.clientY,
+          lastTime: event.timeStamp
+        };
+        container.setPointerCapture(event.pointerId);
+        container.classList.add("is-dragging");
+        requestRender();
+      });
+
+      container.addEventListener("pointermove", (event) => {
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        const rawTargetPan = {
+          x: drag.panX + event.clientX - drag.startX,
+          y: drag.panY + event.clientY - drag.startY
+        };
+        targetPan = clampPan(rawTargetPan);
+        targetOverscroll = {
+          x: applyRubberBand(rawTargetPan.x - targetPan.x),
+          y: applyRubberBand(rawTargetPan.y - targetPan.y)
+        };
+        const elapsed = Math.max((event.timeStamp - drag.lastTime) / 1000, 0.001);
+        velocity = {
+          x: (event.clientX - drag.lastX) / elapsed,
+          y: (event.clientY - drag.lastY) / elapsed
+        };
+        drag.lastX = event.clientX;
+        drag.lastY = event.clientY;
+        drag.lastTime = event.timeStamp;
+        requestRender();
+      });
+
+      function endDrag(event) {
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        drag = null;
+        container.classList.remove("is-dragging");
+        requestRender();
+      }
+
+      container.addEventListener("pointerup", endDrag);
+      container.addEventListener("pointercancel", endDrag);
+      closeModalButton.addEventListener("click", closeModal);
+      modal.addEventListener("click", (event) => { if (event.target === modal) closeModal(); });
+      window.addEventListener("keydown", (event) => { if (event.key === "Escape" && !modal.hidden) closeModal(); });
+      window.addEventListener("resize", () => {
+        zoom = getResponsiveZoom();
+        pan = clampPan(pan);
+        targetPan = { ...pan };
+        velocity = { x: 0, y: 0 };
+        overscroll = targetOverscroll = { x: 0, y: 0 };
+        renderCanvas();
+      });
+
+      maps.forEach(createMap);
+      centerOnStartMap();
+    })();
+  </script>
+</body>
+</html>
