@@ -293,6 +293,8 @@
       let zoom = getResponsiveZoom();
       let pan = { x: 0, y: 0 };
       let targetPan = { x: 0, y: 0 };
+      let overscroll = { x: 0, y: 0 };
+      let targetOverscroll = { x: 0, y: 0 };
       let drag = null;
       let velocity = { x: 0, y: 0 };
       let animationFrame = null;
@@ -330,7 +332,13 @@
       }
 
       function renderCanvas() {
-        canvas.style.transform = `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`;
+        canvas.style.transform = `translate(${pan.x + overscroll.x}px, ${pan.y + overscroll.y}px) scale(${zoom})`;
+      }
+
+      function applyRubberBand(distance) {
+        const maxStretch = 84;
+        const resistance = 0.42;
+        return Math.sign(distance) * maxStretch * (1 - Math.exp(-Math.abs(distance) * resistance / maxStretch));
       }
 
       function requestRender() {
@@ -349,6 +357,11 @@
             x: pan.x + (targetPan.x - pan.x) * follow,
             y: pan.y + (targetPan.y - pan.y) * follow
           };
+          const stretchFollow = 1 - Math.exp(-24 * elapsed);
+          overscroll = {
+            x: overscroll.x + (targetOverscroll.x - overscroll.x) * stretchFollow,
+            y: overscroll.y + (targetOverscroll.y - overscroll.y) * stretchFollow
+          };
         } else {
           const nextPan = clampPan({
             x: pan.x + velocity.x * elapsed,
@@ -359,15 +372,22 @@
           pan = nextPan;
           const friction = Math.exp(-7 * elapsed);
           velocity = { x: velocity.x * friction, y: velocity.y * friction };
+          const returnToBounds = 1 - Math.exp(-16 * elapsed);
+          overscroll = {
+            x: overscroll.x * (1 - returnToBounds),
+            y: overscroll.y * (1 - returnToBounds)
+          };
         }
 
         pan = clampPan(pan);
         renderCanvas();
 
         const speed = Math.hypot(velocity.x, velocity.y);
-        if (drag || speed > 8) requestRender();
+        const stretch = Math.hypot(overscroll.x, overscroll.y);
+        if (drag || speed > 8 || stretch > 0.25) requestRender();
         else {
           pan = targetPan = clampPan(pan);
+          overscroll = targetOverscroll = { x: 0, y: 0 };
           lastFrameTime = null;
         }
       }
@@ -428,6 +448,7 @@
         if (event.button !== 0) return;
         velocity = { x: 0, y: 0 };
         targetPan = { ...pan };
+        targetOverscroll = { x: 0, y: 0 };
         drag = {
           pointerId: event.pointerId,
           startX: event.clientX,
@@ -445,7 +466,15 @@
 
       container.addEventListener("pointermove", (event) => {
         if (!drag || drag.pointerId !== event.pointerId) return;
-        targetPan = clampPan({ x: drag.panX + event.clientX - drag.startX, y: drag.panY + event.clientY - drag.startY });
+        const rawTargetPan = {
+          x: drag.panX + event.clientX - drag.startX,
+          y: drag.panY + event.clientY - drag.startY
+        };
+        targetPan = clampPan(rawTargetPan);
+        targetOverscroll = {
+          x: applyRubberBand(rawTargetPan.x - targetPan.x),
+          y: applyRubberBand(rawTargetPan.y - targetPan.y)
+        };
         const elapsed = Math.max((event.timeStamp - drag.lastTime) / 1000, 0.001);
         velocity = {
           x: (event.clientX - drag.lastX) / elapsed,
@@ -474,6 +503,7 @@
         pan = clampPan(pan);
         targetPan = { ...pan };
         velocity = { x: 0, y: 0 };
+        overscroll = targetOverscroll = { x: 0, y: 0 };
         renderCanvas();
       });
 
