@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        The State of Phygital Collectibles | jaison.info
+    </title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <meta name="HandheldFriendly" content="true" />
+
+    <meta name="description" content="An exploration of phygital collectibles, vault-backed tokens, chip-based ownership, and the gaps in connecting physical objects to on-chain records.">
+
+    <meta name="keywords" content="phygital, collectibles, nft, provenance, PBT, physical collectibles">
+
+    <meta name="author" content="Jaison Justus">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="icon" href="/favicon/favicon.gif" type="image/gif">
+    <link rel="stylesheet" href="/styles/generic.css" type="text/css" />
+</head>
+
+<body>
+    <main class="Wrapper">
+        <img class="Logo" src="/images/profile-picture.jpg" />
+
+        <nav class="Navigation">
+            <li class="Navigation__Item">
+                <a class="Navigation__Link" href="/">Home</a>
+            </li>
+            <li class="Navigation__Item">
+                <a class="Navigation__Link" href="/music-mag.html">Music Mag</a>
+            </li>
+            <li class="Navigation__Item">
+                <a class="Navigation__Link" href="/radfadmad.html">Rad Fad Mad</a>
+            </li>
+            <li class="Navigation__Item Navigation__Item--selected">
+                <a class="Navigation__Link" href="/writings.html">Writings</a>
+            </li>
+            <li class="Navigation__Item">
+                <a class="Navigation__Link" href="/projects.html">Projects</a>
+            </li>
+            <li class="Navigation__Item">
+                <a class="Navigation__Link" href="/about.html">About</a>
+            </li>
+        </nav>
+
+        <section class="Writings">
+            <h1>
+                The State of Phygital Collectibles
+            </h1>
+
+            <p class="Writing__Label">
+                Feb 2026 • Collecting
+            </p>
+
+            <p>NFTs were first widely adopted to tokenize digital-native assets. But the standard itself was never limited to the digital world.</p>
+
+            <p>Phygital collectibles are what happens when you point that same technology at physical collectibles: trading cards, toys, art, memorabilia. You take a real object, tie it to an on-chain record, and suddenly the physical world gets something it has never had before: a permanent, tamper-proof record of ownership from the moment an item was made to the moment it is in your hands.</p>
+
+            <p>That is not a small thing. That is infrastructure.</p>
+
+            <h2>The Problem Phygital Collectibles Are Solving</h2>
+
+            <p>The physical collectible world has always had a trust problem. Fakes exist. Provenance gets lost. For decades, collectors have had to rely on third parties to tell them the story of an object.</p>
+
+            <p>Grading companies like PSA built entire businesses on this gap. They authenticate, they grade, they vault. Collectors trust them, not because the system is perfect, but because there was no better alternative.</p>
+
+            <p>Phygital collectibles changes the question. Instead of asking who do I trust to verify this, you ask what does the chain say.</p>
+
+            <p>The record is on-chain. It does not have a fire risk. It does not have a business continuity risk. The ownership record remains verifiable as long as the underlying chain exists. The provenance travels with the asset, from creation, through every hand it passed through, to yours.</p>
+
+            <h2>How It Works Today</h2>
+
+            <p>Two primary models exist in the phygital collectibles space right now. Both are trying to solve the same problem. They use different architectures to get there.</p>
+
+            <h2>The Central Authority Model</h2>
+
+            <p>A trusted entity authenticates the physical item, stores it in a secure vault, and mints a token representing ownership. The token trades on-chain. The physical item stays in the vault until the token holder redeems it.</p>
+
+            <p>The mechanic that makes this work is burn-to-redeem. To claim your physical item, you burn the digital token. The record closes. You cannot hold both simultaneously, which is what keeps the provenance clean.</p>
+
+            <p>Projects like Cryptoys, Collector Crypt, and Gacha Pull operate on variations of this model. The physical asset lives with a vault partner. The NFT lives in your wallet. In most platform terms, ownership of the NFT represents a contractual right to redeem the physical object.</p>
+
+            <p>It is a familiar structure: custodial, vault-backed, with on-chain records sitting on top. The trust problem is not fully removed here. It is redistributed. Instead of trusting an auction house or a grading company, you are trusting the vault and the platform.</p>
+
+            <h2>The Chip-Based Model</h2>
+
+            <p>A physical chip is embedded in or attached to the item. The chip links directly to an on-chain record. No vault. No custodian. The physical and digital travel together.</p>
+
+            <p>The most serious attempt to standardize this is PBT, Physical Backed Token (EIP-5791), a proposed standard built by the Azuki team. Each chip contains a private key designed to be non-exportable and securely contained within the chip. It can sign messages, but the key is not designed to leave the chip. In the canonical PBT implementation, the NFT can only be transferred if a valid signature from the chip is provided to the smart contract. Physically holding the item and being able to scan it is a requirement to transfer ownership on-chain.</p>
+
+            <p>Azuki deployed this on real products: the Golden Skateboard and the Azuki x Ambush Hoodie. Not a prototype. Not a whitepaper. Real objects in collectors&#x27; hands.</p>
+
+            <p>The infrastructure behind PBT is a full stack. Arx Research manufactures the HaLo chips. On top of that sits ERS, the Ethereum Reality Service, a registry protocol that tracks chip provenance through its entire lifecycle: from manufacturer enrollment, through brand distribution, to end user authentication. The stack is: Arx makes the chip, PBT is the token standard, ERS is the registry.</p>
+
+            <p>Ownership transfers when you scan the chip and sign on-chain. There is nothing to burn because the chip itself is the permanent link between the object and the chain.</p>
+
+            <h2>What the Space Has Figured Out</h2>
+
+            <p>The burn-to-redeem mechanic in the central authority model is elegant. It enforces a simple rule: one owner, one record, one truth. You cannot hold the digital without giving up the claim to the physical.</p>
+
+            <p>The chip-based model goes further. It removes the vault entirely. The object carries its own history. No third party holds it on your behalf.</p>
+
+            <p>On-chain provenance is the consistent value proposition across both. Every serious phygital collectibles project is building toward the same thing: a record of ownership that does not depend on a company&#x27;s database, a filing cabinet, or someone&#x27;s memory.</p>
+
+            <p>The technology is working. The concept is sound.</p>
+
+            <h2>What the Space Has Not Figured Out Yet</h2>
+
+            <p><strong>Custody risk is still offloaded to the user.</strong> In the central authority model, platforms tokenize ownership cleanly, but when it comes to who is responsible if your physical item is damaged, lost, or stolen, the answer is almost universally: not us. The vault is a third party. The shipping is your problem. The liability caps are low.</p>
+
+            <p><strong>Insurance is vague or absent.</strong> PSA, for all its flaws as a centralized authority, has a defined insured value structure. Most phygital collectibles platforms do not match that standard yet. The chain proves ownership. It does not protect the object.</p>
+
+            <p><strong>The chip-based model has a binding problem.</strong> PBT makes cryptographic cloning infeasible under normal threat models. The private key is designed to be non-exportable, so forging a valid signature is not a practical attack. And because a scan is required to transfer ownership, you cannot move the NFT without physically holding the item. </p>
+
+            <p>But PBT proves you have the chip, not that the item the chip is attached to is authentic. If someone physically removes the chip and embeds it in a fake, the on-chain record follows the chip, not the object. The technology has not made chip transplanting impossible. That gap is still open. Whoever closes it cleanly will define the space.</p>
+
+            <p><strong>The legal framework is still catching up.</strong> Some platforms operate with unclear or lightly specified legal jurisdictions in their terms. The technology is ahead of the infrastructure around it.</p>
+
+            <h2>Why This Still Matters</h2>
+
+            <p>None of these gaps invalidate the idea. They tell you where the work is.</p>
+
+            <p>The physical collectible world is worth hundreds of billions. Grading companies built careers on partially solving its trust problem. Phygital collectibles are not iterating on that model. It is replacing the foundation entirely: provenance that does not depend on a company&#x27;s continued existence, authentication that does not require a middleman, ownership records that travel with the object from creation forward.</p>
+
+            <p>The infrastructure is early. The gaps are real. But the direction is not just right. It is the only direction that makes structural sense.</p>
+
+            <p>As a collector, phygital gave me something the physical world never could: the ability to hold without managing. I can buy a tokenised card, learn the space, study the objects, and decide later whether to redeem or move on. The vault holds the responsibility until I am ready for it. That changes how you enter a new collecting category entirely.</p>
+
+            <p>Ownership and management have always been the same thing in physical collecting. Phygital is the first time they are not.</p>
+
+            <h2>References</h2>
+
+            <ul>
+
+                <li><a href="https://github.com/chiru-labs/PBT">PBT (Physical Backed Token) EIP-5791</a></li>
+
+                <li><a href="https://www.azuki.com/blog/pbt">Azuki PBT Blog</a></li>
+
+                <li><a href="https://docs.arx.org/">Arx Research HaLo Chip Docs</a></li>
+
+                <li><a href="https://docs.ers.to/">Ethereum Reality Service (ERS) Docs</a></li>
+
+                <li><a href="https://www.psacard.com/info/psa-vault">PSA Vault</a></li>
+
+                <li><a href="https://app.collectors.com/psavaultterms">PSA Vault Terms</a></li>
+
+                <li><a href="https://cryptoys.com/terms-and-conditions">Cryptoys T&amp;C</a></li>
+
+                <li><a href="https://wm22hmeluidkau5b2vtuswcvzl2q32llzeg4tblkynq56x3qdeia.arweave.net/szWjsIuiBqBTodVnSVhVyvUN6WvJDcmFasNh319wGRA">Collector Crypt T&amp;C</a></li>
+
+                <li><a href="https://gacha-pull.gitbook.io/gacha-pull-docs/terms-and-conditions">Gacha Pull T&amp;C</a></li>
+
+            </ul>
+
+            <img class="Signature" width="250" src="/images/signature.svg" alt="Signature of Jaison Justus">
+        </section>
+
+        <footer>
+            <nav>
+                <li><a href="/">Home</a></li>
+                <li><a href="/music-mag.html">Music Mag</a></li>
+                <li><a href="/radfadmad.html">Rad Fad Mad</a></li>
+                <li><a href="/writings.html">Writings</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <li><a href="/about.html">about</a></li>
+            </nav>
+            <div class="Honor">
+                <a href="https://www.youtube.com/watch?v=5WyX9LMFf5I" target="_blank"><img class="Honor__Image" src="/images/footer-flower.png" /></a>
+
+                <p class="Honor__Message"><em>"Guransai phulyo banai ma, <br /> mero mana jhulyo timro manai ma…"</em> -
+                    Dedicating this rhododendron to my Nepalese friends, miss you guys and the time. Peace!</p>
+            </div>
+        </footer>
+    </main>
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43145422-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
