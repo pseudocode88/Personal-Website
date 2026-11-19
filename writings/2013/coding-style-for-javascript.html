@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Coding Style for Javascript | jaison.info</title>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<meta name="HandheldFriendly" content="true" />
+	
+	<meta name="description" content="For us code is our poetry and its our privilege to make it beautiful and readable.">
+	
+	<meta name="keywords" content="Javascript">
+	
+	<meta name="author" content="Jaison Justus">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="icon" href="/favicon/favicon.gif" type="image/gif" >
+	<link rel="stylesheet" href="/styles/generic.css" type="text/css" />
+</head>
+<body>
+	<main class="Wrapper">
+		<img class="Logo" src="/images/profile-picture.jpg" />
+		
+		<nav class="Navigation">
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/">Home</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/music-mag.html">Music Mag</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/radfadmad.html">Rad Fad Mad</a>
+			</li>
+			<li class="Navigation__Item Navigation__Item--selected">
+				<a class="Navigation__Link" href="/writings.html">Writings</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/projects.html">Projects</a>
+			</li>
+			<li class="Navigation__Item">
+				<a class="Navigation__Link" href="/about.html">About</a>
+			</li>
+		</nav>
+		
+		<section>
+			<h1>Coding Style for Javascript</h1>
+			
+			<p class="Writing__Label">10 Feb 2013</p>
+
+			<blockquote>"For us code is our poetry and its our privilege to make it beautiful and readable.”</blockquote>
+
+			<h2>Whitespaces</h2>
+			<ul>
+				<li>The basic indentation is two spaces.</li>
+				<li>Try to keep lines to 80 characters or less</li>
+				<li>Use method chaining beautifully.<pre><code>$(".text")
+   .addClass('post__message_normal')
+   .css('font-size','12px);</code></pre></li>
+				<li>Lines should not contain trailing spaces.</li>
+				<li>Spaces after commas and semicolons, but not before.</li>
+				<li>Separate binary operators with spaces.</li>
+				<li>Spaces after keywords</li>
+			</ul>
+
+			<h2>Function and Variable Naming</h2>
+			<ul>
+				<li>Most importantly: variables are names and functions contains a verb.</li>
+				<li>Use interCaps for names and enumeration values; other constants should be in UPPER_CASE.</li>
+				<li>Try to declare local variables as near to their use as possible; try to initialize every variable.</li>
+				<li>Multiple variables declaration of the same type <code>var a = 'foo', b = 'bar', c = 'foobar';</code></li>
+			</ul>
+
+			<h2>Convention Table</h2>
+			<table>
+				<thead>
+				<tr>
+					<th>Type</th>
+					<th>Convention</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>Files</td>
+					<td>filelistview.js</td>
+					<td>All word should be in small letter, use _ as a filelisttpl.html delimiter between words.</td>
+				</tr>
+				<tr>
+					<td>Variables/Functions</td>
+					<td>fileObject</td>
+					<td>Write variables and functions in Camel Case addUserDetails()</td>
+				</tr>
+				<tr>
+					<td>Constants</td>
+					<td>MAXUPLOADLIMIT</td>
+					<td>Constants in capital letter</td>
+				</tr>
+				<tr>
+					<td>Public vars/funcs</td>
+					<td>addUserDetails()</td>
+					<td>In a module if we write public variables/functions like this helps the user to understand its safe to consume the functionality.</td>
+				</tr>
+				<tr>
+					<td>Private vars/funcs</td>
+					<td>_addUserDetails()</td>
+					<td>Putting underscore to the variable/functions in module help the user who going to implement the module to under stand this method is a private and make no sense in implementation outside the method.</td>
+				</tr>
+				<tr>
+					<td>Modules/Constructor</td>
+					<td>FileListView</td>
+					<td>Write module/constructor names in Pascal Case.</td>
+				</tr>
+				</tbody>
+			</table>
+
+
+			<h2 id="functions">Functions</h2>
+
+			<p>Braces must always be in the same line of the function definition.</p>
+
+			<pre><code>function toOpenWindow(window) {
+  window.document.commandDispatcher.focusedWindow.focus();
+}
+</code></pre>
+
+			<h2 id="inlinefunctions">Inline Functions</h2>
+
+			<p><code>function valueObject(value) { return { value: value }; }</code></p>
+
+			<h2 id="ifelseconstruct">If-else Construct</h2>
+
+			<pre><code>if (window) { window.focus();}
+else { window = new Window(); }
+</code></pre>
+
+			<h2 id="codestyle">Code Style</h2>
+
+			<p>Always put else on its own line, as shown above and don't use else after return, i.e.,</p>
+
+			<pre><code>if (x &lt; y) { return -1; }
+if (x &gt; y) { return 1; }
+return 0;
+</code></pre>
+
+			<h2 id="loopconstruct">Loop Construct</h2>
+
+			<ul>
+				<li><p>for loop</p>
+
+					<p><code>
+for (var i = 0; i &lt; 3; ++i) {
+// the code block to be executed
+}
+					</code></p></li>
+				<li><p>while loop</p>
+
+					<p><code>
+while (i &lt; 10) {
+// the code block to be executed
+}
+					</code> </p></li>
+			</ul>
+
+			<h2 id="returnstatement">Return Statement</h2>
+
+			<pre><code>return { shouts : "Barbeque Time" };</code></pre>
+
+			<h2 id="commenting">Commenting</h2>
+
+			<p>Commenting a Variable or Logic block</p>
+
+			<pre><code>/* Retrieving user details for authentication. */
+
+UserModel.findOne(email, "*", function(err, user) {
+ // ...
+});
+</code></pre>
+
+			<p>Wrap the comment line with in 80~85 words like.</p>
+
+			<pre><code>/* File Descriptor represents the vital information
+about the file like name, type, size and also have
+the file object. */
+
+_fileDescriptor : {},
+</code></pre>
+
+			<h3 id="commentingafunction">Commenting a Function</h3>
+
+			<p>Example:</p>
+
+			<pre><code>/*
+ * Method to add file descriptor to file list.
+ * @param {string} name
+ * @param {string} type
+ * @param {int} size
+ * @param {object} file
+ * @param {boolean} safe
+ * @return {array}
+ */
+
+function _addFileDescriptor(name, type, size, file, safe)    {
+ // ...
+ return fileList;
+}
+</code></pre>
+
+			<h3 id="commentingamodule">Commenting a Module</h3>
+
+			<p>Example:</p>
+
+			<pre><code>/*
+ * Module to handle the file list rendering and broadcasting
+ * events regarding the view. This module is tailor made to
+ * support FileView.
+ * @module FileListView
+ */
+
+define(['jquery', 'underscore', 'backbone', 'fileview'],
+ function($, _, Backbone, FileView) {
+
+ var FileListView = Backbone.View.extend({
+   // .......................
+ });
+
+ return FileListView;
+});
+</code></pre>
+
+
+			<h2 id="codingstyleguideforjquery">Coding Style Guide For JQuery</h2>
+
+			<blockquote>"Spaghetti is Tasty. But Spaghetti in your code is not that Taste.”</blockquote>
+
+			<h3 id="usemethodchainingbeautifully">Use method chaining beautifully</h3>
+
+			<p>It’s important to remember that most methods will return the jQuery object. This is extremely helpful, and allows for the chaining functionality that we use so often. Ehich also reduces DOM Traversing.</p>
+
+			<pre><code>$( "ul.first" )
+  .find( ".foo" )
+    .css( "background-color", "red" )
+  .end()
+  .find( ".bar" )
+    .css( "background-color", "green" );
+</code></pre>
+
+			<h3 id="avoidgivinglongdomquerystrings">Avoid giving long DOM query strings.</h3>
+
+			<p>In case of query string cascading, try to make the it simple and utilize the <code>.find()</code> method. Which give more readablity to code.</p>
+
+			<pre><code>/* Bad practice. */
+$('.header__wrapper .header__button_login').hide();
+</code></pre>
+
+			<pre><code>/* Good practice. */
+$('.header__wrapper')
+    .find('.header__button_login')
+    .hide();
+</code></pre>
+
+			<h3 id="eventregistering">Event Registering.</h3>
+
+			<p>Use <code>.on()</code> instead of <code>.bind()</code> and <code>.live()</code>.</p>
+
+			<pre><code>$(document)
+    .on('click', '.header__button_login', function() { /*…*/ })
+    .on('click', '.header__button_cancel', function() { /*…*/ });
+</code></pre>
+
+			<h3 id="reducedomtravesringinsideloop">Reduce DOM Travesring inside loop</h3>
+
+			<p>Try to a reduce dom traversing/operations inside loops like <code>.each()</code></p>
+
+			<pre><code>/* Bad Practice. */
+var listElement = $('.header__listA)
+    secondListElement = $('.header__listB);
+
+listElement.each(function()    {
+    secondListElement.html($(this).html());
+});
+</code></pre>
+
+			<pre><code>/* Good Practice. */
+var contentArray = [],
+    listElement = $('.header__listA)
+    secondListElement = $('.header__listB);
+
+listElement.each(function()    {
+    contentArray.push($(this).html());
+});
+
+secondListElement.html(contentArray.join(''));
+</code></pre>
+
+			<h3 id="onlyandonlyoneentrypoint">Only and Only one entry point.</h3>
+
+			<p>Remeber to enforce that a page should have only one etry point to javascript.</p></div>
+
+
+			<img class="Signature" width="250" src="/images/signature.svg"
+      alt="Signature of Jaison Justus">
+		</section>
+		
+		<footer>
+      <nav>
+		  <li><a href="/">Home</a></li>
+		  <li><a href="/music-mag.html">Music Mag</a></li>
+		  <li><a href="/radfadmad.html">Rad Fad Mad</a></li>
+		  <li><a href="/writings.html">Writings</a></li>
+		  <li><a href="/projects.html">Projects</a></li>
+		  <li><a href="/about.html">about</a></li>
+      </nav>
+      <div class="Honor">
+			<a href="https://www.youtube.com/watch?v=5WyX9LMFf5I" target="_blank"><img class="Honor__Image" src="/images/footer-flower.png"/></a>
+
+			<p class="Honor__Message"><em>“Guransai phulyo banai ma, <br/> mero mana jhulyo timro manai ma…”</em> - Dedicating this rhododendron to my Nepalese friends, miss you guys and the time. Peace!</p>
+		</div>
+    </footer>
+	</main>
+	<script type="text/javascript">
+		function checkTheTask(target)	{
+			
+			console.log(target.className, target.parentNode)
+			switch(target.className) {
+				case 'Todo':
+					target.className = 'Todo Todo--check'
+					break;
+				case 'Todo Todo--check':
+					target.className = 'Todo'
+					break;
+				default:
+					checkTheTask(target.parentNode);
+			}
+		}
+
+		function bindListeners()	{
+			var todos = document.querySelectorAll('.Todo');
+			todos.forEach(function(todo)	{
+				todo.addEventListener('click', function(e){ checkTheTask(e.target); })
+			});
+		}
+		
+		window.onload = function() {
+			bindListeners();
+		};
+
+	</script>
+	<script type="text/javascript">
+	  (function (i, s, o, g, r, a, m) {
+	    i['GoogleAnalyticsObject'] = r;
+	    i[r] = i[r] || function () {
+	        (i[r].q = i[r].q || []).push(arguments)
+	      }, i[r].l = 1 * new Date();
+	    a = s.createElement(o),
+	      m = s.getElementsByTagName(o)[0];
+	    a.async = 1;
+	    a.src = g;
+	    m.parentNode.insertBefore(a, m)
+	  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+	
+	  ga('create', 'UA-43145422-3', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</body>
+</html>
